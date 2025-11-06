@@ -3,8 +3,8 @@ import { RouterLink } from '@/design-system/components/RouterLink';
 import { Drawer, HStack, Stack, useDisclosure, VStack } from '@chakra-ui/react';
 import { Menu01 } from '@untitled-ui/icons-react';
 import { type FC } from 'react';
-import { ColorModeButton } from './ui/color-mode';
-import { Logo } from '@/design-system/components/Logo';
+import { ColorModeButton } from '@/design-system/components/color-mode';
+import { Logo } from '@/design-system/custom-icons/Logo';
 
 export const Header: FC = () => {
   const { open, onToggle, onClose } = useDisclosure();

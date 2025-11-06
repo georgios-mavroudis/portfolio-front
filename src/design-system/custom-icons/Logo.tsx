@@ -2,13 +2,15 @@ import type { FC } from 'react';
 import { Box } from '@chakra-ui/react';
 import { useNavigate } from '@tanstack/react-router';
 
+const ID = 'logo-id';
+
 export const Logo: FC = () => {
   const navigate = useNavigate();
   return (
     <Box fill="foreground.primary" onClick={() => navigate({ to: '/' })} cursor="pointer">
       <svg
         version="1.1"
-        id="svg1"
+        id={ID}
         width="53.976242"
         height="52.531342"
         viewBox="0 0 53.976242 52.531342"

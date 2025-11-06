@@ -1,7 +1,7 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import type { FC, PropsWithChildren } from 'react';
 import theme from '.';
-import { ColorModeProvider } from '@/components/ui/color-mode';
+import { ColorModeProvider } from '@/design-system/components/color-mode';
 
 export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
   return (
