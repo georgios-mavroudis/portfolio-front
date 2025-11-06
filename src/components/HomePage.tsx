@@ -15,8 +15,8 @@ export const HomePage: FC = () => {
             <List.Item>[x] A heartbeat that moves along a graph</List.Item>
             <List.Item>[x] Will be able to stop the movement</List.Item>
             <List.Item>[x] Create a ruler</List.Item>
-            <List.Item>[ ] Add waves with labels??</List.Item>
-            <List.Item>[ ] Add Heart icon and animation (webGL with lighting)</List.Item>
+            <List.Item>[x] Add Heart icon and animation</List.Item>
+            <List.Item>[ ] Add Tooltip on the toolbar buttons</List.Item>
           </List.Root>
         </List.Item>
         <List.Item>

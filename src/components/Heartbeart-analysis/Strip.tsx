@@ -2,7 +2,7 @@ import { useEffect, useRef, type FC } from 'react';
 import { drawBeat } from './utils';
 import { usePlot } from '../SleepData/hooks';
 import { useGraphColors } from '@/design-system/hooks';
-import { BEAT_LENGTH } from './Graph';
+import { BEAT_LENGTH } from './HeartbeatGraph';
 import { clamp } from '@/common/helpers';
 import { useScale } from '@/visualizations/graph-hooks';
 

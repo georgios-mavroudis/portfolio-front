@@ -1,4 +1,4 @@
-import { useColorMode } from '@/components/ui/color-mode';
+import { useColorMode } from '@/design-system/components/color-mode';
 import { PALETTE } from '@/design-system/palette';
 
 /**
@@ -13,6 +13,7 @@ export const useGraphColors = () => {
     ? {
         text: PALETTE.grey[500],
         lightText: PALETTE.grey[400],
+        darkText: PALETTE.common.black,
         background: PALETTE.common.white,
         mouseLine: PALETTE.grey[400],
         heartBeat: {
@@ -31,6 +32,7 @@ export const useGraphColors = () => {
     : {
         text: PALETTE.common.white,
         lightText: PALETTE.common.white,
+        darkText: PALETTE.common.white,
         background: PALETTE.brand[700],
         mouseLine: PALETTE.grey[100],
         heartBeat: {

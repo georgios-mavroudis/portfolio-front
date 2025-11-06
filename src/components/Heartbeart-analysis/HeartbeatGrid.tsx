@@ -8,7 +8,7 @@ const MINIMUM_SPACING = squareToPixel(1 / 4);
 export const HeartbeatGrid: FC = () => {
   const id = 'grid';
   const { yScale } = usePlot();
-  // console.log(yScale.domain()[0]);
+  console.log(yScale.domain()[0], yScale.range());
   const size = yScale(yScale.domain()[0] + GRID_MV);
   const points = makePoints(size);
   const showLine = size > MINIMUM_SPACING;
