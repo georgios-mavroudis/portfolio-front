@@ -1,0 +1,2884 @@
+[
+  {
+    "id": 61926764971379,
+    "score": 72,
+    "meanHr": 54,
+    "bedTime": "2025-09-30T22:42:00.000Z",
+    "wakeTime": "2025-10-01T05:30:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 48
+    }
+  },
+  {
+    "id": 90078817832017,
+    "score": 96,
+    "meanHr": 52,
+    "bedTime": "2025-05-31T23:59:00.000Z",
+    "wakeTime": "2025-06-01T08:41:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 39
+    }
+  },
+  {
+    "id": 54432200793745,
+    "score": 83,
+    "meanHr": 54,
+    "bedTime": "2025-03-31T21:01:00.000Z",
+    "wakeTime": "2025-04-01T07:06:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 45
+    }
+  },
+  {
+    "id": 30149699790579,
+    "score": 80,
+    "meanHr": 56,
+    "bedTime": "2025-03-01T03:45:00.000Z",
+    "wakeTime": "2025-03-01T12:43:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 58
+    }
+  },
+  {
+    "id": 19295382084112,
+    "score": 82,
+    "meanHr": 49,
+    "bedTime": "2025-09-01T00:13:00.000Z",
+    "wakeTime": "2025-09-01T06:45:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 30
+    }
+  },
+  {
+    "id": 15274445494651,
+    "score": 72,
+    "meanHr": 56,
+    "bedTime": "2025-08-01T00:15:00.000Z",
+    "wakeTime": "2025-08-01T07:24:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 53
+    }
+  },
+  {
+    "id": 97193156866640,
+    "score": 40,
+    "meanHr": 54,
+    "bedTime": "2025-07-01T00:11:00.000Z",
+    "wakeTime": "2025-07-01T06:59:00.000Z",
+    "duration": {
+      "hours": 5,
+      "minutes": 17
+    }
+  },
+  {
+    "id": 78179622809944,
+    "score": 69,
+    "meanHr": 59,
+    "bedTime": "2025-05-01T00:40:00.000Z",
+    "wakeTime": "2025-05-01T07:46:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 42
+    }
+  },
+  {
+    "id": 61346825118941,
+    "score": 89,
+    "meanHr": 49,
+    "bedTime": "2025-10-09T22:13:00.000Z",
+    "wakeTime": "2025-10-10T06:39:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 18
+    }
+  },
+  {
+    "id": 4498164293964,
+    "score": 99,
+    "meanHr": 47,
+    "bedTime": "2025-06-09T22:29:00.000Z",
+    "wakeTime": "2025-06-10T06:22:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 50
+    }
+  },
+  {
+    "id": 84315374555999,
+    "score": 62,
+    "meanHr": 54,
+    "bedTime": "2025-04-09T22:15:00.000Z",
+    "wakeTime": "2025-04-10T05:08:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 1
+    }
+  },
+  {
+    "id": 36427289299096,
+    "score": 22,
+    "meanHr": 57,
+    "bedTime": "2025-03-10T00:48:00.000Z",
+    "wakeTime": "2025-03-10T06:58:00.000Z",
+    "duration": {
+      "hours": 3,
+      "minutes": 42
+    }
+  },
+  {
+    "id": 78679493253583,
+    "score": 85,
+    "meanHr": 47,
+    "bedTime": "2025-09-09T22:42:00.000Z",
+    "wakeTime": "2025-09-10T06:40:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 44
+    }
+  },
+  {
+    "id": 99193875946436,
+    "score": 84,
+    "meanHr": 53,
+    "bedTime": "2025-08-09T22:50:00.000Z",
+    "wakeTime": "2025-08-10T07:22:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 19
+    }
+  },
+  {
+    "id": 70937162689675,
+    "score": 75,
+    "meanHr": 55,
+    "bedTime": "2025-07-09T22:45:00.000Z",
+    "wakeTime": "2025-07-10T06:01:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 10
+    }
+  },
+  {
+    "id": 38707580202312,
+    "score": 52,
+    "meanHr": 57,
+    "bedTime": "2025-05-09T21:38:00.000Z",
+    "wakeTime": "2025-05-10T02:16:00.000Z",
+    "duration": {
+      "hours": 4,
+      "minutes": 38
+    }
+  },
+  {
+    "id": 53908912677402,
+    "score": 85,
+    "meanHr": 53,
+    "bedTime": "2025-11-09T22:45:00.000Z",
+    "wakeTime": "2025-11-10T07:09:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 9
+    }
+  },
+  {
+    "id": 44298989718917,
+    "score": 52,
+    "meanHr": 54,
+    "bedTime": "2025-10-11T02:45:00.000Z",
+    "wakeTime": "2025-10-11T08:29:00.000Z",
+    "duration": {
+      "hours": 5,
+      "minutes": 19
+    }
+  },
+  {
+    "id": 30259784593550,
+    "score": 73,
+    "meanHr": 50,
+    "bedTime": "2025-06-11T00:54:00.000Z",
+    "wakeTime": "2025-06-11T07:01:00.000Z",
+    "duration": {
+      "hours": 5,
+      "minutes": 47
+    }
+  },
+  {
+    "id": 16057635333586,
+    "score": 80,
+    "meanHr": 53,
+    "bedTime": "2025-04-10T22:39:00.000Z",
+    "wakeTime": "2025-04-11T05:44:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 0
+    }
+  },
+  {
+    "id": 55207907093014,
+    "score": 49,
+    "meanHr": 56,
+    "bedTime": "2025-03-10T23:27:00.000Z",
+    "wakeTime": "2025-03-11T07:56:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 2
+    }
+  },
+  {
+    "id": 43346986673935,
+    "score": 74,
+    "meanHr": 56,
+    "bedTime": "2025-09-10T23:34:00.000Z",
+    "wakeTime": "2025-09-11T06:18:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 25
+    }
+  },
+  {
+    "id": 88649833264040,
+    "score": 90,
+    "meanHr": 49,
+    "bedTime": "2025-08-10T22:32:00.000Z",
+    "wakeTime": "2025-08-11T06:18:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 46
+    }
+  },
+  {
+    "id": 77617398403071,
+    "score": 83,
+    "meanHr": 52,
+    "bedTime": "2025-07-10T20:59:00.000Z",
+    "wakeTime": "2025-07-11T05:56:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 44
+    }
+  },
+  {
+    "id": 70749170396612,
+    "score": 71,
+    "meanHr": 61,
+    "bedTime": "2025-05-11T00:59:00.000Z",
+    "wakeTime": "2025-05-11T06:53:00.000Z",
+    "duration": {
+      "hours": 5,
+      "minutes": 52
+    }
+  },
+  {
+    "id": 31046750994493,
+    "score": 76,
+    "meanHr": 52,
+    "bedTime": "2025-10-12T00:17:00.000Z",
+    "wakeTime": "2025-10-12T06:23:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 6
+    }
+  },
+  {
+    "id": 59530560765676,
+    "score": 81,
+    "meanHr": 52,
+    "bedTime": "2025-06-11T21:56:00.000Z",
+    "wakeTime": "2025-06-12T06:46:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 18
+    }
+  },
+  {
+    "id": 71523372830208,
+    "score": 72,
+    "meanHr": 53,
+    "bedTime": "2025-04-11T21:46:00.000Z",
+    "wakeTime": "2025-04-12T03:38:00.000Z",
+    "duration": {
+      "hours": 5,
+      "minutes": 52
+    }
+  },
+  {
+    "id": 25904910880014,
+    "score": 66,
+    "meanHr": 50,
+    "bedTime": "2025-03-11T22:58:00.000Z",
+    "wakeTime": "2025-03-12T07:30:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 52
+    }
+  },
+  {
+    "id": 58162777203950,
+    "score": 74,
+    "meanHr": 53,
+    "bedTime": "2025-09-11T23:05:00.000Z",
+    "wakeTime": "2025-09-12T05:57:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 50
+    }
+  },
+  {
+    "id": 81384408796471,
+    "score": 83,
+    "meanHr": 52,
+    "bedTime": "2025-08-11T22:24:00.000Z",
+    "wakeTime": "2025-08-12T05:45:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 1
+    }
+  },
+  {
+    "id": 48615029118425,
+    "score": null,
+    "meanHr": 60,
+    "bedTime": "2025-05-12T05:48:00.000Z",
+    "wakeTime": "2025-05-12T06:02:00.000Z",
+    "duration": {
+      "hours": 0,
+      "minutes": 14
+    }
+  },
+  {
+    "id": 39791235790754,
+    "score": 87,
+    "meanHr": 51,
+    "bedTime": "2025-11-11T22:44:00.000Z",
+    "wakeTime": "2025-11-12T07:30:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 45
+    }
+  },
+  {
+    "id": 69604631308509,
+    "score": 81,
+    "meanHr": 49,
+    "bedTime": "2025-10-12T23:29:00.000Z",
+    "wakeTime": "2025-10-13T06:17:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 37
+    }
+  },
+  {
+    "id": 21867702905524,
+    "score": 77,
+    "meanHr": 54,
+    "bedTime": "2025-06-13T01:23:00.000Z",
+    "wakeTime": "2025-06-13T08:45:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 5
+    }
+  },
+  {
+    "id": 49788784736110,
+    "score": 88,
+    "meanHr": 54,
+    "bedTime": "2025-03-12T23:13:00.000Z",
+    "wakeTime": "2025-03-13T08:53:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 30
+    }
+  },
+  {
+    "id": 32340277464395,
+    "score": 78,
+    "meanHr": 56,
+    "bedTime": "2025-09-13T00:02:00.000Z",
+    "wakeTime": "2025-09-13T06:29:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 26
+    }
+  },
+  {
+    "id": 48036424409319,
+    "score": 64,
+    "meanHr": 49,
+    "bedTime": "2025-08-13T01:13:00.000Z",
+    "wakeTime": "2025-08-13T06:18:00.000Z",
+    "duration": {
+      "hours": 5,
+      "minutes": 5
+    }
+  },
+  {
+    "id": 37067538073302,
+    "score": 81,
+    "meanHr": 50,
+    "bedTime": "2025-07-12T21:53:00.000Z",
+    "wakeTime": "2025-07-13T05:32:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 16
+    }
+  },
+  {
+    "id": 89356812874986,
+    "score": 77,
+    "meanHr": 59,
+    "bedTime": "2025-05-12T23:46:00.000Z",
+    "wakeTime": "2025-05-13T06:19:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 33
+    }
+  },
+  {
+    "id": 69584679977410,
+    "score": 84,
+    "meanHr": 57,
+    "bedTime": "2025-11-12T23:02:00.000Z",
+    "wakeTime": "2025-11-13T07:33:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 30
+    }
+  },
+  {
+    "id": 17393022514715,
+    "score": 56,
+    "meanHr": 55,
+    "bedTime": "2025-06-14T02:39:00.000Z",
+    "wakeTime": "2025-06-14T09:47:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 55
+    }
+  },
+  {
+    "id": 85901358970599,
+    "score": 79,
+    "meanHr": 51,
+    "bedTime": "2025-03-14T02:50:00.000Z",
+    "wakeTime": "2025-03-14T09:34:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 41
+    }
+  },
+  {
+    "id": 48128098824896,
+    "score": 85,
+    "meanHr": 53,
+    "bedTime": "2025-09-13T22:10:00.000Z",
+    "wakeTime": "2025-09-14T07:56:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 44
+    }
+  },
+  {
+    "id": 50029223040079,
+    "score": 74,
+    "meanHr": 52,
+    "bedTime": "2025-08-13T23:55:00.000Z",
+    "wakeTime": "2025-08-14T06:48:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 45
+    }
+  },
+  {
+    "id": 67393920975419,
+    "score": 88,
+    "meanHr": 47,
+    "bedTime": "2025-07-13T22:13:00.000Z",
+    "wakeTime": "2025-07-14T05:27:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 57
+    }
+  },
+  {
+    "id": 98406980535862,
+    "score": 72,
+    "meanHr": 56,
+    "bedTime": "2025-05-13T22:41:00.000Z",
+    "wakeTime": "2025-05-14T05:34:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 41
+    }
+  },
+  {
+    "id": 18233030743728,
+    "score": 72,
+    "meanHr": 53,
+    "bedTime": "2025-11-13T22:56:00.000Z",
+    "wakeTime": "2025-11-14T07:05:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 42
+    }
+  },
+  {
+    "id": 33283358833105,
+    "score": 61,
+    "meanHr": 54,
+    "bedTime": "2025-10-14T23:25:00.000Z",
+    "wakeTime": "2025-10-15T04:52:00.000Z",
+    "duration": {
+      "hours": 5,
+      "minutes": 8
+    }
+  },
+  {
+    "id": 66748151996861,
+    "score": 92,
+    "meanHr": 51,
+    "bedTime": "2025-06-14T21:41:00.000Z",
+    "wakeTime": "2025-06-15T06:24:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 43
+    }
+  },
+  {
+    "id": 68921045197365,
+    "score": 90,
+    "meanHr": 52,
+    "bedTime": "2025-04-14T20:22:00.000Z",
+    "wakeTime": "2025-04-15T04:51:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 29
+    }
+  },
+  {
+    "id": 69504125951469,
+    "score": 95,
+    "meanHr": 51,
+    "bedTime": "2025-03-14T22:24:00.000Z",
+    "wakeTime": "2025-03-15T07:17:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 51
+    }
+  },
+  {
+    "id": 13738550371923,
+    "score": 84,
+    "meanHr": 53,
+    "bedTime": "2025-09-14T22:20:00.000Z",
+    "wakeTime": "2025-09-15T06:00:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 31
+    }
+  },
+  {
+    "id": 55337549719802,
+    "score": 81,
+    "meanHr": 52,
+    "bedTime": "2025-08-14T22:07:00.000Z",
+    "wakeTime": "2025-08-15T06:54:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 8
+    }
+  },
+  {
+    "id": 94050519087810,
+    "score": 48,
+    "meanHr": 57,
+    "bedTime": "2025-07-15T00:43:00.000Z",
+    "wakeTime": "2025-07-15T05:09:00.000Z",
+    "duration": {
+      "hours": 4,
+      "minutes": 15
+    }
+  },
+  {
+    "id": 51500713765797,
+    "score": 73,
+    "meanHr": 61,
+    "bedTime": "2025-05-14T22:07:00.000Z",
+    "wakeTime": "2025-05-15T05:48:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 31
+    }
+  },
+  {
+    "id": 14842383140842,
+    "score": 67,
+    "meanHr": 54,
+    "bedTime": "2025-11-14T22:07:00.000Z",
+    "wakeTime": "2025-11-15T06:39:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 58
+    }
+  },
+  {
+    "id": 26792346068835,
+    "score": 72,
+    "meanHr": 55,
+    "bedTime": "2025-10-16T00:43:00.000Z",
+    "wakeTime": "2025-10-16T07:50:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 44
+    }
+  },
+  {
+    "id": 83503850767123,
+    "score": 86,
+    "meanHr": 50,
+    "bedTime": "2025-06-15T21:30:00.000Z",
+    "wakeTime": "2025-06-16T07:03:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 43
+    }
+  },
+  {
+    "id": 36202082689597,
+    "score": 85,
+    "meanHr": 57,
+    "bedTime": "2025-04-15T21:16:00.000Z",
+    "wakeTime": "2025-04-16T05:27:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 10
+    }
+  },
+  {
+    "id": 30114433378912,
+    "score": 87,
+    "meanHr": 50,
+    "bedTime": "2025-03-15T23:50:00.000Z",
+    "wakeTime": "2025-03-16T07:46:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 37
+    }
+  },
+  {
+    "id": 36004344260692,
+    "score": 73,
+    "meanHr": 55,
+    "bedTime": "2025-09-15T22:18:00.000Z",
+    "wakeTime": "2025-09-16T06:19:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 41
+    }
+  },
+  {
+    "id": 62662538203319,
+    "score": 55,
+    "meanHr": 55,
+    "bedTime": "2025-08-16T00:53:00.000Z",
+    "wakeTime": "2025-08-16T07:00:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 6
+    }
+  },
+  {
+    "id": 17276725940482,
+    "score": 91,
+    "meanHr": 51,
+    "bedTime": "2025-07-15T21:48:00.000Z",
+    "wakeTime": "2025-07-16T07:11:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 23
+    }
+  },
+  {
+    "id": 7454736496803,
+    "score": null,
+    "meanHr": 60,
+    "bedTime": "2025-05-16T09:16:00.000Z",
+    "wakeTime": "2025-05-16T12:11:00.000Z",
+    "duration": {
+      "hours": 2,
+      "minutes": 52
+    }
+  },
+  {
+    "id": 26804560222318,
+    "score": 80,
+    "meanHr": 54,
+    "bedTime": "2025-11-15T23:54:00.000Z",
+    "wakeTime": "2025-11-16T07:19:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 16
+    }
+  },
+  {
+    "id": 80234797062745,
+    "score": 60,
+    "meanHr": 56,
+    "bedTime": "2025-10-17T03:12:00.000Z",
+    "wakeTime": "2025-10-17T09:26:00.000Z",
+    "duration": {
+      "hours": 5,
+      "minutes": 49
+    }
+  },
+  {
+    "id": 5332929099443,
+    "score": 72,
+    "meanHr": 52,
+    "bedTime": "2025-06-17T01:11:00.000Z",
+    "wakeTime": "2025-06-17T06:54:00.000Z",
+    "duration": {
+      "hours": 5,
+      "minutes": 43
+    }
+  },
+  {
+    "id": 41898556589617,
+    "score": 68,
+    "meanHr": 57,
+    "bedTime": "2025-03-16T23:54:00.000Z",
+    "wakeTime": "2025-03-17T07:37:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 15
+    }
+  },
+  {
+    "id": 64747724083552,
+    "score": 94,
+    "meanHr": 48,
+    "bedTime": "2025-09-16T21:47:00.000Z",
+    "wakeTime": "2025-09-17T05:50:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 3
+    }
+  },
+  {
+    "id": 92441119353660,
+    "score": 94,
+    "meanHr": 52,
+    "bedTime": "2025-08-16T22:36:00.000Z",
+    "wakeTime": "2025-08-17T06:34:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 58
+    }
+  },
+  {
+    "id": 48072483505492,
+    "score": 47,
+    "meanHr": 56,
+    "bedTime": "2025-07-17T02:34:00.000Z",
+    "wakeTime": "2025-07-17T07:51:00.000Z",
+    "duration": {
+      "hours": 5,
+      "minutes": 0
+    }
+  },
+  {
+    "id": 17912658789561,
+    "score": 60,
+    "meanHr": 58,
+    "bedTime": "2025-05-17T00:45:00.000Z",
+    "wakeTime": "2025-05-17T09:58:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 59
+    }
+  },
+  {
+    "id": 70577465109542,
+    "score": 90,
+    "meanHr": 51,
+    "bedTime": "2025-11-16T23:17:00.000Z",
+    "wakeTime": "2025-11-17T07:11:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 53
+    }
+  },
+  {
+    "id": 53519976905237,
+    "score": 79,
+    "meanHr": 51,
+    "bedTime": "2025-10-18T01:00:00.000Z",
+    "wakeTime": "2025-10-18T07:44:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 39
+    }
+  },
+  {
+    "id": 95212624132167,
+    "score": 65,
+    "meanHr": 54,
+    "bedTime": "2025-06-17T21:35:00.000Z",
+    "wakeTime": "2025-06-18T06:15:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 39
+    }
+  },
+  {
+    "id": 17021457161038,
+    "score": 75,
+    "meanHr": 57,
+    "bedTime": "2025-04-17T21:55:00.000Z",
+    "wakeTime": "2025-04-18T05:18:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 22
+    }
+  },
+  {
+    "id": 57925490122538,
+    "score": 90,
+    "meanHr": 52,
+    "bedTime": "2025-03-17T23:49:00.000Z",
+    "wakeTime": "2025-03-18T08:20:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 23
+    }
+  },
+  {
+    "id": 4337354971354,
+    "score": 89,
+    "meanHr": 47,
+    "bedTime": "2025-09-17T22:02:00.000Z",
+    "wakeTime": "2025-09-18T05:59:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 51
+    }
+  },
+  {
+    "id": 16266998227452,
+    "score": 93,
+    "meanHr": 48,
+    "bedTime": "2025-08-17T23:54:00.000Z",
+    "wakeTime": "2025-08-18T06:41:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 45
+    }
+  },
+  {
+    "id": 65927380810899,
+    "score": 86,
+    "meanHr": 51,
+    "bedTime": "2025-07-17T22:38:00.000Z",
+    "wakeTime": "2025-07-18T06:20:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 42
+    }
+  },
+  {
+    "id": 69040026602446,
+    "score": 75,
+    "meanHr": 57,
+    "bedTime": "2025-05-17T23:38:00.000Z",
+    "wakeTime": "2025-05-18T06:09:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 31
+    }
+  },
+  {
+    "id": 155891111012,
+    "score": 85,
+    "meanHr": 49,
+    "bedTime": "2025-11-17T22:45:00.000Z",
+    "wakeTime": "2025-11-18T06:31:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 39
+    }
+  },
+  {
+    "id": 7355411446055,
+    "score": 98,
+    "meanHr": 47,
+    "bedTime": "2025-10-18T20:22:00.000Z",
+    "wakeTime": "2025-10-19T05:45:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 14
+    }
+  },
+  {
+    "id": 20054771094381,
+    "score": 90,
+    "meanHr": 49,
+    "bedTime": "2025-06-18T21:50:00.000Z",
+    "wakeTime": "2025-06-19T06:03:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 12
+    }
+  },
+  {
+    "id": 62286302397941,
+    "score": 64,
+    "meanHr": 60,
+    "bedTime": "2025-04-18T20:30:00.000Z",
+    "wakeTime": "2025-04-19T05:41:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 7
+    }
+  },
+  {
+    "id": 2156456263399,
+    "score": 25,
+    "meanHr": 57,
+    "bedTime": "2025-03-19T04:56:00.000Z",
+    "wakeTime": "2025-03-19T08:20:00.000Z",
+    "duration": {
+      "hours": 3,
+      "minutes": 5
+    }
+  },
+  {
+    "id": 77255944869930,
+    "score": 94,
+    "meanHr": 51,
+    "bedTime": "2025-09-18T21:35:00.000Z",
+    "wakeTime": "2025-09-19T05:50:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 7
+    }
+  },
+  {
+    "id": 7598231136358,
+    "score": 77,
+    "meanHr": 49,
+    "bedTime": "2025-08-19T00:41:00.000Z",
+    "wakeTime": "2025-08-19T07:00:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 6
+    }
+  },
+  {
+    "id": 82897389051901,
+    "score": 58,
+    "meanHr": 54,
+    "bedTime": "2025-07-19T03:01:00.000Z",
+    "wakeTime": "2025-07-19T09:22:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 2
+    }
+  },
+  {
+    "id": 47393438131179,
+    "score": 63,
+    "meanHr": 57,
+    "bedTime": "2025-05-18T23:44:00.000Z",
+    "wakeTime": "2025-05-19T05:48:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 2
+    }
+  },
+  {
+    "id": 34814869811170,
+    "score": 84,
+    "meanHr": 50,
+    "bedTime": "2025-11-18T23:58:00.000Z",
+    "wakeTime": "2025-11-19T07:52:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 35
+    }
+  },
+  {
+    "id": 98915599160458,
+    "score": 84,
+    "meanHr": 54,
+    "bedTime": "2025-10-01T23:01:00.000Z",
+    "wakeTime": "2025-10-02T07:54:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 51
+    }
+  },
+  {
+    "id": 5967720382299,
+    "score": 82,
+    "meanHr": 51,
+    "bedTime": "2025-06-01T23:15:00.000Z",
+    "wakeTime": "2025-06-02T06:18:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 2
+    }
+  },
+  {
+    "id": 3796767991676,
+    "score": 63,
+    "meanHr": 59,
+    "bedTime": "2025-04-02T01:04:00.000Z",
+    "wakeTime": "2025-04-02T07:11:00.000Z",
+    "duration": {
+      "hours": 5,
+      "minutes": 59
+    }
+  },
+  {
+    "id": 3115630197659,
+    "score": 83,
+    "meanHr": 49,
+    "bedTime": "2025-03-02T01:20:00.000Z",
+    "wakeTime": "2025-03-02T08:16:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 56
+    }
+  },
+  {
+    "id": 78636738986594,
+    "score": 63,
+    "meanHr": 52,
+    "bedTime": "2025-09-01T23:09:00.000Z",
+    "wakeTime": "2025-09-02T03:58:00.000Z",
+    "duration": {
+      "hours": 4,
+      "minutes": 40
+    }
+  },
+  {
+    "id": 62797813790854,
+    "score": 70,
+    "meanHr": 56,
+    "bedTime": "2025-08-02T00:46:00.000Z",
+    "wakeTime": "2025-08-02T08:47:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 55
+    }
+  },
+  {
+    "id": 34050741729011,
+    "score": 94,
+    "meanHr": 53,
+    "bedTime": "2025-07-01T21:33:00.000Z",
+    "wakeTime": "2025-07-02T07:15:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 42
+    }
+  },
+  {
+    "id": 26285024948094,
+    "score": 91,
+    "meanHr": 50,
+    "bedTime": "2025-11-01T22:38:00.000Z",
+    "wakeTime": "2025-11-02T07:37:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 58
+    }
+  },
+  {
+    "id": 51037866938258,
+    "score": 88,
+    "meanHr": 47,
+    "bedTime": "2025-10-19T20:59:00.000Z",
+    "wakeTime": "2025-10-20T06:42:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 31
+    }
+  },
+  {
+    "id": 90926708707378,
+    "score": 73,
+    "meanHr": 56,
+    "bedTime": "2025-06-20T00:06:00.000Z",
+    "wakeTime": "2025-06-20T06:39:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 32
+    }
+  },
+  {
+    "id": 99225468394028,
+    "score": 86,
+    "meanHr": 57,
+    "bedTime": "2025-03-19T23:58:00.000Z",
+    "wakeTime": "2025-03-20T09:35:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 36
+    }
+  },
+  {
+    "id": 2355230635715,
+    "score": 83,
+    "meanHr": 51,
+    "bedTime": "2025-09-19T21:53:00.000Z",
+    "wakeTime": "2025-09-20T05:41:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 17
+    }
+  },
+  {
+    "id": 57545058956595,
+    "score": 91,
+    "meanHr": 48,
+    "bedTime": "2025-08-19T23:47:00.000Z",
+    "wakeTime": "2025-08-20T07:06:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 19
+    }
+  },
+  {
+    "id": 87997489612006,
+    "score": 95,
+    "meanHr": 50,
+    "bedTime": "2025-07-19T21:28:00.000Z",
+    "wakeTime": "2025-07-20T06:15:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 47
+    }
+  },
+  {
+    "id": 43607427072876,
+    "score": 79,
+    "meanHr": 55,
+    "bedTime": "2025-05-19T23:47:00.000Z",
+    "wakeTime": "2025-05-20T06:23:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 36
+    }
+  },
+  {
+    "id": 85469094857735,
+    "score": 83,
+    "meanHr": 51,
+    "bedTime": "2025-11-19T23:39:00.000Z",
+    "wakeTime": "2025-11-20T06:59:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 19
+    }
+  },
+  {
+    "id": 85571612238507,
+    "score": 95,
+    "meanHr": 47,
+    "bedTime": "2025-10-20T22:14:00.000Z",
+    "wakeTime": "2025-10-21T05:33:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 19
+    }
+  },
+  {
+    "id": 85499686155188,
+    "score": 79,
+    "meanHr": 56,
+    "bedTime": "2025-06-20T23:17:00.000Z",
+    "wakeTime": "2025-06-21T08:59:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 42
+    }
+  },
+  {
+    "id": 3896689789072,
+    "score": 49,
+    "meanHr": 59,
+    "bedTime": null,
+    "wakeTime": null,
+    "duration": {
+      "hours": 7,
+      "minutes": 5
+    }
+  },
+  {
+    "id": 55922572137510,
+    "score": 82,
+    "meanHr": 54,
+    "bedTime": "2025-04-20T20:33:00.000Z",
+    "wakeTime": "2025-04-21T05:12:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 16
+    }
+  },
+  {
+    "id": 26164946154290,
+    "score": 96,
+    "meanHr": 51,
+    "bedTime": "2025-09-20T20:54:00.000Z",
+    "wakeTime": "2025-09-21T08:02:00.000Z",
+    "duration": {
+      "hours": 10,
+      "minutes": 58
+    }
+  },
+  {
+    "id": 38664873650317,
+    "score": 45,
+    "meanHr": 61,
+    "bedTime": "2025-08-21T03:00:00.000Z",
+    "wakeTime": "2025-08-21T07:51:00.000Z",
+    "duration": {
+      "hours": 4,
+      "minutes": 35
+    }
+  },
+  {
+    "id": 48121468498890,
+    "score": 84,
+    "meanHr": 53,
+    "bedTime": "2025-07-20T22:04:00.000Z",
+    "wakeTime": "2025-07-21T06:27:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 54
+    }
+  },
+  {
+    "id": 66855057465300,
+    "score": 72,
+    "meanHr": 53,
+    "bedTime": "2025-11-21T01:33:00.000Z",
+    "wakeTime": "2025-11-21T08:01:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 9
+    }
+  },
+  {
+    "id": 48671885419606,
+    "score": 87,
+    "meanHr": 48,
+    "bedTime": "2025-10-21T20:28:00.000Z",
+    "wakeTime": "2025-10-22T06:02:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 16
+    }
+  },
+  {
+    "id": 45194311628685,
+    "score": 85,
+    "meanHr": 52,
+    "bedTime": "2025-06-21T22:29:00.000Z",
+    "wakeTime": "2025-06-22T06:58:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 25
+    }
+  },
+  {
+    "id": 45496815225463,
+    "score": 91,
+    "meanHr": 52,
+    "bedTime": null,
+    "wakeTime": null,
+    "duration": {
+      "hours": 8,
+      "minutes": 45
+    }
+  },
+  {
+    "id": 71399387019130,
+    "score": 86,
+    "meanHr": 55,
+    "bedTime": "2025-04-21T21:15:00.000Z",
+    "wakeTime": "2025-04-22T05:45:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 21
+    }
+  },
+  {
+    "id": 42712434377043,
+    "score": 88,
+    "meanHr": 56,
+    "bedTime": "2025-03-21T22:00:00.000Z",
+    "wakeTime": "2025-03-22T08:01:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 56
+    }
+  },
+  {
+    "id": 89884868149755,
+    "score": 86,
+    "meanHr": 50,
+    "bedTime": "2025-09-21T22:38:00.000Z",
+    "wakeTime": "2025-09-22T06:02:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 21
+    }
+  },
+  {
+    "id": 39094113527612,
+    "score": 82,
+    "meanHr": 52,
+    "bedTime": "2025-08-22T00:14:00.000Z",
+    "wakeTime": "2025-08-22T06:50:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 36
+    }
+  },
+  {
+    "id": 68152894660064,
+    "score": 50,
+    "meanHr": 57,
+    "bedTime": "2025-07-21T22:08:00.000Z",
+    "wakeTime": "2025-07-22T03:05:00.000Z",
+    "duration": {
+      "hours": 4,
+      "minutes": 27
+    }
+  },
+  {
+    "id": 87022591599700,
+    "score": 68,
+    "meanHr": 62,
+    "bedTime": "2025-05-21T23:05:00.000Z",
+    "wakeTime": "2025-05-22T05:33:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 24
+    }
+  },
+  {
+    "id": 42220128917475,
+    "score": 75,
+    "meanHr": 52,
+    "bedTime": "2025-11-21T23:25:00.000Z",
+    "wakeTime": "2025-11-22T06:18:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 53
+    }
+  },
+  {
+    "id": 15680165354249,
+    "score": 55,
+    "meanHr": 52,
+    "bedTime": "2025-10-23T00:04:00.000Z",
+    "wakeTime": "2025-10-23T07:48:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 7
+    }
+  },
+  {
+    "id": 26448512427336,
+    "score": 82,
+    "meanHr": 49,
+    "bedTime": "2025-06-22T22:54:00.000Z",
+    "wakeTime": "2025-06-23T06:25:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 7
+    }
+  },
+  {
+    "id": 17781213208996,
+    "score": 91,
+    "meanHr": 55,
+    "bedTime": null,
+    "wakeTime": null,
+    "duration": {
+      "hours": 8,
+      "minutes": 20
+    }
+  },
+  {
+    "id": 62113248612680,
+    "score": 71,
+    "meanHr": 55,
+    "bedTime": "2025-04-23T00:38:00.000Z",
+    "wakeTime": "2025-04-23T06:11:00.000Z",
+    "duration": {
+      "hours": 5,
+      "minutes": 33
+    }
+  },
+  {
+    "id": 41759059968353,
+    "score": 57,
+    "meanHr": 53,
+    "bedTime": "2025-03-23T02:42:00.000Z",
+    "wakeTime": "2025-03-23T07:18:00.000Z",
+    "duration": {
+      "hours": 4,
+      "minutes": 36
+    }
+  },
+  {
+    "id": 40722043712297,
+    "score": 70,
+    "meanHr": 50,
+    "bedTime": "2025-09-22T22:16:00.000Z",
+    "wakeTime": "2025-09-23T06:23:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 43
+    }
+  },
+  {
+    "id": 84251795218721,
+    "score": 73,
+    "meanHr": 52,
+    "bedTime": "2025-08-23T01:27:00.000Z",
+    "wakeTime": "2025-08-23T07:29:00.000Z",
+    "duration": {
+      "hours": 5,
+      "minutes": 57
+    }
+  },
+  {
+    "id": 39994857923649,
+    "score": 77,
+    "meanHr": 56,
+    "bedTime": "2025-07-22T23:27:00.000Z",
+    "wakeTime": "2025-07-23T06:13:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 33
+    }
+  },
+  {
+    "id": 18059404192803,
+    "score": 79,
+    "meanHr": 54,
+    "bedTime": "2025-05-22T23:30:00.000Z",
+    "wakeTime": "2025-05-23T05:45:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 14
+    }
+  },
+  {
+    "id": 47280087383331,
+    "score": 84,
+    "meanHr": 53,
+    "bedTime": "2025-11-22T22:23:00.000Z",
+    "wakeTime": "2025-11-23T06:46:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 21
+    }
+  },
+  {
+    "id": 33786237300250,
+    "score": 45,
+    "meanHr": 58,
+    "bedTime": "2025-10-23T23:12:00.000Z",
+    "wakeTime": "2025-10-24T09:23:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 30
+    }
+  },
+  {
+    "id": 37740818407219,
+    "score": 85,
+    "meanHr": 52,
+    "bedTime": "2025-06-23T23:10:00.000Z",
+    "wakeTime": "2025-06-24T06:36:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 25
+    }
+  },
+  {
+    "id": 69652837732475,
+    "score": 87,
+    "meanHr": 52,
+    "bedTime": null,
+    "wakeTime": null,
+    "duration": {
+      "hours": 9,
+      "minutes": 37
+    }
+  },
+  {
+    "id": 99712445473705,
+    "score": 81,
+    "meanHr": 58,
+    "bedTime": "2025-04-23T20:34:00.000Z",
+    "wakeTime": "2025-04-24T06:13:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 11
+    }
+  },
+  {
+    "id": 19786208852579,
+    "score": 86,
+    "meanHr": 53,
+    "bedTime": "2025-03-23T23:34:00.000Z",
+    "wakeTime": "2025-03-24T07:51:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 17
+    }
+  },
+  {
+    "id": 8391211583466,
+    "score": 95,
+    "meanHr": 51,
+    "bedTime": "2025-09-23T22:02:00.000Z",
+    "wakeTime": "2025-09-24T06:00:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 58
+    }
+  },
+  {
+    "id": 57592269252187,
+    "score": 86,
+    "meanHr": 52,
+    "bedTime": "2025-08-23T21:49:00.000Z",
+    "wakeTime": "2025-08-24T06:45:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 49
+    }
+  },
+  {
+    "id": 1087099540174,
+    "score": 75,
+    "meanHr": 56,
+    "bedTime": "2025-07-23T23:46:00.000Z",
+    "wakeTime": "2025-07-24T05:46:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 0
+    }
+  },
+  {
+    "id": 21004910971230,
+    "score": 59,
+    "meanHr": 57,
+    "bedTime": "2025-05-23T23:28:00.000Z",
+    "wakeTime": "2025-05-24T09:00:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 1
+    }
+  },
+  {
+    "id": 49894193220647,
+    "score": 89,
+    "meanHr": 49,
+    "bedTime": "2025-11-23T23:09:00.000Z",
+    "wakeTime": "2025-11-24T06:59:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 41
+    }
+  },
+  {
+    "id": 82759768964431,
+    "score": 96,
+    "meanHr": 47,
+    "bedTime": "2025-10-24T21:20:00.000Z",
+    "wakeTime": "2025-10-25T06:18:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 58
+    }
+  },
+  {
+    "id": 52356280872432,
+    "score": 77,
+    "meanHr": 55,
+    "bedTime": "2025-06-24T23:05:00.000Z",
+    "wakeTime": "2025-06-25T06:17:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 57
+    }
+  },
+  {
+    "id": 43171325107994,
+    "score": 72,
+    "meanHr": 58,
+    "bedTime": null,
+    "wakeTime": null,
+    "duration": {
+      "hours": 9,
+      "minutes": 44
+    }
+  },
+  {
+    "id": 8753693052189,
+    "score": 77,
+    "meanHr": 55,
+    "bedTime": "2025-03-25T00:21:00.000Z",
+    "wakeTime": "2025-03-25T07:28:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 6
+    }
+  },
+  {
+    "id": 67055831256876,
+    "score": 78,
+    "meanHr": 53,
+    "bedTime": "2025-09-24T22:21:00.000Z",
+    "wakeTime": "2025-09-25T05:00:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 39
+    }
+  },
+  {
+    "id": 40518019836026,
+    "score": 72,
+    "meanHr": 50,
+    "bedTime": "2025-08-25T00:46:00.000Z",
+    "wakeTime": "2025-08-25T06:34:00.000Z",
+    "duration": {
+      "hours": 5,
+      "minutes": 38
+    }
+  },
+  {
+    "id": 22977542446961,
+    "score": 97,
+    "meanHr": 52,
+    "bedTime": "2025-05-24T22:13:00.000Z",
+    "wakeTime": "2025-05-25T06:50:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 35
+    }
+  },
+  {
+    "id": 98153765787231,
+    "score": 83,
+    "meanHr": 50,
+    "bedTime": "2025-11-24T23:29:00.000Z",
+    "wakeTime": "2025-11-25T06:35:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 5
+    }
+  },
+  {
+    "id": 68796961826255,
+    "score": 39,
+    "meanHr": 51,
+    "bedTime": "2025-10-25T22:48:00.000Z",
+    "wakeTime": "2025-10-26T08:04:00.000Z",
+    "duration": {
+      "hours": 5,
+      "minutes": 43
+    }
+  },
+  {
+    "id": 34791315453225,
+    "score": 28,
+    "meanHr": 57,
+    "bedTime": "2025-06-26T03:58:00.000Z",
+    "wakeTime": "2025-06-26T07:40:00.000Z",
+    "duration": {
+      "hours": 3,
+      "minutes": 35
+    }
+  },
+  {
+    "id": 12732264845968,
+    "score": 84,
+    "meanHr": 53,
+    "bedTime": null,
+    "wakeTime": null,
+    "duration": {
+      "hours": 8,
+      "minutes": 20
+    }
+  },
+  {
+    "id": 14435855927232,
+    "score": 88,
+    "meanHr": 55,
+    "bedTime": "2025-04-25T21:17:00.000Z",
+    "wakeTime": "2025-04-26T05:57:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 39
+    }
+  },
+  {
+    "id": 69684478176521,
+    "score": 73,
+    "meanHr": 55,
+    "bedTime": "2025-03-25T22:34:00.000Z",
+    "wakeTime": "2025-03-26T06:45:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 3
+    }
+  },
+  {
+    "id": 88474159917475,
+    "score": 76,
+    "meanHr": 50,
+    "bedTime": "2025-09-26T00:37:00.000Z",
+    "wakeTime": "2025-09-26T07:16:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 16
+    }
+  },
+  {
+    "id": 36924529756098,
+    "score": 75,
+    "meanHr": 52,
+    "bedTime": "2025-08-26T00:14:00.000Z",
+    "wakeTime": "2025-08-26T06:26:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 11
+    }
+  },
+  {
+    "id": 18607730574545,
+    "score": 45,
+    "meanHr": 58,
+    "bedTime": "2025-07-26T08:51:00.000Z",
+    "wakeTime": "2025-07-26T12:22:00.000Z",
+    "duration": {
+      "hours": 3,
+      "minutes": 26
+    }
+  },
+  {
+    "id": 83914240075352,
+    "score": 99,
+    "meanHr": 51,
+    "bedTime": "2025-05-25T22:30:00.000Z",
+    "wakeTime": "2025-05-26T06:30:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 58
+    }
+  },
+  {
+    "id": 13728795681888,
+    "score": 98,
+    "meanHr": 43,
+    "bedTime": "2025-10-26T21:54:00.000Z",
+    "wakeTime": "2025-10-27T07:50:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 52
+    }
+  },
+  {
+    "id": 96205902274004,
+    "score": 80,
+    "meanHr": 57,
+    "bedTime": "2025-06-26T21:44:00.000Z",
+    "wakeTime": "2025-06-27T07:26:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 17
+    }
+  },
+  {
+    "id": 89169862175728,
+    "score": 53,
+    "meanHr": 59,
+    "bedTime": null,
+    "wakeTime": null,
+    "duration": {
+      "hours": 4,
+      "minutes": 19
+    }
+  },
+  {
+    "id": 66067966594272,
+    "score": 77,
+    "meanHr": 53,
+    "bedTime": "2025-04-26T21:51:00.000Z",
+    "wakeTime": "2025-04-27T04:25:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 30
+    }
+  },
+  {
+    "id": 42370976559330,
+    "score": 74,
+    "meanHr": 59,
+    "bedTime": "2025-03-27T00:11:00.000Z",
+    "wakeTime": "2025-03-27T09:35:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 1
+    }
+  },
+  {
+    "id": 37122197184811,
+    "score": 91,
+    "meanHr": 49,
+    "bedTime": "2025-09-26T23:17:00.000Z",
+    "wakeTime": "2025-09-27T07:05:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 37
+    }
+  },
+  {
+    "id": 74631149158453,
+    "score": 74,
+    "meanHr": 51,
+    "bedTime": "2025-08-27T00:30:00.000Z",
+    "wakeTime": "2025-08-27T06:32:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 2
+    }
+  },
+  {
+    "id": 11022436441633,
+    "score": 80,
+    "meanHr": 52,
+    "bedTime": "2025-07-26T22:56:00.000Z",
+    "wakeTime": "2025-07-27T06:56:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 39
+    }
+  },
+  {
+    "id": 95369199994563,
+    "score": 88,
+    "meanHr": 52,
+    "bedTime": "2025-05-26T22:06:00.000Z",
+    "wakeTime": "2025-05-27T06:42:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 32
+    }
+  },
+  {
+    "id": 23060550555731,
+    "score": 80,
+    "meanHr": 52,
+    "bedTime": "2025-10-28T00:02:00.000Z",
+    "wakeTime": "2025-10-28T07:10:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 5
+    }
+  },
+  {
+    "id": 20128432884196,
+    "score": 92,
+    "meanHr": 50,
+    "bedTime": "2025-06-27T21:48:00.000Z",
+    "wakeTime": "2025-06-28T08:26:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 57
+    }
+  },
+  {
+    "id": 73597678025423,
+    "score": 85,
+    "meanHr": 53,
+    "bedTime": null,
+    "wakeTime": null,
+    "duration": {
+      "hours": 8,
+      "minutes": 31
+    }
+  },
+  {
+    "id": 68159128798860,
+    "score": 74,
+    "meanHr": 52,
+    "bedTime": "2025-04-27T21:45:00.000Z",
+    "wakeTime": "2025-04-28T04:39:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 47
+    }
+  },
+  {
+    "id": 89851569573724,
+    "score": 72,
+    "meanHr": 58,
+    "bedTime": "2025-03-27T22:45:00.000Z",
+    "wakeTime": "2025-03-28T07:37:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 15
+    }
+  },
+  {
+    "id": 44910767418565,
+    "score": 89,
+    "meanHr": 50,
+    "bedTime": "2025-09-27T22:40:00.000Z",
+    "wakeTime": "2025-09-28T07:54:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 10
+    }
+  },
+  {
+    "id": 11332947481200,
+    "score": 81,
+    "meanHr": 51,
+    "bedTime": "2025-08-27T23:26:00.000Z",
+    "wakeTime": "2025-08-28T07:24:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 37
+    }
+  },
+  {
+    "id": 65070578895212,
+    "score": 98,
+    "meanHr": 49,
+    "bedTime": "2025-07-27T21:35:00.000Z",
+    "wakeTime": "2025-07-28T06:40:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 5
+    }
+  },
+  {
+    "id": 93744436857294,
+    "score": 87,
+    "meanHr": 52,
+    "bedTime": "2025-05-27T23:28:00.000Z",
+    "wakeTime": "2025-05-28T06:26:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 55
+    }
+  },
+  {
+    "id": 91000695602076,
+    "score": 73,
+    "meanHr": 48,
+    "bedTime": "2025-10-29T00:02:00.000Z",
+    "wakeTime": "2025-10-29T06:33:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 10
+    }
+  },
+  {
+    "id": 35856787709319,
+    "score": 89,
+    "meanHr": 50,
+    "bedTime": "2025-06-28T21:01:00.000Z",
+    "wakeTime": "2025-06-29T06:59:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 55
+    }
+  },
+  {
+    "id": 44831952544409,
+    "score": 64,
+    "meanHr": 58,
+    "bedTime": null,
+    "wakeTime": null,
+    "duration": {
+      "hours": 8,
+      "minutes": 47
+    }
+  },
+  {
+    "id": 33769637322504,
+    "score": 51,
+    "meanHr": 57,
+    "bedTime": "2025-04-29T01:58:00.000Z",
+    "wakeTime": "2025-04-29T06:37:00.000Z",
+    "duration": {
+      "hours": 4,
+      "minutes": 30
+    }
+  },
+  {
+    "id": 82515513503150,
+    "score": 55,
+    "meanHr": 59,
+    "bedTime": "2025-03-29T00:27:00.000Z",
+    "wakeTime": "2025-03-29T04:56:00.000Z",
+    "duration": {
+      "hours": 4,
+      "minutes": 29
+    }
+  },
+  {
+    "id": 10424907505202,
+    "score": 78,
+    "meanHr": 51,
+    "bedTime": "2025-09-28T22:53:00.000Z",
+    "wakeTime": "2025-09-29T06:19:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 24
+    }
+  },
+  {
+    "id": 97227468407771,
+    "score": 80,
+    "meanHr": 48,
+    "bedTime": "2025-08-29T00:01:00.000Z",
+    "wakeTime": "2025-08-29T06:47:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 35
+    }
+  },
+  {
+    "id": 29728027353861,
+    "score": 48,
+    "meanHr": 55,
+    "bedTime": "2025-07-29T01:55:00.000Z",
+    "wakeTime": "2025-07-29T06:24:00.000Z",
+    "duration": {
+      "hours": 4,
+      "minutes": 26
+    }
+  },
+  {
+    "id": 18913513635745,
+    "score": 84,
+    "meanHr": 53,
+    "bedTime": "2025-05-28T22:09:00.000Z",
+    "wakeTime": "2025-05-29T06:53:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 42
+    }
+  },
+  {
+    "id": 34013690584594,
+    "score": 81,
+    "meanHr": 49,
+    "bedTime": "2025-10-02T22:25:00.000Z",
+    "wakeTime": "2025-10-03T05:27:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 40
+    }
+  },
+  {
+    "id": 53465055658119,
+    "score": 86,
+    "meanHr": 51,
+    "bedTime": "2025-06-02T23:08:00.000Z",
+    "wakeTime": "2025-06-03T06:24:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 16
+    }
+  },
+  {
+    "id": 39127847361545,
+    "score": 72,
+    "meanHr": 57,
+    "bedTime": "2025-04-02T23:42:00.000Z",
+    "wakeTime": "2025-04-03T06:04:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 16
+    }
+  },
+  {
+    "id": 75540449357924,
+    "score": 87,
+    "meanHr": 50,
+    "bedTime": "2025-03-03T01:17:00.000Z",
+    "wakeTime": "2025-03-03T08:28:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 11
+    }
+  },
+  {
+    "id": 71026266394523,
+    "score": 81,
+    "meanHr": 52,
+    "bedTime": "2025-09-02T23:16:00.000Z",
+    "wakeTime": "2025-09-03T06:25:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 5
+    }
+  },
+  {
+    "id": 39381492900567,
+    "score": 82,
+    "meanHr": 52,
+    "bedTime": "2025-08-02T21:33:00.000Z",
+    "wakeTime": "2025-08-03T06:50:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 42
+    }
+  },
+  {
+    "id": 58943668376004,
+    "score": 76,
+    "meanHr": 51,
+    "bedTime": "2025-07-02T23:15:00.000Z",
+    "wakeTime": "2025-07-03T06:51:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 5
+    }
+  },
+  {
+    "id": 10423826082023,
+    "score": 49,
+    "meanHr": 59,
+    "bedTime": "2025-05-02T23:14:00.000Z",
+    "wakeTime": "2025-05-03T06:58:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 41
+    }
+  },
+  {
+    "id": 4166359029518,
+    "score": 91,
+    "meanHr": 50,
+    "bedTime": "2025-11-02T23:18:00.000Z",
+    "wakeTime": "2025-11-03T08:07:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 49
+    }
+  },
+  {
+    "id": 56205530460284,
+    "score": 82,
+    "meanHr": 49,
+    "bedTime": "2025-10-29T23:37:00.000Z",
+    "wakeTime": "2025-10-30T07:26:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 46
+    }
+  },
+  {
+    "id": 8450502945005,
+    "score": 77,
+    "meanHr": 50,
+    "bedTime": "2025-06-29T21:59:00.000Z",
+    "wakeTime": "2025-06-30T05:41:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 55
+    }
+  },
+  {
+    "id": 65887513147848,
+    "score": 46,
+    "meanHr": 59,
+    "bedTime": null,
+    "wakeTime": null,
+    "duration": {
+      "hours": 6,
+      "minutes": 36
+    }
+  },
+  {
+    "id": 66720212612479,
+    "score": 81,
+    "meanHr": 51,
+    "bedTime": "2025-03-30T00:26:00.000Z",
+    "wakeTime": "2025-03-30T05:58:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 32
+    }
+  },
+  {
+    "id": 77175805342295,
+    "score": 78,
+    "meanHr": 49,
+    "bedTime": "2025-09-29T21:39:00.000Z",
+    "wakeTime": "2025-09-30T06:13:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 27
+    }
+  },
+  {
+    "id": 89581341018514,
+    "score": 88,
+    "meanHr": 53,
+    "bedTime": "2025-08-29T23:54:00.000Z",
+    "wakeTime": "2025-08-30T07:16:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 19
+    }
+  },
+  {
+    "id": 75368426749727,
+    "score": 93,
+    "meanHr": 49,
+    "bedTime": "2025-07-29T21:16:00.000Z",
+    "wakeTime": "2025-07-30T06:01:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 39
+    }
+  },
+  {
+    "id": 78714870482501,
+    "score": 66,
+    "meanHr": 61,
+    "bedTime": "2025-05-30T00:17:00.000Z",
+    "wakeTime": "2025-05-30T07:50:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 19
+    }
+  },
+  {
+    "id": 48797493688477,
+    "score": 79,
+    "meanHr": 50,
+    "bedTime": "2025-10-30T22:01:00.000Z",
+    "wakeTime": "2025-10-31T05:48:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 27
+    }
+  },
+  {
+    "id": 39975760283350,
+    "score": 76,
+    "meanHr": 58,
+    "bedTime": null,
+    "wakeTime": null,
+    "duration": {
+      "hours": 6,
+      "minutes": 41
+    }
+  },
+  {
+    "id": 29501525370049,
+    "score": 61,
+    "meanHr": 53,
+    "bedTime": "2025-10-01T01:06:00.000Z",
+    "wakeTime": "2025-10-01T06:17:00.000Z",
+    "duration": {
+      "hours": 4,
+      "minutes": 57
+    }
+  },
+  {
+    "id": 64945108237389,
+    "score": 83,
+    "meanHr": 53,
+    "bedTime": "2025-07-30T22:20:00.000Z",
+    "wakeTime": "2025-07-31T07:00:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 55
+    }
+  },
+  {
+    "id": 48141939517933,
+    "score": 90,
+    "meanHr": 54,
+    "bedTime": "2025-05-30T23:48:00.000Z",
+    "wakeTime": "2025-05-31T09:09:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 21
+    }
+  },
+  {
+    "id": 34694379832400,
+    "score": 55,
+    "meanHr": 57,
+    "bedTime": "2025-10-04T00:36:00.000Z",
+    "wakeTime": "2025-10-04T07:15:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 35
+    }
+  },
+  {
+    "id": 20160306266065,
+    "score": 32,
+    "meanHr": 65,
+    "bedTime": "2025-04-04T03:23:00.000Z",
+    "wakeTime": "2025-04-04T07:48:00.000Z",
+    "duration": {
+      "hours": 4,
+      "minutes": 11
+    }
+  },
+  {
+    "id": 3939060929537,
+    "score": 62,
+    "meanHr": 56,
+    "bedTime": "2025-03-04T03:16:00.000Z",
+    "wakeTime": "2025-03-04T08:12:00.000Z",
+    "duration": {
+      "hours": 4,
+      "minutes": 50
+    }
+  },
+  {
+    "id": 44643489073554,
+    "score": 84,
+    "meanHr": 52,
+    "bedTime": "2025-09-03T22:48:00.000Z",
+    "wakeTime": "2025-09-04T05:57:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 9
+    }
+  },
+  {
+    "id": 17890469243958,
+    "score": 79,
+    "meanHr": 51,
+    "bedTime": "2025-08-03T23:07:00.000Z",
+    "wakeTime": "2025-08-04T06:52:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 1
+    }
+  },
+  {
+    "id": 10704282153571,
+    "score": 55,
+    "meanHr": 54,
+    "bedTime": "2025-07-04T01:22:00.000Z",
+    "wakeTime": "2025-07-04T05:58:00.000Z",
+    "duration": {
+      "hours": 4,
+      "minutes": 18
+    }
+  },
+  {
+    "id": 88005087891454,
+    "score": 70,
+    "meanHr": 60,
+    "bedTime": "2025-05-03T21:26:00.000Z",
+    "wakeTime": "2025-05-04T05:36:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 9
+    }
+  },
+  {
+    "id": 10220037401743,
+    "score": 77,
+    "meanHr": 49,
+    "bedTime": "2025-11-03T23:47:00.000Z",
+    "wakeTime": "2025-11-04T07:31:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 20
+    }
+  },
+  {
+    "id": 26364358892277,
+    "score": 90,
+    "meanHr": 51,
+    "bedTime": "2025-10-04T21:45:00.000Z",
+    "wakeTime": "2025-10-05T06:42:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 55
+    }
+  },
+  {
+    "id": 85172742761832,
+    "score": 81,
+    "meanHr": 55,
+    "bedTime": "2025-06-05T00:17:00.000Z",
+    "wakeTime": "2025-06-05T07:15:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 58
+    }
+  },
+  {
+    "id": 54935241762538,
+    "score": 85,
+    "meanHr": 55,
+    "bedTime": "2025-04-04T22:43:00.000Z",
+    "wakeTime": "2025-04-05T06:47:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 58
+    }
+  },
+  {
+    "id": 10714081570982,
+    "score": 70,
+    "meanHr": 52,
+    "bedTime": "2025-09-04T22:02:00.000Z",
+    "wakeTime": "2025-09-05T06:07:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 17
+    }
+  },
+  {
+    "id": 34885714133487,
+    "score": 94,
+    "meanHr": 49,
+    "bedTime": "2025-08-04T22:14:00.000Z",
+    "wakeTime": "2025-08-05T06:24:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 4
+    }
+  },
+  {
+    "id": 33848262788850,
+    "score": 74,
+    "meanHr": 51,
+    "bedTime": "2025-07-04T21:36:00.000Z",
+    "wakeTime": "2025-07-05T04:40:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 34
+    }
+  },
+  {
+    "id": 14864053292915,
+    "score": 48,
+    "meanHr": 59,
+    "bedTime": "2025-05-04T23:04:00.000Z",
+    "wakeTime": "2025-05-05T06:26:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 0
+    }
+  },
+  {
+    "id": 25850524870995,
+    "score": 73,
+    "meanHr": 52,
+    "bedTime": "2025-11-05T01:16:00.000Z",
+    "wakeTime": "2025-11-05T07:43:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 24
+    }
+  },
+  {
+    "id": 95118434337345,
+    "score": 74,
+    "meanHr": 48,
+    "bedTime": "2025-10-05T23:52:00.000Z",
+    "wakeTime": "2025-10-06T05:47:00.000Z",
+    "duration": {
+      "hours": 5,
+      "minutes": 45
+    }
+  },
+  {
+    "id": 83307330539109,
+    "score": 83,
+    "meanHr": 54,
+    "bedTime": "2025-06-06T02:00:00.000Z",
+    "wakeTime": "2025-06-06T09:18:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 16
+    }
+  },
+  {
+    "id": 85224556778902,
+    "score": 77,
+    "meanHr": 55,
+    "bedTime": "2025-04-05T23:36:00.000Z",
+    "wakeTime": "2025-04-06T06:10:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 33
+    }
+  },
+  {
+    "id": 12712218607267,
+    "score": 90,
+    "meanHr": 51,
+    "bedTime": "2025-03-06T00:37:00.000Z",
+    "wakeTime": "2025-03-06T09:38:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 45
+    }
+  },
+  {
+    "id": 68370286637318,
+    "score": 80,
+    "meanHr": 50,
+    "bedTime": "2025-09-05T23:09:00.000Z",
+    "wakeTime": "2025-09-06T08:13:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 39
+    }
+  },
+  {
+    "id": 10935981033882,
+    "score": 94,
+    "meanHr": 47,
+    "bedTime": "2025-08-05T21:36:00.000Z",
+    "wakeTime": "2025-08-06T06:54:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 8
+    }
+  },
+  {
+    "id": 27150892535046,
+    "score": 67,
+    "meanHr": 55,
+    "bedTime": "2025-07-05T21:41:00.000Z",
+    "wakeTime": "2025-07-06T06:24:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 28
+    }
+  },
+  {
+    "id": 51060758381499,
+    "score": 40,
+    "meanHr": 55,
+    "bedTime": "2025-11-06T03:07:00.000Z",
+    "wakeTime": "2025-11-06T09:08:00.000Z",
+    "duration": {
+      "hours": 5,
+      "minutes": 36
+    }
+  },
+  {
+    "id": 36890553068764,
+    "score": 91,
+    "meanHr": 51,
+    "bedTime": "2025-10-06T22:09:00.000Z",
+    "wakeTime": "2025-10-07T06:17:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 6
+    }
+  },
+  {
+    "id": 96718867511134,
+    "score": 64,
+    "meanHr": 56,
+    "bedTime": "2025-06-07T00:38:00.000Z",
+    "wakeTime": "2025-06-07T07:28:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 36
+    }
+  },
+  {
+    "id": 69244588570527,
+    "score": 50,
+    "meanHr": 57,
+    "bedTime": "2025-04-06T22:18:00.000Z",
+    "wakeTime": "2025-04-07T02:30:00.000Z",
+    "duration": {
+      "hours": 4,
+      "minutes": 12
+    }
+  },
+  {
+    "id": 34734691596184,
+    "score": 88,
+    "meanHr": 53,
+    "bedTime": "2025-03-07T01:10:00.000Z",
+    "wakeTime": "2025-03-07T08:40:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 30
+    }
+  },
+  {
+    "id": 54004590396583,
+    "score": 56,
+    "meanHr": 55,
+    "bedTime": "2025-09-06T23:32:00.000Z",
+    "wakeTime": "2025-09-07T06:25:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 52
+    }
+  },
+  {
+    "id": 67494994326652,
+    "score": 82,
+    "meanHr": 53,
+    "bedTime": "2025-08-06T21:42:00.000Z",
+    "wakeTime": "2025-08-07T06:24:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 39
+    }
+  },
+  {
+    "id": 89780780830073,
+    "score": 90,
+    "meanHr": 48,
+    "bedTime": "2025-07-06T20:46:00.000Z",
+    "wakeTime": "2025-07-07T04:34:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 40
+    }
+  },
+  {
+    "id": 33708216218679,
+    "score": 73,
+    "meanHr": 61,
+    "bedTime": "2025-05-06T20:35:00.000Z",
+    "wakeTime": "2025-05-07T06:58:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 46
+    }
+  },
+  {
+    "id": 24617571225231,
+    "score": 66,
+    "meanHr": 55,
+    "bedTime": "2025-11-07T00:24:00.000Z",
+    "wakeTime": "2025-11-07T07:06:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 41
+    }
+  },
+  {
+    "id": 96348960693500,
+    "score": 75,
+    "meanHr": 48,
+    "bedTime": "2025-10-07T23:49:00.000Z",
+    "wakeTime": "2025-10-08T06:00:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 9
+    }
+  },
+  {
+    "id": 8169887833410,
+    "score": 83,
+    "meanHr": 53,
+    "bedTime": "2025-06-07T21:45:00.000Z",
+    "wakeTime": "2025-06-08T06:43:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 53
+    }
+  },
+  {
+    "id": 46007604503129,
+    "score": 81,
+    "meanHr": 56,
+    "bedTime": "2025-04-07T21:11:00.000Z",
+    "wakeTime": "2025-04-08T04:58:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 31
+    }
+  },
+  {
+    "id": 89863556955509,
+    "score": 80,
+    "meanHr": 53,
+    "bedTime": "2025-03-07T22:43:00.000Z",
+    "wakeTime": "2025-03-08T08:17:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 2
+    }
+  },
+  {
+    "id": 71977057100204,
+    "score": 94,
+    "meanHr": 53,
+    "bedTime": "2025-09-07T21:49:00.000Z",
+    "wakeTime": "2025-09-08T06:30:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 41
+    }
+  },
+  {
+    "id": 2097813555319,
+    "score": 79,
+    "meanHr": 53,
+    "bedTime": "2025-08-07T22:26:00.000Z",
+    "wakeTime": "2025-08-08T05:13:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 47
+    }
+  },
+  {
+    "id": 80115991086631,
+    "score": 88,
+    "meanHr": 48,
+    "bedTime": "2025-07-07T21:14:00.000Z",
+    "wakeTime": "2025-07-08T06:38:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 21
+    }
+  },
+  {
+    "id": 10467860966004,
+    "score": 70,
+    "meanHr": 65,
+    "bedTime": "2025-05-07T23:34:00.000Z",
+    "wakeTime": "2025-05-08T06:10:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 34
+    }
+  },
+  {
+    "id": 44885345047172,
+    "score": 84,
+    "meanHr": 52,
+    "bedTime": "2025-11-07T21:31:00.000Z",
+    "wakeTime": "2025-11-08T06:30:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 56
+    }
+  },
+  {
+    "id": 83688208372390,
+    "score": 79,
+    "meanHr": 53,
+    "bedTime": "2025-10-08T22:26:00.000Z",
+    "wakeTime": "2025-10-09T07:07:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 18
+    }
+  },
+  {
+    "id": 98316507013271,
+    "score": 90,
+    "meanHr": 47,
+    "bedTime": "2025-06-08T22:15:00.000Z",
+    "wakeTime": "2025-06-09T06:27:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 53
+    }
+  },
+  {
+    "id": 3438522166151,
+    "score": 91,
+    "meanHr": 55,
+    "bedTime": "2025-04-08T20:46:00.000Z",
+    "wakeTime": "2025-04-09T05:13:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 27
+    }
+  },
+  {
+    "id": 7820485880176,
+    "score": 91,
+    "meanHr": 50,
+    "bedTime": "2025-03-08T23:51:00.000Z",
+    "wakeTime": "2025-03-09T07:26:00.000Z",
+    "duration": {
+      "hours": 7,
+      "minutes": 34
+    }
+  },
+  {
+    "id": 1326943919035,
+    "score": 58,
+    "meanHr": 53,
+    "bedTime": "2025-09-08T22:13:00.000Z",
+    "wakeTime": "2025-09-09T06:24:00.000Z",
+    "duration": {
+      "hours": 6,
+      "minutes": 53
+    }
+  },
+  {
+    "id": 73960634051451,
+    "score": 82,
+    "meanHr": 55,
+    "bedTime": "2025-07-08T20:52:00.000Z",
+    "wakeTime": "2025-07-09T05:33:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 41
+    }
+  },
+  {
+    "id": 23819440733024,
+    "score": 85,
+    "meanHr": 60,
+    "bedTime": "2025-05-08T21:12:00.000Z",
+    "wakeTime": "2025-05-09T05:35:00.000Z",
+    "duration": {
+      "hours": 8,
+      "minutes": 23
+    }
+  },
+  {
+    "id": 2601355640953,
+    "score": 92,
+    "meanHr": 50,
+    "bedTime": "2025-11-08T22:35:00.000Z",
+    "wakeTime": "2025-11-09T07:55:00.000Z",
+    "duration": {
+      "hours": 9,
+      "minutes": 14
+    }
+  }
+]
