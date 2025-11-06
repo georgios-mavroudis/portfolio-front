@@ -28,7 +28,6 @@ import { useGraphColors } from '@/design-system/hooks';
 
 type Props = {
   data: Data[];
-  patientId: number;
 };
 
 export const Graph: FC<Props> = memo(({ data }) => {

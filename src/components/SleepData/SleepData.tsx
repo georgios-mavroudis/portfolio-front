@@ -4,6 +4,7 @@ import { Graph } from './Graph';
 import json from '@/components/SleepData/data.json';
 import type { Data } from '@/types/sleep-data-types';
 import type { Interval } from '@/visualizations/constants';
+import { DataContainer } from './DataContainer';
 
 const convertStringToDate = (
   data: {
@@ -24,14 +25,13 @@ const convertStringToDate = (
 export const SleepData = () => {
   //  const { id } = useParams();
   // const data = useData(id);
+  // TODO: Change this with data from the server
   const data = { data: convertStringToDate(json), isSuccess: true, isError: false };
-  // const patientQuery = usePatientById(id); // TODO: add http requests
-  const patientQuery = { data: { id: 1 } };
-  const patient = patientQuery.data;
 
   if (!data.isSuccess) {
     return <Loader />;
   }
+
   // if (data.isError) {
   //   return <CustomAlert message="No Patient data found!" status="error" />;
   // }
@@ -50,7 +50,9 @@ export const SleepData = () => {
         >
           <Box marginX="m">
             <PlotProvider>
-              <Graph data={data.data} patientId={patient?.id ?? NaN} />
+              <DataContainer data={data.data}>
+                {({ data: renderableData }) => <Graph data={renderableData} />}
+              </DataContainer>
             </PlotProvider>
           </Box>
         </Flex>
