@@ -3,7 +3,7 @@ import { HeartbeatGraph } from './HeartbeatGraph';
 import { useMemo, useState } from 'react';
 import json from './data.json';
 import { Box, Button, HStack, Stat, VStack } from '@chakra-ui/react';
-import { Heart } from '@/design-system/custom-icons/Heat';
+import { Heart } from '@/design-system/custom-icons/Heart';
 import { Play, Stop, Ruler as RulerIcon } from '@untitled-ui/icons-react';
 
 export const HeartBeatAnalysis = () => {

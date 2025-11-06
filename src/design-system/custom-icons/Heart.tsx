@@ -5,8 +5,6 @@ const ID = 'heart-id';
 export const Heart = () => {
   useEffect(() => {
     const svg = document.querySelector(`#${ID}`);
-    const svg1 = document.getElementById(`#${ID}`);
-    console.log(svg, svg1);
     svg?.animate(
       [
         { transform: 'scale(1)', opacity: 0.7, easing: 'ease-out' },
