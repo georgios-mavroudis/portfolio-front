@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import { useMemo, useState, type FC } from 'react';
 import { Box } from '@chakra-ui/react';
 import { useNavigate } from '@tanstack/react-router';
 
@@ -6,14 +6,26 @@ const ID = 'logo-id';
 
 export const Logo: FC = () => {
   const navigate = useNavigate();
+  const [hovered, setHovered] = useState(false);
+
+  const size = useMemo(() => {
+    return hovered ? { x: 58, y: 57 } : { x: 53, y: 52 };
+  }, [hovered]);
   return (
-    <Box fill="foreground.primary" onClick={() => navigate({ to: '/' })} cursor="pointer">
+    <Box
+      fill="foreground.primary"
+      onClick={() => navigate({ to: '/' })}
+      cursor="pointer"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      position="absolute"
+    >
       <svg
         version="1.1"
         id={ID}
-        width="53.976242"
-        height="52.531342"
-        viewBox="0 0 53.976242 52.531342"
+        width={size.x}
+        height={size.y}
+        viewBox="0 0 53 52"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs id="defs1" />

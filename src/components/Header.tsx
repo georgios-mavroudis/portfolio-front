@@ -10,9 +10,11 @@ export const Header: FC = () => {
   const { open, onToggle, onClose } = useDisclosure();
 
   return (
-    <Stack as="header" width="full" p={2} borderBottom="sm" boxShadow="lg">
+    <Stack as="header" width="full" p={4} borderBottom="sm" boxShadow="lg">
       <HStack justifyContent="space-between">
-        <Logo />
+        <HStack position="relative">
+          <Logo />
+        </HStack>
         <HStack>
           <Button size="sm">Contact</Button>
           <ColorModeButton bg="foreground.primary" color="background.primary" />
