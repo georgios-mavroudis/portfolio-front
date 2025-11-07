@@ -1,26 +1,28 @@
 import { Grid, Stack } from '@chakra-ui/react';
 import { Header } from './components/Header';
-import { useRef } from 'react';
 import { Outlet } from '@tanstack/react-router';
+import { ThemeProvider } from './design-system/ThemeProvider';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 function App() {
-  const drawerRef = useRef<HTMLDivElement>(null);
+  const queryClient = new QueryClient();
   return (
-    <>
-      <Grid
-        ref={drawerRef}
-        w="100vw"
-        minH="100vh"
-        templateColumns={{ base: '1fr', md: '1fr' }}
-        templateRows="auto 1fr auto"
-        gap={4}
-      >
-        <Header />
-        <Stack p={4}>
-          <Outlet />
-        </Stack>
-      </Grid>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider>
+        <Grid
+          w="100vw"
+          minH="100vh"
+          templateColumns={{ base: '1fr', md: '1fr' }}
+          templateRows="auto 1fr auto"
+          gap={4}
+        >
+          <Header />
+          <Stack p={4}>
+            <Outlet />
+          </Stack>
+        </Grid>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
 
