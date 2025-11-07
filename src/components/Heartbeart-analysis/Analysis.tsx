@@ -1,24 +1,29 @@
 import { PlotProvider } from '@/visualizations/components/PlotContext';
 import { HeartbeatGraph } from './HeartbeatGraph';
-import { useMemo, useState } from 'react';
-import json from './data.json';
-import { Box, Button, HStack, Stat, VStack } from '@chakra-ui/react';
+import { useState } from 'react';
+import { AbsoluteCenter, Box, Button, HStack, Spinner, Stat, VStack } from '@chakra-ui/react';
 import { Heart } from '@/design-system/custom-icons/Heart';
 import { Play, Stop, Ruler as RulerIcon } from '@untitled-ui/icons-react';
+import { useHeartbeatData } from '@/queries/heartbeat-analysis/heartbeat-analysis.queries';
+import { Alert } from '@/design-system/components/Alert';
 
 export const HeartBeatAnalysis = () => {
   const [rulerActive, setRulerActive] = useState(false);
   const [playAnimation, setPlayAnimation] = useState(true);
-  const leads = useMemo(
-    () => ({
-      // TODO: calculate the heartbeat
-      // TODO: move the data to the server
-      MLII: json['MLII'],
-      V1: json['V1'],
-      V5: json['V5'],
-    }),
-    []
-  );
+  const data = useHeartbeatData();
+  const [heartBeat, setHeartBeat] = useState<string | number>('--');
+
+  if (!data.isSuccess) {
+    return (
+      <AbsoluteCenter>
+        <Spinner color="primary.500" size="xl" />
+      </AbsoluteCenter>
+    );
+  }
+  if (data.isError) {
+    return <Alert title="No Patient data found!" status="error" />;
+  }
+
   return (
     <PlotProvider>
       <VStack height="full">
@@ -28,18 +33,23 @@ export const HeartBeatAnalysis = () => {
               <Heart />
               <Stat.Root>
                 <Stat.Label>HR </Stat.Label>
-                <Stat.ValueText>72 bpm</Stat.ValueText>
+                <Stat.ValueText>{heartBeat} bpm</Stat.ValueText>
               </Stat.Root>
             </HStack>
           </VStack>
           <VStack alignItems="end" height="full" width="full">
-            {Object.keys(leads).map((key) => (
+            {Object.keys(data.data.leads).map((key) => (
               <Stat.Root key={key}>
                 <Stat.Label>Lead: {key}</Stat.Label>
               </Stat.Root>
             ))}
           </VStack>
-          <HeartbeatGraph leads={leads} playAnimation={playAnimation} rulerActive={rulerActive} />
+          <HeartbeatGraph
+            data={data.data}
+            playAnimation={playAnimation}
+            rulerActive={rulerActive}
+            setHeartbeat={setHeartBeat}
+          />
         </HStack>
         <HStack width="full">
           <Box justifyContent="start" boxShadow="sm" p={2} rounded="sm" bg="background.secondary">

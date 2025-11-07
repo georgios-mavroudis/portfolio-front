@@ -3,8 +3,9 @@ import { drawBeat } from './utils';
 import { usePlot } from '../SleepData/hooks';
 import { useGraphColors } from '@/design-system/hooks';
 import { BEAT_LENGTH } from './HeartbeatGraph';
-import { clamp } from '@/common/helpers';
 import { useScale } from '@/visualizations/graph-hooks';
+import type { HeartbeatData } from '@/queries/heartbeat-analysis/heartbeat-analysis.queries';
+import { calculateHeartBeat } from './helpers';
 
 type Props = {
   yDomain: { min: number; max: number };
@@ -12,8 +13,11 @@ type Props = {
   height: number;
   width: number;
   data: number[];
-  offsetY: number;
+  offsetY?: number;
   isAnimationActive: boolean;
+  setHeartbeat: (heartbeat: number) => void;
+  QRS: HeartbeatData['annotations']['QRS'];
+  frequency: number;
 };
 export const Strip: FC<Props> = ({
   yDomain,
@@ -21,8 +25,11 @@ export const Strip: FC<Props> = ({
   height,
   width,
   data,
-  offsetY,
+  offsetY = 0,
   isAnimationActive,
+  setHeartbeat,
+  frequency,
+  QRS,
 }) => {
   const { min, max } = yDomain;
   const { min: rMin, max: rMax } = yRange;
@@ -43,11 +50,23 @@ export const Strip: FC<Props> = ({
         const idx = (animateId.current ?? 0) % lastDataIdx;
         count.current++;
 
-        const lastIdx = clamp(idx + count.current, idx, idx + BEAT_LENGTH);
+        const lastIdx = idx + BEAT_LENGTH;
         let chunk = data.slice(idx, lastIdx);
+        let bpm = calculateHeartBeat(idx, lastIdx, QRS, frequency);
+
+        // This is for displaying purposes only because the ecg sample is small and
+        // it never reaches the end, we do a loop so when it arrives at the end it picks
+        // up from the beginning so the below part would be removed in a real application
+        // TODO: remove the looping logic below once we have the backend data
+        // because it messes the heartbeat value
         if (lastIdx > lastDataIdx) {
+          const bpmStartChunk = calculateHeartBeat(0, lastIdx - lastDataIdx, QRS, frequency);
+          // console.log(bpmStartChunk, lastIdx, lastDataIdx, lastIdx - lastDataIdx);
+          bpm = bpmStartChunk !== 0 ? Math.round((bpm + bpmStartChunk) / 2) : bpm;
           chunk = [...chunk, ...data.slice(0, lastIdx - lastDataIdx)];
         }
+        // =======================================
+        setHeartbeat(bpm);
         drawBeat({
           yScale,
           xScale,
@@ -71,7 +90,15 @@ export const Strip: FC<Props> = ({
       draw();
     }
     return () => cancelAnimationFrame(animateId.current ?? 0);
-  }, [xScale, yScale, data, height, width, strip, isAnimationActive]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [xScale, yScale, data, height, width, strip, isAnimationActive, QRS, frequency]);
 
-  return <canvas ref={stripRef} style={{ position: 'absolute', top: offsetY }} height={height} />;
+  return (
+    <canvas
+      ref={stripRef}
+      style={{ position: 'absolute', top: offsetY }}
+      height={height}
+      width={width}
+    />
+  );
 };
