@@ -6,6 +6,7 @@ import { HomePage } from '@/components/HomePage';
 import { ScaledScatterPage } from '@/components/ScaledScatterPlot/ScaledScatterPage';
 import { FShape } from '@/components/FShape/FShape';
 import { HeartBeatAnalysis } from '@/components/Heartbeart-analysis/Analysis';
+import { StockChart } from '@/components/Financial-data/StockChart';
 
 const rootRoute = createRootRoute({
   component: App,
@@ -42,10 +43,17 @@ const heartbeatRoute = createRoute({
   component: HeartBeatAnalysis,
 });
 
+const StockDataRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/stock-data',
+  component: StockChart,
+});
+
 export const RouteTree = rootRoute.addChildren([
   homePageRoute,
   sleepDataRoute,
   scaledScatterPlotRoute,
   fShapeRoute,
   heartbeatRoute,
+  StockDataRoute,
 ]);

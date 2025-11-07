@@ -17,6 +17,14 @@ export const HomePage: FC = () => {
             <List.Item>[x] Create a ruler</List.Item>
             <List.Item>[x] Add Heart icon and animation</List.Item>
             <List.Item>[ ] Add Tooltip on the toolbar buttons</List.Item>
+            <List.Item>[ ] Add upload of dat files and parsing from the back</List.Item>
+          </List.Root>
+        </List.Item>
+        <List.Item>
+          [ ] SleepData
+          <List.Root ps="5">
+            <List.Item>[ ] Rename it to Garmin sleep data </List.Item>
+            <List.Item>[ ] Add a title and description</List.Item>
           </List.Root>
         </List.Item>
         <List.Item>
@@ -34,8 +42,8 @@ export const HomePage: FC = () => {
           </List.Root>
         </List.Item>
         <List.Item>
+          [ ] Financial Chart
           <HStack>
-            <Text>[ ] Financial Chart</Text>
             <Link
               href="https://www.scichart.com/blog/using-javascript-for-financial-charts/"
               target="_blank"
@@ -43,6 +51,10 @@ export const HomePage: FC = () => {
               (scichart)
             </Link>
           </HStack>
+          <List.Root>
+            <List.Item>[ ] Fetch data from Alpha Vantage</List.Item>
+            <List.Item>[ ] Create the plot </List.Item>
+          </List.Root>
         </List.Item>
         <List.Item>[ ] Dashboard like tsuga???</List.Item>
       </List.Root>

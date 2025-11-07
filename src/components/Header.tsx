@@ -10,7 +10,7 @@ export const Header: FC = () => {
   const { open, onToggle, onClose } = useDisclosure();
 
   return (
-    <Stack as="header" width="full" p={4} borderBottom="sm" boxShadow="lg">
+    <Stack as="header" width="full" p={4} borderBottom="sm" boxShadow="md">
       <HStack justifyContent="space-between">
         <HStack position="relative">
           <Logo />
@@ -44,8 +44,8 @@ export const Header: FC = () => {
                     <RouterLink to="/f-shape" onClick={onClose}>
                       WebGL testing
                     </RouterLink>
-                    <RouterLink to="/" onClick={onClose}>
-                      Financial Data
+                    <RouterLink to="/stock-data" onClick={onClose}>
+                      Stock Data
                     </RouterLink>
                     <RouterLink to="/" onClick={onClose}>
                       Observability Dashboard
