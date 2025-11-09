@@ -14,7 +14,7 @@ export function clamp(x: number, min: number, max: number) {
 }
 
 export function roundToSpecificDecimals(x: number, numberOfdecimals: number) {
-  return Math.round(x * numberOfdecimals * 10) / (numberOfdecimals * 10);
+  return Math.round(x * Math.pow(10, numberOfdecimals)) / Math.pow(10, numberOfdecimals);
 }
 
 export function inRange(x: number, min: number, max: number) {

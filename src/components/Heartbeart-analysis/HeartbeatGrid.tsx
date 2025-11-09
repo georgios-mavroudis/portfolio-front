@@ -1,15 +1,14 @@
-import { type FC } from 'react';
-import { GRID_MS, GRID_MV, GRID_UNIT_SIZE, squareToPixel } from './helpers';
+import { getGridLength, GRID_MV, GRID_UNIT_SIZE, squareToPixel } from './helpers';
 import { PALETTE } from '@/design-system/palette';
-import { usePlot } from '../SleepData/hooks';
+import { usePlot } from '@/visualizations/graph-hooks';
 
 const MINIMUM_SPACING = squareToPixel(1 / 4);
 
-export const HeartbeatGrid: FC = () => {
+export const HeartbeatGrid = ({ frequency }: { frequency: number }) => {
   const id = 'grid';
   const { yScale, xScale } = usePlot();
   const sizeY = yScale(yScale.domain()[0] + GRID_MV);
-  const sizeX = xScale(xScale.domain()[0] + GRID_MS);
+  const sizeX = xScale(getGridLength(frequency));
   const pointsY = makePoints(sizeY);
   const pointsX = makePoints(sizeX);
   const showLineY = sizeY > MINIMUM_SPACING;

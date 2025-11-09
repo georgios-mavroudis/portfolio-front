@@ -1,15 +1,13 @@
 import { useEffect, useRef, type FC } from 'react';
 import { drawBeat } from './utils';
-import { usePlot } from '../SleepData/hooks';
 import { useGraphColors } from '@/design-system/hooks';
-import { BEAT_LENGTH } from './HeartbeatGraph';
-import { useScale } from '@/visualizations/graph-hooks';
+import { usePlot } from '@/visualizations/graph-hooks';
 import type { HeartbeatData } from '@/queries/heartbeat-analysis/heartbeat-analysis.queries';
-import { calculateHeartBeat } from './helpers';
+import { calculateHeartBeat, getViewerLength } from './helpers';
 
 type Props = {
-  yDomain: { min: number; max: number };
-  yRange: { min: number; max: number };
+  // yDomain: { min: number; max: number };
+  // yRange: { min: number; max: number };
   height: number;
   width: number;
   data: number[];
@@ -20,8 +18,8 @@ type Props = {
   frequency: number;
 };
 export const Strip: FC<Props> = ({
-  yDomain,
-  yRange,
+  // yDomain,
+  // yRange,
   height,
   width,
   data,
@@ -31,12 +29,12 @@ export const Strip: FC<Props> = ({
   frequency,
   QRS,
 }) => {
-  const { min, max } = yDomain;
-  const { min: rMin, max: rMax } = yRange;
+  // const { min, max } = yDomain;
+  // const { min: rMin, max: rMax } = yRange;
   const animateId = useRef<number>(null);
   const stripRef = useRef<HTMLCanvasElement>(null);
-  const { xScale } = usePlot();
-  const yScale = useScale({ domain: { start: min, end: max }, range: { start: rMin, end: rMax } });
+  const { xScale, yScale } = usePlot();
+  // const yScale = useScale({ domain: { start: min, end: max }, range: { start: rMin, end: rMax } });
   const {
     heartBeat: { strip },
   } = useGraphColors();
@@ -50,7 +48,7 @@ export const Strip: FC<Props> = ({
         const idx = (animateId.current ?? 0) % lastDataIdx;
         count.current++;
 
-        const lastIdx = idx + BEAT_LENGTH;
+        const lastIdx = idx + getViewerLength(frequency); //BEAT_LENGTH;
         let chunk = data.slice(idx, lastIdx);
         let bpm = calculateHeartBeat(idx, lastIdx, QRS, frequency);
 

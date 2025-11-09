@@ -1,13 +1,13 @@
 import { useGraphColors } from '@/design-system/hooks';
-import { usePlot } from '../SleepData/hooks';
 import { useCallback, useMemo, type MouseEvent } from 'react';
 import { pointer } from 'd3';
 import { GRID_WIDTH } from '@/visualizations/constants';
-import { BEAT_HEIGHT } from './HeartbeatGraph';
 import { PALETTE } from '@/design-system/palette';
 import { roundToSpecificDecimals } from '@/common/helpers';
+import { usePlot } from '@/visualizations/graph-hooks';
+import { BEAT_HEIGHT, fiducialDatumToTime } from './helpers';
 
-export const Ruler = () => {
+export const Ruler = ({ frequency }: { frequency: number }) => {
   const {
     ruler: { x1, y1, x2, y2, rulerUpdating },
     xScale,
@@ -88,7 +88,7 @@ export const Ruler = () => {
             </filter>
           </defs>
           <text fill={PALETTE.common.black} filter="url(#solid)" fontWeight={600} strokeWidth={0}>
-            {`${roundToSpecificDecimals(Math.abs(y1 - y2), 2)} mV, ${roundToSpecificDecimals(xScale.invert(width), 2)} ms`}
+            {`${roundToSpecificDecimals(Math.abs(y1 - y2), 2)} mV, ${roundToSpecificDecimals(fiducialDatumToTime(xScale.invert(width), frequency), 2)} ms`}
           </text>
         </g>
       )}

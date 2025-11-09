@@ -1,6 +1,9 @@
 import type { HeartbeatData } from '@/queries/heartbeat-analysis/heartbeat-analysis.queries';
+import { GRID_HEIGHT, GRID_WIDTH } from '@/visualizations/constants';
 
 const SQUARE_SIZE = 30; // px
+
+export const SECOND = 1000; // ms
 
 export const GRID_UNIT_SIZE = SQUARE_SIZE / 25; // px - the width of a grid line => 1/25 of a square
 
@@ -9,6 +12,18 @@ export const squareToPixel = (squares: number) => squares * SQUARE_SIZE;
 export const GRID_MS = 200; // ms
 
 export const GRID_MV = 0.5; // mV
+
+export const MV_HEIGHT = 2 * GRID_MV;
+
+export const BEAT_HEIGHT = GRID_HEIGHT * 2;
+
+// one square box grid = 0.5mV / 200ms
+// for 360 frequency we have 1 s --> 360 fiducial points so 200ms --> 360 * .2s = 72 points
+// On the y axis we want to display a height of 2mV [-1mV, 1mV(=MV_HEIGHT)] --> 4 boxes * 0.5mV
+// BEAT_HEIGHT --> 4 boxes, GRID_WIDTH --> ? boxes
+// boxes in x axis --> (GRID_WIDTH / BEAT_HEIGHT) * 4 --> (980 / 220) * 4 = 17.8182 boxes
+// to ms: 17.8182 * grid time (=72) --> 1282.91 points
+export const BEAT_LENGTH = ((GRID_WIDTH * 4) / BEAT_HEIGHT) * GRID_MS;
 
 export function calculateHeartBeat(
   startIdx: number,
@@ -27,8 +42,14 @@ export function calculateHeartBeat(
   if (RRs.length === 0) {
     return 0;
   }
-  //   console.log(QRSs, displayedQRSs);
   const averageRR = RRs.reduce((acc, rr) => acc + rr, 0) / RRs.length;
   // formula for bpm: 60 x fs / RR interval (in samples)
   return Math.round((60 * frequency) / averageRR);
 }
+
+export const getGridLength = (frequency: number) => (frequency * GRID_MS) / SECOND;
+export const getViewerLength = (frequency: number) =>
+  ((GRID_WIDTH * 4) / BEAT_HEIGHT) * getGridLength(frequency);
+
+export const fiducialDatumToTime = (datum: number, frequency: number) =>
+  (datum * SECOND) / frequency;
