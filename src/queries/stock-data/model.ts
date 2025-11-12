@@ -1,51 +1,55 @@
+import type { SelectOption } from '@/design-system/components/Select';
+import type { CollectionOptions } from '@chakra-ui/react';
+
 export type StockApiData = {
-  // The response is not a very well structured json object,
-  // so we cannot have 2 keys
-  'Meta Data': {
-    '1. Information': string;
-    '2. Symbol': CompanySymbol;
-    '3. Last Refreshed': string;
-    '4. Output Size': OutputSize;
-    '5. Time Zone': string;
-  };
-  [timeseries: string]: {
-    [date: string]: {
-      '1. open': string;
-      '2. high': string;
-      '3. low': string;
-      '4. close': string;
-      '5. volume': string;
-    };
-  }[];
+  change: number;
+  changePercent: number;
+  close: number;
+  date: string;
+  high: number;
+  low: number;
+  open: number;
+  symbol: CompanySymbol;
+  volume: number;
+  vwap: number;
 };
 export interface StockData {
-  id: number;
-  bedTime: Date;
-  wakeTime: Date;
+  company: CompanySymbol;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
+  volume: number;
+  change: number;
+  changePercent: number;
+  date: Date;
 }
-
-export type StockDataFrequency =
-  | typeof TIME_SERIES_DAILY
-  | typeof TIME_SERIES_WEEKLY
-  | typeof TIME_SERIES_MONTHLY;
-
-export const TIME_SERIES_DAILY = 'TIME_SERIES_DAILY';
-export const TIME_SERIES_WEEKLY = 'TIME_SERIES_WEEKLY';
-export const TIME_SERIES_MONTHLY = 'TIME_SERIES_MONTHLY';
 
 export type CompanySymbol =
   | typeof TESLA
-  | typeof IBM
+  | typeof AMAZON
   | typeof APPLE
   | typeof MICROSOFT
   | typeof SnP_500
-  | typeof BITCOIN;
+  | typeof NVIDIA;
 
+// TSLA, AMZN, MSFT, NVDA, GOOGL, META,
 export const TESLA = 'TSLA';
-export const IBM = 'IBM';
+export const AMAZON = 'AMZN';
+export const NVIDIA = 'NVDA';
 export const APPLE = 'AAPL';
+export const META = 'META';
 export const MICROSOFT = 'MSFT';
 export const SnP_500 = 'SPY';
-export const BITCOIN = 'BTC/USD';
 
+export const COMPANIES: SelectOption<CompanySymbol>[] = [
+  { label: 'Apple', value: APPLE },
+  { label: 'Tesla', value: TESLA },
+  { label: 'Amazon', value: AMAZON },
+  { label: 'Microsoft', value: MICROSOFT },
+  { label: 'S&P 500', value: SnP_500 },
+  { label: 'Nvidia', value: NVIDIA },
+] as const;
+
+export const companyListCollection: CollectionOptions<SelectOption<string>> = { items: COMPANIES };
 export type OutputSize = 'compact' | 'full';

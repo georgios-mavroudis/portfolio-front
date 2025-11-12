@@ -5,10 +5,11 @@ import {
   getInitialYScale,
   getInitialXScale,
   getInitialDateScale,
+  PlotContext,
 } from '@/visualizations/graph-hooks';
 import { SLEEP_SCORE, type YAxisDisplay } from '@/components/SleepData/constants';
-import { PlotContext } from '@/components/SleepData/hooks';
 import type { ScaleLinear, ScaleTime } from 'd3-scale';
+import { GRID_HEIGHT, GRID_WIDTH } from '../constants';
 
 export type Ruler = {
   x1: number;
@@ -17,25 +18,33 @@ export type Ruler = {
   y2: number;
   rulerUpdating: boolean;
 };
+
+export type Dimensions = {
+  width: number;
+  height: number;
+};
+
 export type PlotData = {
   dateScale: ScaleTime<number, number>;
   xScale: ScaleLinear<number, number>;
   yScale: ScaleLinear<number, number>;
   transform: ZoomTransform;
-  svg: SVGElement | null;
-  yAxisDisplay: YAxisDisplay;
+  svg: SVGSVGElement | null;
+  yAxisDisplay: YAxisDisplay | null;
   withLine: boolean;
   isDragging?: boolean;
   ruler: Ruler;
+  dimensions: Dimensions;
   setDateScale: (dateScale: ScaleTime<number, number>) => void;
   setXScale: (xScale: ScaleLinear<number, number>) => void;
   setYScale: (yScale: ScaleLinear<number, number>) => void;
   setTransform: (transform: ZoomTransform) => void;
-  setSvg: (svg: SVGElement) => void;
-  setYAxisDisplay: (yAxisDisplay: YAxisDisplay) => void;
+  setSvg: (svg: SVGSVGElement) => void;
+  setYAxisDisplay: (yAxisDisplay: YAxisDisplay | null) => void;
   setWithLine: (withLine: boolean) => void;
   setDragging: (dragging: boolean) => void;
   setRuler: (ruler: Partial<Ruler>) => void;
+  setDimensions: (dimensions: Partial<Dimensions>) => void;
 };
 
 type PlotAction =
@@ -57,7 +66,7 @@ type PlotAction =
     }
   | {
       type: 'set-y-axis-display';
-      yAxisDisplay: YAxisDisplay;
+      yAxisDisplay: YAxisDisplay | null;
     }
   | {
       type: 'set-dragging';
@@ -66,6 +75,10 @@ type PlotAction =
   | {
       type: 'set-ruler';
       ruler: Partial<Ruler>;
+    }
+  | {
+      type: 'set-dimensions';
+      dimensions: Partial<Dimensions>;
     };
 
 const initialState = (): PlotData => ({
@@ -78,6 +91,7 @@ const initialState = (): PlotData => ({
   withLine: false,
   isDragging: false,
   ruler: { x1: 0, x2: 0, y1: 0, y2: 0, rulerUpdating: false },
+  dimensions: { width: GRID_WIDTH, height: GRID_HEIGHT },
   setDateScale: () => {},
   setXScale: () => {},
   setYScale: () => {},
@@ -87,6 +101,7 @@ const initialState = (): PlotData => ({
   setWithLine: () => {},
   setDragging: () => {},
   setRuler: () => {},
+  setDimensions: () => {},
 });
 
 const plotReducer = (state: PlotData, action: PlotAction): PlotData => {
@@ -107,18 +122,23 @@ const plotReducer = (state: PlotData, action: PlotAction): PlotData => {
         ruler: { ...state.ruler, ...action.ruler },
       };
     }
+    case 'set-dimensions': {
+      return {
+        ...state,
+        dimensions: { ...state.dimensions, ...action.dimensions },
+      };
+    }
     case 'set-y-axis-display':
       return {
         ...state,
         yAxisDisplay: action.yAxisDisplay,
-        yScale: getInitialYScale(action.yAxisDisplay),
       };
   }
 };
 
 export const PlotProvider: FC<PropsWithChildren> = ({ children }) => {
   const [state, dispatch] = useReducer(plotReducer, initialState());
-  const [svg, setSvg] = useState<SVGElement | null>(null);
+  const [svg, setSvg] = useState<SVGSVGElement | null>(null);
   const [withLine, setWithLine] = useState(false);
 
   const setDateScale = useCallback((dateScale: ScaleTime<number, number>) => {
@@ -137,7 +157,7 @@ export const PlotProvider: FC<PropsWithChildren> = ({ children }) => {
     dispatch({ type: 'set-transform', transform });
   }, []);
 
-  const setYAxisDisplay = useCallback((yAxisDisplay: YAxisDisplay) => {
+  const setYAxisDisplay = useCallback((yAxisDisplay: YAxisDisplay | null) => {
     dispatch({ type: 'set-y-axis-display', yAxisDisplay });
   }, []);
 
@@ -147,6 +167,10 @@ export const PlotProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const setRuler = useCallback((ruler: Partial<Ruler>) => {
     dispatch({ type: 'set-ruler', ruler });
+  }, []);
+
+  const setDimensions = useCallback((dimensions: Partial<Dimensions>) => {
+    dispatch({ type: 'set-dimensions', dimensions });
   }, []);
 
   const context: PlotData = useMemo(
@@ -160,6 +184,8 @@ export const PlotProvider: FC<PropsWithChildren> = ({ children }) => {
       withLine,
       isDragging: state.isDragging,
       ruler: state.ruler,
+      dimensions: state.dimensions,
+      setDimensions,
       setDateScale,
       setXScale,
       setYScale,

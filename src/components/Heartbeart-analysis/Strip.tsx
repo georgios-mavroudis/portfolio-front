@@ -6,10 +6,6 @@ import type { HeartbeatData } from '@/queries/heartbeat-analysis/heartbeat-analy
 import { calculateHeartBeat, getViewerLength } from './helpers';
 
 type Props = {
-  // yDomain: { min: number; max: number };
-  // yRange: { min: number; max: number };
-  height: number;
-  width: number;
   data: number[];
   offsetY?: number;
   isAnimationActive: boolean;
@@ -18,10 +14,6 @@ type Props = {
   frequency: number;
 };
 export const Strip: FC<Props> = ({
-  // yDomain,
-  // yRange,
-  height,
-  width,
   data,
   offsetY = 0,
   isAnimationActive,
@@ -33,7 +25,11 @@ export const Strip: FC<Props> = ({
   // const { min: rMin, max: rMax } = yRange;
   const animateId = useRef<number>(null);
   const stripRef = useRef<HTMLCanvasElement>(null);
-  const { xScale, yScale } = usePlot();
+  const {
+    xScale,
+    yScale,
+    dimensions: { width, height },
+  } = usePlot();
   // const yScale = useScale({ domain: { start: min, end: max }, range: { start: rMin, end: rMax } });
   const {
     heartBeat: { strip },
@@ -48,7 +44,7 @@ export const Strip: FC<Props> = ({
         const idx = (animateId.current ?? 0) % lastDataIdx;
         count.current++;
 
-        const lastIdx = idx + getViewerLength(frequency); //BEAT_LENGTH;
+        const lastIdx = idx + getViewerLength(frequency, { width, height });
         let chunk = data.slice(idx, lastIdx);
         let bpm = calculateHeartBeat(idx, lastIdx, QRS, frequency);
 
@@ -59,7 +55,6 @@ export const Strip: FC<Props> = ({
         // because it messes the heartbeat value
         if (lastIdx > lastDataIdx) {
           const bpmStartChunk = calculateHeartBeat(0, lastIdx - lastDataIdx, QRS, frequency);
-          // console.log(bpmStartChunk, lastIdx, lastDataIdx, lastIdx - lastDataIdx);
           bpm = bpmStartChunk !== 0 ? Math.round((bpm + bpmStartChunk) / 2) : bpm;
           chunk = [...chunk, ...data.slice(0, lastIdx - lastDataIdx)];
         }

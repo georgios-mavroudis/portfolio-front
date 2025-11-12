@@ -1,10 +1,10 @@
 import { type FC, useCallback, useEffect, useMemo, useState } from 'react';
-import { usePlot } from '../SleepData/hooks';
 import { useWebGL } from './hooks';
 import { HEIGHT, MAX_Y_POINT } from './constants';
 import { Box, Stack } from '@chakra-ui/react';
 import { draw, render } from './utils';
 import { fragmentShaderSource, vertexShaderSource } from './sources';
+import { usePlot } from '@/visualizations/graph-hooks';
 
 const ZOOM_SENSITIVITY = 0.001;
 

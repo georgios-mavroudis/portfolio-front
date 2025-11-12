@@ -1,7 +1,7 @@
 import type { Data } from '@/types/sleep-data-types';
 import { useMemo } from 'react';
-import { usePlot } from './hooks';
 import { inRange } from '@/common/helpers';
+import { usePlot } from '@/visualizations/graph-hooks';
 
 type Props = {
   data: Data[];
@@ -16,8 +16,11 @@ export const DataContainer = ({ data, children }: Props) => {
    * */
   const renderableData = useMemo(() => {
     const [minDate, maxDate] = dateScale.domain();
+    const halfPeriod = (maxDate.getTime() - minDate.getTime()) / 2;
+    const adjustedMinDate = new Date(minDate.getTime() - 0.1 * halfPeriod);
+
     return data.filter((datum) =>
-      inRange(datum.bedTime.getTime(), minDate.getTime(), maxDate.getTime())
+      inRange(datum.bedTime.getTime(), adjustedMinDate.getTime(), maxDate.getTime())
     );
   }, [data, dateScale]);
   return <>{children({ data: renderableData })}</>;

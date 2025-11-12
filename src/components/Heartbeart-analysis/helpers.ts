@@ -1,5 +1,5 @@
 import type { HeartbeatData } from '@/queries/heartbeat-analysis/heartbeat-analysis.queries';
-import { GRID_HEIGHT, GRID_WIDTH } from '@/visualizations/constants';
+import type { Dimensions } from '@/visualizations/components/PlotContext';
 
 const SQUARE_SIZE = 30; // px
 
@@ -14,16 +14,6 @@ export const GRID_MS = 200; // ms
 export const GRID_MV = 0.5; // mV
 
 export const MV_HEIGHT = 2 * GRID_MV;
-
-export const BEAT_HEIGHT = GRID_HEIGHT * 2;
-
-// one square box grid = 0.5mV / 200ms
-// for 360 frequency we have 1 s --> 360 fiducial points so 200ms --> 360 * .2s = 72 points
-// On the y axis we want to display a height of 2mV [-1mV, 1mV(=MV_HEIGHT)] --> 4 boxes * 0.5mV
-// BEAT_HEIGHT --> 4 boxes, GRID_WIDTH --> ? boxes
-// boxes in x axis --> (GRID_WIDTH / BEAT_HEIGHT) * 4 --> (980 / 220) * 4 = 17.8182 boxes
-// to ms: 17.8182 * grid time (=72) --> 1282.91 points
-export const BEAT_LENGTH = ((GRID_WIDTH * 4) / BEAT_HEIGHT) * GRID_MS;
 
 export function calculateHeartBeat(
   startIdx: number,
@@ -48,8 +38,18 @@ export function calculateHeartBeat(
 }
 
 export const getGridLength = (frequency: number) => (frequency * GRID_MS) / SECOND;
-export const getViewerLength = (frequency: number) =>
-  ((GRID_WIDTH * 4) / BEAT_HEIGHT) * getGridLength(frequency);
+
+// one square box grid = 0.5mV / 200ms for 360 frequency we have 1 s --> 360 fiducial points
+// so 200ms --> 360 * .2s = 72 points (=grid time).
+// On the y axis we want to display a height of 2mV [-1mV, 1mV(=MV_HEIGHT)] --> 4 boxes * 0.5mV
+// height --> 4 boxes, width --> ? boxes
+// boxes in x axis --> (width / height) * 4
+// ex. width = 980, height = 220: (980 / 220) * 4 = 17.8182 boxes
+// to ms: 17.8182 * grid time (=72) --> 1282.91 points
+export const getViewerLength = (frequency: number, dimensions: Dimensions) => {
+  const { width, height } = dimensions;
+  return ((width * 4) / height) * getGridLength(frequency);
+};
 
 export const fiducialDatumToTime = (datum: number, frequency: number) =>
   (datum * SECOND) / frequency;

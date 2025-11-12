@@ -5,8 +5,8 @@ import { NotFound } from './NotFound';
 import { HomePage } from '@/components/HomePage';
 import { ScaledScatterPage } from '@/components/ScaledScatterPlot/ScaledScatterPage';
 import { FShape } from '@/components/FShape/FShape';
-import { HeartBeatAnalysis } from '@/components/Heartbeart-analysis/Analysis';
-import { StockChart } from '@/components/Financial-data/StockChart';
+import { HeartBeatAnalysis } from '@/components/Heartbeart-analysis/HeartbeatAnalysis';
+import { StockData } from '@/components/Financial-data/StockData';
 
 const rootRoute = createRootRoute({
   component: App,
@@ -46,7 +46,7 @@ const heartbeatRoute = createRoute({
 const StockDataRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/stock-data',
-  component: StockChart,
+  component: StockData,
 });
 
 export const RouteTree = rootRoute.addChildren([

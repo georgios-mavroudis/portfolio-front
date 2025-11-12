@@ -1,9 +1,9 @@
 import { HEART_RATE, SLEEP_SCORE } from '@/components/SleepData/constants';
-import { usePlot } from '@/components/SleepData/hooks';
 import { Box, Button, Flex, Text } from '@chakra-ui/react';
 import { type FC, useCallback } from 'react';
 import { TOKENS } from '../constants';
 import { useGraphColors } from '../../design-system/hooks';
+import { getInitialYScale, usePlot } from '../graph-hooks';
 
 const TITLE_FONT_SIZE = 16;
 export const SPACING_S = 8; // TODO: spacing.s
@@ -18,10 +18,12 @@ const colorStyles = (color: string): Partial<React.CSSProperties> => ({
 });
 
 export const PlotFooter: FC = () => {
-  const { setYAxisDisplay, yAxisDisplay, setWithLine, withLine } = usePlot();
+  const { setYScale, setYAxisDisplay, yAxisDisplay, setWithLine, withLine } = usePlot();
   const changeYDisplay = useCallback(() => {
-    setYAxisDisplay(yAxisDisplay === SLEEP_SCORE ? HEART_RATE : SLEEP_SCORE);
-  }, [setYAxisDisplay, yAxisDisplay]);
+    const display = yAxisDisplay === SLEEP_SCORE ? HEART_RATE : SLEEP_SCORE;
+    setYAxisDisplay(display);
+    setYScale(getInitialYScale(display));
+  }, [yAxisDisplay]);
   const showLine = useCallback(() => {
     setWithLine(!withLine);
   }, [setWithLine, withLine]);

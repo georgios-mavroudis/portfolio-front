@@ -1,8 +1,6 @@
-import { usePlot } from '@/components/SleepData/hooks';
-import { getSleepDurationPalette } from '@/visualizations/graph-hooks';
+import { getSleepDurationPalette, usePlot } from '@/visualizations/graph-hooks';
 import type { Data } from '@/types/sleep-data-types';
 import { type FC } from 'react';
-import { GRID_HEIGHT } from '../constants';
 import { PALETTE } from '@/design-system/palette';
 import { useGraphColors } from '../../design-system/hooks';
 
@@ -18,7 +16,12 @@ const MINIMUM_WIDTH_FACTOR = 6;
 const MAX_FONT_SIZE = 30;
 
 export const ScorePlot: FC<Props> = ({ data, hoveredBar }) => {
-  const { dateScale, yScale, transform } = usePlot();
+  const {
+    dateScale,
+    yScale,
+    transform,
+    dimensions: { height },
+  } = usePlot();
   const {
     sleepData: { sleepScorePalette },
     text,
@@ -30,7 +33,7 @@ export const ScorePlot: FC<Props> = ({ data, hoveredBar }) => {
         .map(({ id, duration, wakeTime, bedTime, score }) => {
           const filteredScore = score as number;
           const durationColor = getSleepDurationPalette(duration, sleepScorePalette);
-          const barHeight = GRID_HEIGHT + yScale(filteredScore as number) - GRID_HEIGHT;
+          const barHeight = height + yScale(filteredScore as number) - height;
           const barWidth =
             wakeTime && bedTime
               ? dateScale(wakeTime) - dateScale(bedTime)
@@ -48,7 +51,7 @@ export const ScorePlot: FC<Props> = ({ data, hoveredBar }) => {
                   fill={durationColor}
                   x={dateScale(bedTime ?? 0)}
                   width={barWidth + (isHovering ? PIXEL_SIZE : 0)}
-                  y={GRID_HEIGHT - yScale(filteredScore)}
+                  y={height - yScale(filteredScore)}
                   height={barHeight + (isHovering ? PIXEL_SIZE : 0)}
                   stroke={isHovering ? PALETTE.brand['100'] : durationColor}
                   strokeWidth={1.5}
@@ -58,7 +61,7 @@ export const ScorePlot: FC<Props> = ({ data, hoveredBar }) => {
               </g>
               <g
                 transform={`translate(${dateScale(bedTime ?? 0)}, ${
-                  GRID_HEIGHT - yScale(filteredScore) - TEXT_PADDING
+                  height - yScale(filteredScore) - TEXT_PADDING
                 })`}
               >
                 {transform.k > VISIBLE_TEXT_ZOOM && (

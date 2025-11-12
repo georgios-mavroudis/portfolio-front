@@ -30,7 +30,7 @@ export const buttonRecipe = defineRecipe({
     variant: {
       primary: {
         bg: 'foreground.primary',
-        color: 'foreground.text',
+        color: 'text.secondary',
         _hover: { bg: 'foreground.primary-hover' },
         _active: { bg: 'foreground.primary-active' },
         _disabled: { bg: 'foreground.disabled' },

@@ -6,6 +6,7 @@ import { Heart } from '@/design-system/custom-icons/Heart';
 import { Play, Stop, Ruler as RulerIcon } from '@untitled-ui/icons-react';
 import { useHeartbeatData } from '@/queries/heartbeat-analysis/heartbeat-analysis.queries';
 import { Alert } from '@/design-system/components/Alert';
+import { HeartbeatContainer } from './HeartbeatContainer';
 
 export const HeartBeatAnalysis = () => {
   const [rulerActive, setRulerActive] = useState(false);
@@ -80,12 +81,16 @@ export const HeartBeatAnalysis = () => {
                 </Stat.Root>
               ))}
             </VStack>
-            <HeartbeatGraph
-              data={data.data}
-              playAnimation={playAnimation}
-              rulerActive={rulerActive}
-              setHeartbeat={setHeartBeat}
-            />
+            <HeartbeatContainer data={data.data}>
+              {({ data }) => (
+                <HeartbeatGraph
+                  data={data}
+                  playAnimation={playAnimation}
+                  rulerActive={rulerActive}
+                  setHeartbeat={setHeartBeat}
+                />
+              )}
+            </HeartbeatContainer>
           </HStack>
         </HStack>
       </VStack>

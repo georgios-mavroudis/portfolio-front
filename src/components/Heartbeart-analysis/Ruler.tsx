@@ -1,11 +1,10 @@
 import { useGraphColors } from '@/design-system/hooks';
 import { useCallback, useMemo, type MouseEvent } from 'react';
 import { pointer } from 'd3';
-import { GRID_WIDTH } from '@/visualizations/constants';
 import { PALETTE } from '@/design-system/palette';
 import { roundToSpecificDecimals } from '@/common/helpers';
 import { usePlot } from '@/visualizations/graph-hooks';
-import { BEAT_HEIGHT, fiducialDatumToTime } from './helpers';
+import { fiducialDatumToTime } from './helpers';
 
 export const Ruler = ({ frequency }: { frequency: number }) => {
   const {
@@ -13,6 +12,7 @@ export const Ruler = ({ frequency }: { frequency: number }) => {
     xScale,
     yScale,
     setRuler,
+    dimensions: { width, height },
   } = usePlot();
   const {
     heartBeat: { ruler, rulerBorder },
@@ -48,7 +48,12 @@ export const Ruler = ({ frequency }: { frequency: number }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [rulerUpdating, xScale, yScale]
   );
-  const { x, y, width, height } = useMemo(() => {
+  const {
+    x,
+    y,
+    width: rulerWidth,
+    height: rulerHeight,
+  } = useMemo(() => {
     const [xMin, xMax] = [Math.min(x1, x2), Math.max(x1, x2)];
     const [yMin, yMax] = [Math.min(y1, y2), Math.max(y1, y2)];
     const [x, width] = [
@@ -64,13 +69,13 @@ export const Ruler = ({ frequency }: { frequency: number }) => {
 
   return (
     <svg
-      width={GRID_WIDTH}
-      height={BEAT_HEIGHT}
+      width={width}
+      height={height}
       style={{
         top: 0,
         position: 'absolute',
       }}
-      viewBox={`0 0 ${GRID_WIDTH} ${BEAT_HEIGHT}`}
+      viewBox={`0 0 ${width} ${height}`}
       onMouseDown={startRuler}
       onMouseUp={stopRuler}
       onMouseMove={mouseMove}
@@ -95,8 +100,8 @@ export const Ruler = ({ frequency }: { frequency: number }) => {
       <rect
         x={x}
         y={y}
-        width={width}
-        height={height}
+        width={rulerWidth}
+        height={rulerHeight}
         fill={ruler}
         opacity={0.5}
         stroke={rulerBorder}

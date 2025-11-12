@@ -17,6 +17,12 @@ export const SCALE_FACTOR = PLOT_HEIGHT / SVG_HEIGHT;
 
 // Zoom
 export const ZOOM_LEVELS_MAP = {
+  '90_DAYS': {
+    duration: 90,
+    scale: 30 / 90,
+    ticksInterval1: [3, 'days'],
+    ticksInterval2: [1, 'months'],
+  },
   '60_DAYS': {
     duration: 60,
     scale: 30 / 60,
@@ -70,7 +76,7 @@ export const ZOOM_LEVELS_MAP = {
 export type ZoomLevel = keyof typeof ZOOM_LEVELS_MAP;
 
 export const MAX_ZOOM_LEVEL: ZoomLevel = '6_HOURS';
-export const MIN_ZOOM_LEVEL: ZoomLevel = '60_DAYS';
+export const MIN_ZOOM_LEVEL: ZoomLevel = '90_DAYS';
 export const ZOOM_LEVELS = Object.keys(ZOOM_LEVELS_MAP) as ZoomLevel[];
 
 export const closestZoomLevel = (scale: number): ZoomLevel => {

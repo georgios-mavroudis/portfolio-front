@@ -13,9 +13,16 @@ export const useGraphColors = () => {
     ? {
         text: PALETTE.grey[500],
         lightText: PALETTE.grey[400],
-        darkText: PALETTE.common.black,
+        contrastText: PALETTE.common.black,
         background: PALETTE.common.white,
         mouseLine: PALETTE.grey[400],
+        stockData: {
+          win: PALETTE.green[600],
+          loss: PALETTE.red[400],
+          stale: PALETTE.grey[600],
+          barBorderWin: PALETTE.green[900],
+          barBorderLoss: PALETTE.red[900],
+        },
         heartBeat: {
           strip: PALETTE.common.black,
           ruler: PALETTE.grey[100],
@@ -32,9 +39,17 @@ export const useGraphColors = () => {
     : {
         text: PALETTE.common.white,
         lightText: PALETTE.common.white,
-        darkText: PALETTE.common.white,
+        contrastText: PALETTE.common.white,
         background: PALETTE.brand[700],
-        mouseLine: PALETTE.grey[100],
+        // mouseLine: PALETTE.grey[50],
+        mouseLine: PALETTE.common.white,
+        stockData: {
+          win: PALETTE.green[200],
+          loss: PALETTE.red[200],
+          stale: PALETTE.grey[200],
+          barBorderWin: PALETTE.green[900],
+          barBorderLoss: PALETTE.red[900],
+        },
         heartBeat: {
           strip: PALETTE.green[100],
           ruler: PALETTE.red[300],

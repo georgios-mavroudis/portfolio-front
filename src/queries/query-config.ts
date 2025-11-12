@@ -1,5 +1,6 @@
 export const QUERY_KEYS = {
   stockData: 'data',
+  companySymbol: 'symbol',
   heartbeatEcg: 'ecg',
 };
 

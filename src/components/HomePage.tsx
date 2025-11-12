@@ -1,4 +1,4 @@
-import { HStack, Link, List, Text, VStack } from '@chakra-ui/react';
+import { Link, List, Text, VStack } from '@chakra-ui/react';
 import type { FC } from 'react';
 
 export const HomePage: FC = () => {
@@ -39,21 +39,6 @@ export const HomePage: FC = () => {
             <List.Item>zoom</List.Item>
             <List.Item>paint over areas</List.Item>
             <List.Item>export an image ??</List.Item>
-          </List.Root>
-        </List.Item>
-        <List.Item>
-          [ ] Financial Chart
-          <HStack>
-            <Link
-              href="https://www.scichart.com/blog/using-javascript-for-financial-charts/"
-              target="_blank"
-            >
-              (scichart)
-            </Link>
-          </HStack>
-          <List.Root>
-            <List.Item>[ ] Fetch data from Alpha Vantage</List.Item>
-            <List.Item>[ ] Create the plot </List.Item>
           </List.Root>
         </List.Item>
         <List.Item>[ ] Dashboard like tsuga???</List.Item>

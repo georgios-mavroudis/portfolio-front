@@ -1,6 +1,5 @@
 import type { Data } from '@/types/sleep-data-types';
-import { type PlotData } from '@/visualizations/components/PlotContext';
-import { createContext, useContext } from 'react';
+import { usePlot } from '@/visualizations/graph-hooks';
 
 // Tooltip
 export const useFindHoveredDatum = (data: Data[]) => {
@@ -21,15 +20,4 @@ export const useFindHoveredDatum = (data: Data[]) => {
     }
     return hoveredDatum;
   };
-};
-
-export const PlotContext = createContext<PlotData | null>(null);
-
-export const usePlot = () => {
-  const context = useContext<PlotData | null>(PlotContext);
-  if (context === null) {
-    throw new Error('usePlot must be inside <PlotContext />');
-  }
-
-  return context;
 };

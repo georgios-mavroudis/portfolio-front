@@ -22,7 +22,6 @@ export const colors = defineSemanticTokens({
       success: { value: { base: '{colors.green.700}', _dark: '{colors.green.100}' } },
       warning: { value: { base: '{colors.orange.700}', _dark: '{colors.orange.100}' } },
       info: { value: { base: '{colors.blue.700}', _dark: '{colors.blue.100}' } },
-      text: { value: { base: '{colors.common.white}', _dark: '{colors.brand.700}' } },
     },
     border: {
       primary: { value: { base: '{colors.brand.700}', _dark: '{colors.brand.100}' } },
@@ -31,6 +30,10 @@ export const colors = defineSemanticTokens({
       success: { value: { base: '{colors.green.700}', _dark: '{colors.green.100}' } },
       warning: { value: { base: '{colors.orange.700}', _dark: '{colors.orange.100}' } },
       info: { value: { base: '{colors.blue.700}', _dark: '{colors.blue.100}' } },
+    },
+    text: {
+      primary: { value: { base: '{colors.common.black}', _dark: '{colors.common.white}' } },
+      secondary: { value: { base: '{colors.common.white}', _dark: '{colors.brand.700}' } },
     },
     icons: {},
     graph: {

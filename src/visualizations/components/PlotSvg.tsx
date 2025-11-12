@@ -5,9 +5,10 @@ import { PLOT_HEIGHT, PLOT_MARGIN, SVG_HEIGHT, SVG_WIDTH } from '../constants';
 export const PlotSvg: FC<
   PropsWithChildren<{
     id?: string;
-    reference?: any;
+    reference?: React.Ref<SVGSVGElement>;
+    height?: number;
   }>
-> = ({ id, children, reference }) => {
+> = ({ id, children, reference, height = PLOT_HEIGHT }) => {
   return (
     <Svg
       id={id}
@@ -23,7 +24,7 @@ export const PlotSvg: FC<
         userSelect: 'none',
       }}
       width={`calc(100% - ${PLOT_MARGIN.left}px)`}
-      height={PLOT_HEIGHT}
+      height={height}
     >
       {children}
     </Svg>

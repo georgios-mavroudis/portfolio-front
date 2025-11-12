@@ -29,31 +29,51 @@ import {
   TOKENS,
   SVG_WIDTH,
 } from '@/visualizations/constants';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { type BaseType, pointer, select, type Selection } from 'd3-selection';
 import { type D3ZoomEvent, zoom } from 'd3-zoom';
 import { timeFormat } from 'd3-time-format';
 import { SLEEP_SCORE, type YAxisDisplay } from '@/components/SleepData/constants';
 import { timeDay, timeHour, type TimeInterval, timeMonth } from 'd3-time';
 import { PALETTE } from '@/design-system/palette';
-import { usePlot } from '@/components/SleepData/hooks';
 import { scaleLinear, scaleUtc, type ScaleLinear, type ScaleTime } from 'd3-scale';
+import type { PlotData } from './components/PlotContext';
+
+// Plot
+export const PlotContext = createContext<PlotData | null>(null);
+
+export const usePlot = () => {
+  const context = useContext<PlotData | null>(PlotContext);
+  if (context === null) {
+    throw new Error('usePlot must be inside <PlotContext />');
+  }
+
+  return context;
+};
 
 // Scales
 const INITIAL_ZOOM = ZOOM_LEVELS_MAP['60_DAYS'];
 
 const getInitialDateRange = () => {
   const today = new Date();
-  const start = subDays(today, INITIAL_ZOOM.duration / 2);
-  const end = addDays(today, INITIAL_ZOOM.duration / 2);
+  const start = subDays(today, INITIAL_ZOOM.duration - 15);
+  const end = addDays(today, 15);
 
   return [start, end];
 };
 
 export const getInitialXScale = () => scaleLinear().domain([0, 1200]).range([0, GRID_WIDTH]);
 
-export const getInitialDateScale = () =>
-  scaleUtc().domain(getInitialDateRange()).range([0, SVG_WIDTH]);
+export const getInitialDateScale = (width = SVG_WIDTH) =>
+  scaleUtc().domain(getInitialDateRange()).range([0, width]);
 
 export const getInitialYScale = (yAxisDisplay: YAxisDisplay = 'Sleep Score') =>
   yAxisDisplay === SLEEP_SCORE
@@ -61,30 +81,40 @@ export const getInitialYScale = (yAxisDisplay: YAxisDisplay = 'Sleep Score') =>
     : scaleLinear().domain([MIN_HR, MAX_HR]).range([0, GRID_HEIGHT]).clamp(true);
 
 export const useYTicks = () => {
-  const { yScale } = usePlot();
+  const {
+    yScale,
+    dimensions: { height },
+  } = usePlot();
   return useMemo(() => {
-    const reversedYScale = yScale.copy().range([GRID_HEIGHT, 0]);
-    return ticks(0, reversedYScale.domain()[1], 5).map((t) => reversedYScale(t));
-  }, [yScale]);
+    const reversedYScale = yScale.copy().range([height, 0]);
+    return ticks(reversedYScale.domain()[0], reversedYScale.domain()[1], 5).map((t) =>
+      reversedYScale(t)
+    );
+  }, [yScale, height]);
 };
 
 // Interactions
 export const useZoomAndPan = () => {
-  const { setDateScale, transform, setTransform } = usePlot();
+  const {
+    setDateScale,
+    transform,
+    setTransform,
+    dimensions: { width },
+  } = usePlot();
   const [mouseX, setMouseX] = useState<number | null>(null);
+  const [mouseY, setMouseY] = useState<number | null>(null);
   const [isDragging, setIsDragging] = useState(false);
-  const initialDateScale = useMemo(getInitialDateScale, []);
+  const initialDateScale = useMemo(() => getInitialDateScale(width), [width]);
 
-  const onMouseActive = useCallback(
-    (event: MouseEvent) => {
-      const [x] = pointer(event);
-      setMouseX(x);
-    },
-    [setMouseX]
-  );
+  const onMouseActive = useCallback((event: MouseEvent) => {
+    const [x, y] = pointer(event);
+    setMouseX(x);
+    setMouseY(y);
+  }, []);
 
   const onMouseLeave = useCallback(() => {
     setMouseX(null);
+    setMouseY(null);
   }, [setMouseX]);
 
   // change the scale everytime the transform changes
@@ -141,6 +171,7 @@ export const useZoomAndPan = () => {
   }, [zoomAndPan]);
 
   return {
+    mouseY,
     mouseX,
     isDragging,
   };
@@ -290,3 +321,25 @@ export const useScale = ({
     () => scaleLinear().domain([domainStart, domainEnd]).range([rangeStart, rangeEnd]),
     [domainStart, domainEnd, rangeStart, rangeEnd]
   );
+
+export function useResizeObserver<T extends HTMLElement>() {
+  const ref = useRef<T | null>(null);
+  const [size, setSize] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const { width, height } = entry.contentRect;
+        setSize({ width, height });
+      }
+    });
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  return { ref, ...size };
+}

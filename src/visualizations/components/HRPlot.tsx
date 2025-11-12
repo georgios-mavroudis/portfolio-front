@@ -1,11 +1,11 @@
 import { type FC, useMemo } from 'react';
 import { isBefore } from 'date-fns';
 import type { Data } from '@/types/sleep-data-types';
-import { usePlot } from '@/components/SleepData/hooks';
 import { findMiddlePoint } from '@/components/SleepData/helpers';
-import { GRID_HEIGHT, HIGHLIGHTED_DOT_RADIUS, MINIMAL_DOT_RADIUS } from '../constants';
+import { HIGHLIGHTED_DOT_RADIUS, MINIMAL_DOT_RADIUS } from '../constants';
 import { PALETTE } from '@/design-system/palette';
 import { useGraphColors } from '../../design-system/hooks';
+import { usePlot } from '../graph-hooks';
 
 type Props = {
   data: Data[];
@@ -14,7 +14,12 @@ type Props = {
 };
 
 export const HRPlot: FC<Props> = ({ data, hoveredPoint }) => {
-  const { dateScale, yScale, withLine } = usePlot();
+  const {
+    dateScale,
+    yScale,
+    withLine,
+    dimensions: { height },
+  } = usePlot();
   const filteredData = useMemo(
     () =>
       data
@@ -28,10 +33,10 @@ export const HRPlot: FC<Props> = ({ data, hoveredPoint }) => {
       filteredData
         .map(({ wakeTime, duration, meanHr }) => {
           const middleSleepPoint = findMiddlePoint(wakeTime, duration);
-          return `${dateScale(middleSleepPoint)}, ${GRID_HEIGHT - yScale(meanHr as number)}`;
+          return `${dateScale(middleSleepPoint)}, ${height - yScale(meanHr as number)}`;
         })
         .join(' '),
-    [filteredData, dateScale, yScale]
+    [filteredData, dateScale, yScale, height]
   );
   const {
     sleepData: { hrLine, hrPoint },
@@ -50,7 +55,7 @@ export const HRPlot: FC<Props> = ({ data, hoveredPoint }) => {
           <circle
             key={i}
             cx={dateScale(middleSleepPoint)}
-            cy={GRID_HEIGHT - yScale(meanHr)}
+            cy={height - yScale(meanHr)}
             r={isHovering ? HIGHLIGHTED_DOT_RADIUS : MINIMAL_DOT_RADIUS}
             strokeWidth={isHovering ? 2 : 1}
             stroke={hrPoint}
