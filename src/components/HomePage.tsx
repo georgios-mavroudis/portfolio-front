@@ -21,10 +21,10 @@ export const HomePage: FC = () => {
           </List.Root>
         </List.Item>
         <List.Item>
-          [ ] SleepData
+          [x] SleepData
           <List.Root ps="5">
-            <List.Item>[ ] Rename it to Garmin sleep data </List.Item>
-            <List.Item>[ ] Add a title and description</List.Item>
+            <List.Item>[x] Rename it to Garmin sleep data </List.Item>
+            <List.Item>[x] Add a title and description</List.Item>
           </List.Root>
         </List.Item>
         <List.Item>

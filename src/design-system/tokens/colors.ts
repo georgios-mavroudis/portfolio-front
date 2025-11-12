@@ -1,16 +1,16 @@
 import { defineTokens } from '@chakra-ui/react';
-import { colorToChakra } from '../helpers/utils';
+import { tokenToChakra } from '../helpers/utils';
 import { PALETTE } from '../palette';
 
 export const colors = defineTokens({
   colors: {
-    brand: colorToChakra(PALETTE.brand),
-    grey: colorToChakra(PALETTE.grey),
-    red: colorToChakra(PALETTE.red),
-    orange: colorToChakra(PALETTE.orange),
-    green: colorToChakra(PALETTE.green),
-    blue: colorToChakra(PALETTE.blue),
-    lightBrown: colorToChakra(PALETTE.lightBrown),
+    brand: tokenToChakra(PALETTE.brand),
+    grey: tokenToChakra(PALETTE.grey),
+    red: tokenToChakra(PALETTE.red),
+    orange: tokenToChakra(PALETTE.orange),
+    green: tokenToChakra(PALETTE.green),
+    blue: tokenToChakra(PALETTE.blue),
+    lightBrown: tokenToChakra(PALETTE.lightBrown),
     common: {
       white: { value: PALETTE.common.white },
       black: { value: PALETTE.common.black },

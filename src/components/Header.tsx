@@ -36,7 +36,7 @@ export const Header: FC = () => {
                       Heartbeat Analysis
                     </RouterLink>
                     <RouterLink to="/sleep-data" onClick={onClose}>
-                      Sleep Data
+                      Garmin Sleep Data
                     </RouterLink>
                     <RouterLink to="/scaled-scatter-plot" onClick={onClose}>
                       Scaled Scatter Plot

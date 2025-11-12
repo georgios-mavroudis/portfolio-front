@@ -2,6 +2,8 @@ import { createSystem, defaultConfig, defineConfig } from '@chakra-ui/react';
 import { colors } from './tokens/colors';
 import { colors as semanticColors } from './semantic-tokens/colors';
 import { buttonRecipe } from './recipes/button.recipe';
+import { alertSlotRecipe } from '@chakra-ui/react/theme';
+import { spacing } from './tokens/spacing';
 
 const config = defineConfig({
   // strictTokens: true,
@@ -14,6 +16,7 @@ const config = defineConfig({
     // textStyles: {},
     tokens: {
       ...colors,
+      ...spacing,
     },
     semanticTokens: {
       ...semanticColors,
@@ -21,7 +24,9 @@ const config = defineConfig({
     recipes: {
       button: buttonRecipe,
     },
-    // slotRecipes: {},
+    slotRecipes: {
+      alert: alertSlotRecipe,
+    },
   },
 });
 const system = createSystem(defaultConfig, config);

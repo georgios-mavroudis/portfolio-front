@@ -1,10 +1,11 @@
 import { PlotProvider } from '@/visualizations/components/PlotContext';
-import { Box, Flex, Loader, Stack } from '@chakra-ui/react';
+import { Flex, Loader, Text, VStack } from '@chakra-ui/react';
 import { Graph } from './Graph';
 import json from '@/components/SleepData/data.json';
 import type { Data } from '@/types/sleep-data-types';
 import type { Interval } from '@/visualizations/constants';
 import { DataContainer } from './DataContainer';
+import { Alert } from '@/design-system/components/Alert';
 
 const convertStringToDate = (
   data: {
@@ -23,8 +24,6 @@ const convertStringToDate = (
   }));
 };
 export const SleepData = () => {
-  //  const { id } = useParams();
-  // const data = useData(id);
   // TODO: Change this with data from the server
   const data = { data: convertStringToDate(json), isSuccess: true, isError: false };
 
@@ -32,31 +31,29 @@ export const SleepData = () => {
     return <Loader />;
   }
 
-  // if (data.isError) {
-  //   return <CustomAlert message="No Patient data found!" status="error" />;
-  // }
+  if (data.isError) {
+    return (
+      <Alert title="No data found!" description="The request returned with error" status="error" />
+    );
+  }
 
-  // if (patientQuery.isError) {
-  //   return <CustomAlert message="No found!" status="error" />;
-  // }
   return (
-    <Flex direction={{ base: 'column', lg: 'row' }} height="100%" marginBottom="xl">
-      <Stack width="100%" gap="s" height="100%" overflow={{ base: 'visible', lg: 'auto' }}>
-        <Flex
-          justifyContent="center"
-          width="100%"
-          marginTop="m"
-          display={{ base: 'none', sm: 'inherit' }}
-        >
-          <Box marginX="m">
-            <PlotProvider>
-              <DataContainer data={data.data}>
-                {({ data: renderableData }) => <Graph data={renderableData} />}
-              </DataContainer>
-            </PlotProvider>
-          </Box>
+    <Flex height="full">
+      <VStack width="full" gap="md" height="full">
+        <VStack alignItems="start" width="full">
+          <Text textStyle="h2">Garmin sleep data</Text>
+          <Text>A graph that displays sleep data coming from a garmin smartwatch</Text>
+        </VStack>
+        <Flex width="full">
+          <PlotProvider>
+            <DataContainer data={data.data}>
+              {({ data: renderableData }) => <Graph data={renderableData} />}
+            </DataContainer>
+          </PlotProvider>
+          {/* <Box>
+          </Box> */}
         </Flex>
-      </Stack>
+      </VStack>
     </Flex>
   );
 };

@@ -3,13 +3,13 @@ import { StockChart } from './StockChart';
 import { useStockData } from '@/queries/stock-data/stock-data-queries';
 import { HStack, Text, VStack } from '@chakra-ui/react';
 import { Alert } from '@/design-system/components/Alert';
-import json from './data.json';
 import { useState } from 'react';
 import { StockDataContainer } from './StockDataContainer';
 import { COMPANIES, companyListCollection, type CompanySymbol } from '@/queries/stock-data/model';
 import { Select, type SelectOption } from '@/design-system/components/Select';
 
 export const StockData = () => {
+  // TODO: Add an approprate message if we hit the free api key limit
   const [company, setCompany] = useState<SelectOption<CompanySymbol>>({
     value: COMPANIES[0].value,
     label: COMPANIES[0].label,
