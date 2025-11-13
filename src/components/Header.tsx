@@ -10,7 +10,7 @@ export const Header: FC = () => {
   const { open, onToggle, onClose } = useDisclosure();
 
   return (
-    <Stack as="header" width="full" p={4} borderBottom="sm" boxShadow="md">
+    <Stack as="header" width="full" p={4} borderBottom="sm" boxShadow="md" bg="background.primary">
       <HStack justifyContent="space-between">
         <HStack position="relative">
           <Logo />
@@ -35,7 +35,7 @@ export const Header: FC = () => {
                     <RouterLink to="/heartbeat-analysis" onClick={onClose}>
                       Heartbeat Analysis
                     </RouterLink>
-                    <RouterLink to="/sleep-data" onClick={onClose}>
+                    <RouterLink to="/garmin-sleep-data" onClick={onClose}>
                       Garmin Sleep Data
                     </RouterLink>
                     <RouterLink to="/scaled-scatter-plot" onClick={onClose}>
@@ -50,7 +50,7 @@ export const Header: FC = () => {
                     <RouterLink to="/" onClick={onClose}>
                       Observability Dashboard
                     </RouterLink>
-                    <RouterLink to="/" onClick={onClose}>
+                    <RouterLink to="/ct-scan" onClick={onClose}>
                       Brain ct scan
                     </RouterLink>
                   </VStack>

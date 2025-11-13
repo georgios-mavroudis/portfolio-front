@@ -1,4 +1,4 @@
-import { Link, List, Text, VStack } from '@chakra-ui/react';
+import { List, Text, VStack } from '@chakra-ui/react';
 import type { FC } from 'react';
 
 export const HomePage: FC = () => {
@@ -18,13 +18,6 @@ export const HomePage: FC = () => {
             <List.Item>[x] Add Heart icon and animation</List.Item>
             <List.Item>[ ] Add Tooltip on the toolbar buttons</List.Item>
             <List.Item>[ ] Add upload of dat files and parsing from the back</List.Item>
-          </List.Root>
-        </List.Item>
-        <List.Item>
-          [x] SleepData
-          <List.Root ps="5">
-            <List.Item>[x] Rename it to Garmin sleep data </List.Item>
-            <List.Item>[x] Add a title and description</List.Item>
           </List.Root>
         </List.Item>
         <List.Item>

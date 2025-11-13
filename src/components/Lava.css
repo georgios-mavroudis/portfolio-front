@@ -1,0 +1,17 @@
+@keyframes blobFloat {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    transform: translate(calc(-50% + 10vw), calc(-50% - 10vh)) rotate(30deg);
+  }
+  50% {
+    transform: translate(calc(-50% + 0vw), calc(-50% + 10vh)) rotate(0deg);
+  }
+  75% {
+    transform: translate(calc(-50% - 10vw), calc(-50% - 10vh)) rotate(-30deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
