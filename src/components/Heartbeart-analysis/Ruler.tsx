@@ -81,7 +81,7 @@ export const Ruler = ({ frequency }: { frequency: number }) => {
       onMouseMove={mouseMove}
       cursor={'crosshair'}
     >
-      {roundToSpecificDecimals(xScale.invert(width), 2) > 0 && (
+      {roundToSpecificDecimals(xScale.invert(rulerWidth), 2) > 0 && (
         <g id="scale-label" transform={`translate(${x}, ${y - 10})`}>
           <defs>
             <filter x="0" y="0" width="1" height="1" id="solid">
@@ -93,7 +93,7 @@ export const Ruler = ({ frequency }: { frequency: number }) => {
             </filter>
           </defs>
           <text fill={PALETTE.common.black} filter="url(#solid)" fontWeight={600} strokeWidth={0}>
-            {`${roundToSpecificDecimals(Math.abs(y1 - y2), 2)} mV, ${roundToSpecificDecimals(fiducialDatumToTime(xScale.invert(width), frequency), 2)} ms`}
+            {`${roundToSpecificDecimals(Math.abs(y1 - y2), 2)} mV, ${roundToSpecificDecimals(fiducialDatumToTime(xScale.invert(rulerWidth), frequency), 2)} ms`}
           </text>
         </g>
       )}

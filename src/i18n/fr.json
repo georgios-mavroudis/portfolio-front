@@ -1,0 +1,17 @@
+{
+  "translation": {
+    "ABOUT_ME": {
+      "DESCRIPTION": "Je suis un ingénieur logiciel avec 9 ans d'expérience. J'ai travaillé dans une multitude de startups et d'environnements à grande vitesse pour comprendre comment les produits sont livrés rapidement et avec une haute qualité. L'une de mes expériences qui a changé ma vie a été dans la société Cardiologs, où ce fut une histoire à succès et elle a été acquise par Philips."
+    },
+    "HEARTBEAT_ANALYSIS": {
+      "HR": "FC",
+      "FILE_NAME": "Nom du fichier",
+      "FREQUENCY": "Fréquence (Hz)",
+      "LEAD": "Dérivation",
+      "TOOLBAR": {
+        "TOGGLE_BEAT": "Lecture / pause du battement",
+        "TOGGLE_RULER": "Baculer la règle"
+      }
+    }
+  }
+}

@@ -29,6 +29,10 @@ export type HeartbeatData = {
   };
 };
 export const useHeartbeatData = () => {
+  // TODO:
+  // - [ ] Get the data from the server
+  // - [ ] Add an upload feature to upload dat files parse them in the backend
+  // and return them to the front
   //   const fetch = useFetch();
 
   return useQuery({

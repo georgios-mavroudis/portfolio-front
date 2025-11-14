@@ -8,9 +8,11 @@ export const HomePage: FC = () => {
   return (
     <VStack alignItems="start" p={2}>
       <HStack width="full" justifyContent="center">
-        <Text textStyle="h2">About me</Text>
-        <Text>{t('ABOUT_ME.DESCRIPTION')}</Text>
-        <Image src={png} width={400} rounded="md" border="2px solid red" />
+        <VStack alignItems="start" justifyContent="start" height="full">
+          <Text textStyle="h2">About me</Text>
+          <Text>{t('ABOUT_ME.DESCRIPTION')}</Text>
+        </VStack>
+        <Image src={png} width={400} rounded="md" border="md" borderColor="border.primary" />
       </HStack>
       <Text>Projects</Text>
       <List.Root ps="5">
@@ -20,17 +22,6 @@ export const HomePage: FC = () => {
           <List.Item> [x] Add internationalization (French and english)</List.Item>
           <List.Item> [] Add french translations to all strings</List.Item>
         </List.Root>
-        <List.Item>
-          [ ] HeartBeat iteration (canvas)
-          <List.Root ps="5">
-            <List.Item>[x] A heartbeat that moves along a graph</List.Item>
-            <List.Item>[x] Will be able to stop the movement</List.Item>
-            <List.Item>[x] Create a ruler</List.Item>
-            <List.Item>[x] Add Heart icon and animation</List.Item>
-            <List.Item>[ ] Add Tooltip on the toolbar buttons</List.Item>
-            <List.Item>[ ] Add upload of dat files and parsing from the back</List.Item>
-          </List.Root>
-        </List.Item>
         <List.Item>
           [ ] Heart WebGL
           <List.Root ps="5">

@@ -7,12 +7,15 @@ import { Play, Stop, Ruler as RulerIcon } from '@untitled-ui/icons-react';
 import { useHeartbeatData } from '@/queries/heartbeat-analysis/heartbeat-analysis.queries';
 import { Alert } from '@/design-system/components/Alert';
 import { HeartbeatContainer } from './HeartbeatContainer';
+import { useTranslation } from 'react-i18next';
+import { Tooltip } from '@/design-system/components/tooltip';
 
 export const HeartBeatAnalysis = () => {
   const [rulerActive, setRulerActive] = useState(false);
   const [playAnimation, setPlayAnimation] = useState(true);
   const data = useHeartbeatData();
   const [heartBeat, setHeartBeat] = useState<string | number>('--');
+  const { t } = useTranslation();
 
   if (!data.isSuccess) {
     return (
@@ -34,16 +37,16 @@ export const HeartBeatAnalysis = () => {
               <HStack width="full" gap={5}>
                 <Heart />
                 <Stat.Root>
-                  <Stat.Label>HR </Stat.Label>
+                  <Stat.Label>{t('HEARTBEAT_ANALYSIS.HR')}</Stat.Label>
                   <Stat.ValueText>{heartBeat} bpm</Stat.ValueText>
                 </Stat.Root>
               </HStack>
               <HStack>
-                <Text textStyle="lg">Frequency:</Text>
+                <Text textStyle="lg">{t('HEARTBEAT_ANALYSIS.FREQUENCY')}:</Text>
                 <Text>{heartbeatData.frequency}</Text>
               </HStack>
               <HStack>
-                <Text textStyle="lg">File name:</Text>
+                <Text textStyle="lg">{t('HEARTBEAT_ANALYSIS.FILE_NAME')}:</Text>
                 <Text>{heartbeatData.fileName}</Text>
               </HStack>
             </VStack>
@@ -61,23 +64,29 @@ export const HeartBeatAnalysis = () => {
                   onClick={() => setPlayAnimation(!playAnimation)}
                   mr={2}
                 >
-                  {playAnimation ? <Stop /> : <Play />}
+                  <Tooltip content={t('HEARTBEAT_ANALYSIS.TOOLBAR.TOGGLE_BEAT')}>
+                    {playAnimation ? <Stop /> : <Play />}
+                  </Tooltip>
                 </Button>
                 <Button
                   variant={rulerActive ? 'outline' : 'tertiary'}
                   size="sm"
                   onClick={() => setRulerActive(!rulerActive)}
                 >
-                  <RulerIcon />
+                  <Tooltip content={t('HEARTBEAT_ANALYSIS.TOOLBAR.TOGGLE_RULER')}>
+                    <RulerIcon />
+                  </Tooltip>
                 </Button>
               </Box>
             </HStack>
           </VStack>
           <HStack height="full">
-            <VStack alignItems="end" height="full" width={20}>
+            <VStack height="full">
               {Object.keys(data.data.leads).map((key) => (
-                <Stat.Root key={key}>
-                  <Stat.Label>Lead: {key}</Stat.Label>
+                <Stat.Root key={key} width={40} alignItems="end">
+                  <Stat.Label>
+                    {t('HEARTBEAT_ANALYSIS.LEAD')}: {key}
+                  </Stat.Label>
                 </Stat.Root>
               ))}
             </VStack>
