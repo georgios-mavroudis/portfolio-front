@@ -1,14 +1,25 @@
-import { List, Text, VStack } from '@chakra-ui/react';
+import { HStack, Image, List, Text, VStack } from '@chakra-ui/react';
 import type { FC } from 'react';
+import png from '@/assets/profile.png';
+import { useTranslation } from 'react-i18next';
 
 export const HomePage: FC = () => {
+  const { t } = useTranslation();
   return (
     <VStack alignItems="start" p={2}>
+      <HStack width="full" justifyContent="center">
+        <Text textStyle="h2">About me</Text>
+        <Text>{t('ABOUT_ME.DESCRIPTION')}</Text>
+        <Image src={png} width={400} rounded="md" border="2px solid red" />
+      </HStack>
       <Text>Projects</Text>
       <List.Root ps="5">
         <List.Item> [ ] About me page</List.Item>
-        <List.Item> [ ] Fluid visualization for the background</List.Item>
-        <List.Item> [ ] Add internationalization (French and english)</List.Item>
+        <List.Item> [x] Fluid visualization for the background</List.Item>
+        <List.Root ps="5">
+          <List.Item> [x] Add internationalization (French and english)</List.Item>
+          <List.Item> [] Add french translations to all strings</List.Item>
+        </List.Root>
         <List.Item>
           [ ] HeartBeat iteration (canvas)
           <List.Root ps="5">
