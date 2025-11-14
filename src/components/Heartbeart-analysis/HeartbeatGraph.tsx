@@ -36,7 +36,7 @@ export const HeartbeatGraph: FC<Props> = ({ data, rulerActive, playAnimation, se
   return (
     <VStack alignItems="start">
       {Object.entries(leads).map(([key, beat]) => (
-        <Box boxShadow="md" key={key} position="relative">
+        <Box boxShadow="md" key={key} position="relative" bg="graph.background">
           <svg
             style={{
               width: width,
