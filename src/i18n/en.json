@@ -1,7 +1,8 @@
 {
   "translation": {
     "ABOUT_ME": {
-      "DESCRIPTION": "I am a software engineer with 9 years of experience. I have worked in a multitude of startups and high speed environments to understand how products get delivered fast and with high quality. One of my life changing experiences has been in the company Cardiologs where it was a success story and it got acquired by Philips."
+      "DESCRIPTION": "Senior software engineer with 10 years of experience. With a high experience on startups and fast paced environments, I am equipped with the tools to deliver high quality products and accompany a client to all phases of their project.",
+      "EXTRA": "With experience in a multitude of sectors like medical (cardiologs sold to Philips in 2022), oil & gas and observability, I can adapt to any domain and deliver a great product."
     },
     "HEARTBEAT_ANALYSIS": {
       "HR": "HR",
@@ -12,6 +13,8 @@
         "TOGGLE_BEAT": "Play / pause beat",
         "TOGGLE_RULER": "Toggle ruler"
       }
-    }
+    },
+    "SAMPLES": "Sample Projects",
+    "EXPERIENCE": "Experience"
   }
 }

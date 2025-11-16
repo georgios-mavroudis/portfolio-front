@@ -1,7 +1,8 @@
 {
   "translation": {
     "ABOUT_ME": {
-      "DESCRIPTION": "Je suis un ingénieur logiciel avec 9 ans d'expérience. J'ai travaillé dans une multitude de startups et d'environnements à grande vitesse pour comprendre comment les produits sont livrés rapidement et avec une haute qualité. L'une de mes expériences qui a changé ma vie a été dans la société Cardiologs, où ce fut une histoire à succès et elle a été acquise par Philips."
+      "DESCRIPTION": "Ingénieur logiciel senior avec 10 ans d'expérience. Fort d'une solide expérience au sein de startups et dans des environnements dynamiques, je possède les compétences nécessaires pour fournir des produits de haute qualité et accompagner mes clients à chaque étape de leurs projets.",
+      "EXTRA": "Mon expérience dans de nombreux secteurs, tels que le médical (cardiologs rachetée par Philips en 2022), le pétrole et le gaz et l'observabilité, me permet de m'adapter à tout domaine et de garantir un excellent résultat."
     },
     "HEARTBEAT_ANALYSIS": {
       "HR": "FC",
@@ -12,6 +13,8 @@
         "TOGGLE_BEAT": "Lecture / pause du battement",
         "TOGGLE_RULER": "Baculer la règle"
       }
-    }
+    },
+    "SAMPLES": "Exemples de projets",
+    "EXPERIENCE": "Expérience"
   }
 }
