@@ -29,7 +29,7 @@ export const Select = <T extends string | number>({
       <ChakraSelect.HiddenSelect />
       <ChakraSelect.Label>{title}</ChakraSelect.Label>
       <ChakraSelect.Control>
-        <ChakraSelect.Trigger>
+        <ChakraSelect.Trigger bg="background.primary">
           <Text color="text.primary">{value}</Text>
           {!value && <ChakraSelect.ValueText placeholder={placeholder} />}
         </ChakraSelect.Trigger>

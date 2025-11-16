@@ -17,7 +17,7 @@ export const Header: FC = () => {
   const { open, onToggle, onClose } = useDisclosure();
   const [langIcon, setLangIcon] = useState(LANGUAGE_MAPPING[i18n.language] || en);
   return (
-    <Stack as="header" width="full" p={4} boxShadow="md" bg="background.primary">
+    <Stack as="header" width="full" p="md" boxShadow="md" bg="background.primary">
       <HStack justifyContent="space-between">
         <HStack position="relative">
           <Logo />

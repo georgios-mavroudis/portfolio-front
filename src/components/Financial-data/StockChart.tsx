@@ -45,7 +45,7 @@ export const StockChart: FC<Props> = ({ data, loading = false }) => {
       boxShadow="md"
       bg="graph.background"
       borderWidth={1}
-      p={5}
+      p="md"
     >
       <svg
         id={INTERACTIVE_PLOT}

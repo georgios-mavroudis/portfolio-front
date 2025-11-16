@@ -19,9 +19,8 @@ function App() {
               minH="full"
               templateColumns={{ base: '1fr', md: '1fr' }}
               templateRows="auto 1fr auto"
-              gap={4}
             >
-              <Stack p={4}>
+              <Stack p="md">
                 <Outlet />
               </Stack>
             </Grid>

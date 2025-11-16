@@ -38,7 +38,7 @@ export const PlotTooltip: FC<Props> = ({ datum, mouseX }) => {
           background="background.primary"
           border={`1px solid ${PALETTE.grey['100']}`}
           borderRadius={3}
-          p={2}
+          p="sm"
           opacity={0.95}
         >
           <Flex direction="column" align={'center'}>

@@ -13,8 +13,8 @@ const SPACES = {
 
 export const spacing = defineTokens({
   spacing: {
-    ...tokenToChakra(SPACES),
-    sm12: { value: 12 }, // 12px
-    none: { value: 0 },
+    ...tokenToChakra(SPACES, false),
+    sm12: { value: `12px` },
+    none: { value: `0px` },
   },
 });
