@@ -4,6 +4,7 @@ import { select, type NumberValue, axisBottom } from 'd3';
 import { getBottomTicks, tickInterval, usePlot } from '@/visualizations/graph-hooks';
 import { YScale } from './YScale';
 import { useGraphColors } from '../../design-system/hooks';
+import { useTranslation } from 'react-i18next';
 
 const DAYS_MARGIN = 12;
 const MONTHS_MARGIN = 28;
@@ -24,6 +25,8 @@ export const Axises: FC<Props> = ({ positionY = 'left', withBorders = false, fon
     dimensions: { height, width },
   } = usePlot();
   const { text, lightText } = useGraphColors();
+  const { i18n } = useTranslation();
+
   useEffect(() => {
     if (svg != null) {
       const zoomLevel = closestZoomLevel(transform.k);
@@ -47,7 +50,7 @@ export const Axises: FC<Props> = ({ positionY = 'left', withBorders = false, fon
         const [startDate, endDate] = dateScale.domain();
         const [, unit] = ZOOM_LEVELS_MAP[zoomLevel].ticksInterval2;
         const timeScale = dateScale.copy();
-        const ticks = getBottomTicks(startDate, endDate, unit, dateScale);
+        const ticks = getBottomTicks(startDate, endDate, unit, dateScale, i18n.language);
 
         const xAxis = axisBottom(timeScale)
           .tickValues(ticks.map((tick) => tick.date))
@@ -64,7 +67,7 @@ export const Axises: FC<Props> = ({ positionY = 'left', withBorders = false, fon
           .style('font-size', fontSize);
       }
     }
-  }, [svg, dateScale, transform.k, text, lightText, fontSize]);
+  }, [svg, dateScale, transform.k, text, lightText, fontSize, i18n.language]);
 
   return (
     <>

@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { select, axisLeft } from 'd3';
 import { usePlot, useYTicks } from '@/visualizations/graph-hooks';
 import { useGraphColors } from '../../design-system/hooks';
+import { useTranslation } from 'react-i18next';
 
 const SCALE_ID = 'y-scale';
 const SCALE_LABEL_ID = 'y-scale-label';
@@ -39,6 +40,14 @@ export const YScale = ({
     }
   }, [svg, ticks, yScale, text, height, fontSize]);
 
+  const { t, i18n } = useTranslation();
+  const translatedLabel = useMemo(
+    () =>
+      yAxisDisplay === 'Heart Rate'
+        ? t('GARMIN_SLEEP_DATA.Y_AXIS_LABEL.HEART_RATE')
+        : t('GARMIN_SLEEP_DATA.Y_AXIS_LABEL.SLEEP_SCORE'),
+    [yAxisDisplay, i18n.language]
+  );
   return (
     <>
       <g id={SCALE_ID} />
@@ -52,7 +61,7 @@ export const YScale = ({
             style={{ fontSize: fontSize }}
             transform="rotate(-90)"
           >
-            {yAxisDisplay}
+            {translatedLabel}
           </text>
         </g>
       )}

@@ -3,13 +3,19 @@ import { GRID, INTERACTIVE_CONTAINER, INTERACTIVE_PLOT } from '@/visualizations/
 import { AbsoluteCenter, Box, Spinner } from '@chakra-ui/react';
 import { useEffect, type FC } from 'react';
 import type { StockData } from '@/queries/stock-data/model';
-import { usePlot, useResizeObserver, useZoomAndPan } from '@/visualizations/graph-hooks';
+import {
+  LOCALE_MAPPING,
+  usePlot,
+  useResizeObserver,
+  useZoomAndPan,
+} from '@/visualizations/graph-hooks';
 import { useGraphColors } from '@/design-system/hooks';
 import { Candlesticks } from './Candlesticks';
 import { MonthSeparators } from '@/visualizations/components/MonthSeparators';
 import { format } from 'date-fns';
 import { PALETTE } from '@/design-system/palette';
 import { roundToSpecificDecimals } from '@/common/helpers';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   data: StockData[];
@@ -36,7 +42,7 @@ export const StockChart: FC<Props> = ({ data, loading = false }) => {
   useEffect(() => {
     setDimensions({ width: refWidth });
   }, [refWidth]);
-
+  const { i18n } = useTranslation();
   return (
     <Box
       ref={ref}
@@ -115,7 +121,7 @@ export const StockChart: FC<Props> = ({ data, loading = false }) => {
                 style={{ fontSize: FONT_SIZE }}
                 fill={PALETTE.common.black}
               >
-                {formatDate(dateScale.invert(mouseX))}
+                {formatDate(dateScale.invert(mouseX), i18n.language)}
               </text>
             </g>
           )}
@@ -151,4 +157,5 @@ export const StockChart: FC<Props> = ({ data, loading = false }) => {
   );
 };
 
-const formatDate = (date: Date) => format(date, 'E do MMM yy');
+const formatDate = (date: Date, language: string) =>
+  format(date, 'E do MMM yy', { locale: LOCALE_MAPPING[language] || LOCALE_MAPPING['en'] });

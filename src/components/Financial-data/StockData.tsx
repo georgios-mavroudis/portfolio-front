@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { StockDataContainer } from './StockDataContainer';
 import { COMPANIES, companyListCollection, type CompanySymbol } from '@/queries/stock-data/model';
 import { Select, type SelectOption } from '@/design-system/components/Select';
+import { useTranslation } from 'react-i18next';
 
 export const StockData = () => {
   // TODO: Add an approprate message if we hit the free api key limit
@@ -14,11 +15,11 @@ export const StockData = () => {
     value: COMPANIES[0].value,
     label: COMPANIES[0].label,
   });
+  const { t } = useTranslation();
   const data = useStockData(company.value);
   if (data.isError) {
-    return <Alert title="No Patient data found!" status="error" />;
+    return <Alert title={t('NOT_FOUND.NO_DATA')} status="error" />;
   }
-
   return (
     <VStack width="full">
       <HStack alignItems="start" justifyContent="space-between" width="full">
@@ -29,7 +30,7 @@ export const StockData = () => {
           options={companyListCollection}
           value={company.label}
           onChange={(value) => setCompany(value.items[0] as SelectOption<CompanySymbol>)}
-          title="Companies"
+          title={t('COMPANY', { count: COMPANIES.length })}
         />
       </HStack>
       <PlotProvider>

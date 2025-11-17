@@ -21,7 +21,7 @@ const homePageRoute = createRoute({
 
 const sleepDataRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/sleep-data',
+  path: '/garmin-sleep-data',
   component: SleepData,
 });
 

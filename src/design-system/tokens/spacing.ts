@@ -1,7 +1,7 @@
 import { defineTokens } from '@chakra-ui/react';
 import { tokenToChakra } from '../helpers/utils';
 
-const SPACES = {
+export const SPACES = {
   xxs: 2,
   xs: 4,
   sm: 8,

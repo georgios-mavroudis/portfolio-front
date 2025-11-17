@@ -3,7 +3,7 @@ import { type Data } from '@/types/sleep-data-types';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { format } from 'date-fns';
 import { PALETTE } from '@/design-system/palette';
-import { SPACING_S } from './PlotFooter';
+import { SPACES } from '@/design-system/tokens/spacing';
 
 type Props = {
   datum: Data | null;
@@ -11,7 +11,7 @@ type Props = {
 };
 const TOOLTIP_WIDTH = 110;
 const TOOLTIP_HEIGHT = 50;
-const PADDING = SPACING_S; // TODO: use design system spacing
+const PADDING = SPACES.sm; // TODO: use design system spacing
 const FONT_SIZE_PX = 6;
 
 export const PlotTooltip: FC<Props> = ({ datum, mouseX }) => {

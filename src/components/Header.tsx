@@ -2,12 +2,12 @@ import { Button, Image, Menu, Portal } from '@chakra-ui/react';
 import { RouterLink } from '@/design-system/components/RouterLink';
 import { Drawer, HStack, Stack, useDisclosure, VStack } from '@chakra-ui/react';
 import { Menu01 } from '@untitled-ui/icons-react';
-import { useState, type FC } from 'react';
+import { useMemo, type FC } from 'react';
 import { ColorModeButton } from '@/design-system/components/color-mode';
 import { Logo } from '@/design-system/custom-icons/Logo';
 import en from '@/design-system/custom-icons/en.svg';
 import fr from '@/design-system/custom-icons/fr.svg';
-import i18n from '@/i18n/i18n';
+import { useTranslation } from 'react-i18next';
 
 const LANGUAGE_MAPPING: Record<string, string> = {
   en,
@@ -15,7 +15,9 @@ const LANGUAGE_MAPPING: Record<string, string> = {
 };
 export const Header: FC = () => {
   const { open, onToggle, onClose } = useDisclosure();
-  const [langIcon, setLangIcon] = useState(LANGUAGE_MAPPING[i18n.language] || en);
+  const { t, i18n } = useTranslation();
+  const langIcon = useMemo(() => LANGUAGE_MAPPING[i18n.language] || en, [i18n.language]);
+
   return (
     <Stack as="header" width="full" p="md" boxShadow="md" bg="background.primary">
       <HStack justifyContent="space-between">
@@ -23,12 +25,7 @@ export const Header: FC = () => {
           <Logo />
         </HStack>
         <HStack>
-          <Menu.Root
-            onSelect={(d) => {
-              setLangIcon(LANGUAGE_MAPPING[d.value]);
-              i18n.changeLanguage(d.value);
-            }}
-          >
+          <Menu.Root onSelect={(d) => i18n.changeLanguage(d.value)}>
             <Menu.Trigger asChild>
               <Button variant="tertiary" size="sm">
                 <Image src={langIcon} />
@@ -59,7 +56,7 @@ export const Header: FC = () => {
             <Drawer.Positioner>
               <Drawer.Content>
                 <Drawer.Header>
-                  <Drawer.Title>Projects</Drawer.Title>
+                  <Drawer.Title>{t('PROJECT')}</Drawer.Title>
                 </Drawer.Header>
                 <Drawer.Body>
                   <VStack alignItems="start">
@@ -80,9 +77,6 @@ export const Header: FC = () => {
                     </RouterLink>
                     <RouterLink to="/" onClick={onClose}>
                       Observability Dashboard
-                    </RouterLink>
-                    <RouterLink to="/ct-scan" onClick={onClose}>
-                      Brain ct scan
                     </RouterLink>
                   </VStack>
                 </Drawer.Body>

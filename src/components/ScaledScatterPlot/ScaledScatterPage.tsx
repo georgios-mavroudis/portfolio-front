@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 import { HEIGHT, MAX_Y_POINT, SLIDER_MAX, SLIDER_MIN } from './constants';
 import { HStack, Slider, Text, VStack } from '@chakra-ui/react';
 import { ScatterGraph } from './ScatterGraph';
+import { useTranslation } from 'react-i18next';
 
 type Datum = {
   x: number;
@@ -20,14 +21,11 @@ export const ScaledScatterPage = () => {
       })),
     [sliderValue]
   );
-
+  const { t } = useTranslation();
   return (
     <VStack alignItems="start">
-      <Text>Scaled Scatter Plot</Text>
-      <Text>
-        A page where you can easily render thousands of points in the browser through webGL with no
-        impact on performance
-      </Text>
+      <Text>{t('SCALED_SCATTER_PLOT.TITLE')}</Text>
+      <Text>{t('SCALED_SCATTER_PLOT.DESCRIPTION')}</Text>
       <HStack justifyContent="space-between" width="full">
         <VStack alignItems="start" height={HEIGHT} justifyContent={'start'}>
           <Slider.Root
@@ -44,7 +42,9 @@ export const ScaledScatterPage = () => {
               <Slider.Thumbs />
             </Slider.Control>
           </Slider.Root>
-          <Text>Number of points: {sliderValue}</Text>
+          <Text>
+            {t('SCALED_SCATTER_PLOT.POINTS_LABEL')}: {sliderValue}
+          </Text>
         </VStack>
         <PlotProvider>
           <ScatterGraph data={data} />

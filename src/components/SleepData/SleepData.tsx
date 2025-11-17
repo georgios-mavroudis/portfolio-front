@@ -6,6 +6,7 @@ import type { Data } from '@/types/sleep-data-types';
 import type { Interval } from '@/visualizations/constants';
 import { DataContainer } from './DataContainer';
 import { Alert } from '@/design-system/components/Alert';
+import { useTranslation } from 'react-i18next';
 
 const convertStringToDate = (
   data: {
@@ -26,14 +27,18 @@ const convertStringToDate = (
 export const SleepData = () => {
   // TODO: Change this with data from the server
   const data = { data: convertStringToDate(json), isSuccess: true, isError: false };
-
+  const { t } = useTranslation();
   if (!data.isSuccess) {
     return <Loader />;
   }
 
   if (data.isError) {
     return (
-      <Alert title="No data found!" description="The request returned with error" status="error" />
+      <Alert
+        title={t('NOT_FOUND.NO_DATA')}
+        description={t('NOT_FOUND.DESCRIPTION')}
+        status="error"
+      />
     );
   }
 
@@ -41,8 +46,8 @@ export const SleepData = () => {
     <Flex height="full">
       <VStack width="full" gap="md" height="full">
         <VStack alignItems="start" width="full">
-          <Text textStyle="h2">Garmin sleep data</Text>
-          <Text>A graph that displays sleep data coming from a garmin smartwatch</Text>
+          <Text textStyle="h2">{t('GARMIN_SLEEP_DATA.TITLE')}</Text>
+          <Text>{t('GARMIN_SLEEP_DATA.DESCRIPTION')}</Text>
         </VStack>
         <Flex width="full">
           <PlotProvider>
@@ -50,8 +55,6 @@ export const SleepData = () => {
               {({ data: renderableData }) => <Graph data={renderableData} />}
             </DataContainer>
           </PlotProvider>
-          {/* <Box>
-          </Box> */}
         </Flex>
       </VStack>
     </Flex>

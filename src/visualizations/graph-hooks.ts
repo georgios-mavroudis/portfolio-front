@@ -12,6 +12,7 @@ import {
   subMilliseconds,
   subMinutes,
   subMonths,
+  type Locale,
 } from 'date-fns';
 import {
   INTERACTIVE_CONTAINER,
@@ -40,12 +41,15 @@ import {
 } from 'react';
 import { type BaseType, pointer, select, type Selection } from 'd3-selection';
 import { type D3ZoomEvent, zoom } from 'd3-zoom';
-import { timeFormat } from 'd3-time-format';
+import { timeFormat, timeFormatLocale, type TimeLocaleDefinition } from 'd3-time-format';
+import enJson from 'd3-time-format/locale/en-US';
+import frJson from 'd3-time-format/locale/fr-FR';
 import { SLEEP_SCORE, type YAxisDisplay } from '@/components/SleepData/constants';
 import { timeDay, timeHour, type TimeInterval, timeMonth } from 'd3-time';
 import { PALETTE } from '@/design-system/palette';
 import { scaleLinear, scaleUtc, type ScaleLinear, type ScaleTime } from 'd3-scale';
 import type { PlotData } from './components/PlotContext';
+import { enUS, fr } from 'date-fns/locale';
 
 // Plot
 export const PlotContext = createContext<PlotData | null>(null);
@@ -177,10 +181,21 @@ export const useZoomAndPan = () => {
   };
 };
 
+export const TIME_FORMAT_LOCALE_MAPPING: Record<string, TimeLocaleDefinition> = {
+  en: enJson as TimeLocaleDefinition,
+  fr: frJson as TimeLocaleDefinition,
+};
+
 // Date Axises
-export const getVisibleDays = (start: Date, end: Date, dateScale: ScaleTime<number, number>) => {
+export const getVisibleDays = (
+  start: Date,
+  end: Date,
+  dateScale: ScaleTime<number, number>,
+  language: string
+) => {
   const days = [];
-  const format = timeFormat('%A %d');
+  const timeFormat = timeFormatLocale(TIME_FORMAT_LOCALE_MAPPING[language] || enJson);
+  const format = timeFormat.format('%A %d');
   let current = startOfDay(start);
   while (isBefore(current, end)) {
     const firstHourOfDay = startOfDay(current);
@@ -200,10 +215,15 @@ export const getVisibleDays = (start: Date, end: Date, dateScale: ScaleTime<numb
   return days;
 };
 
+export const LOCALE_MAPPING: Record<string, Locale> = {
+  en: enUS,
+  fr: fr,
+};
 export const getVisibleMonths = (
   start: Date,
   end: Date,
   dateScale: ScaleTime<number, number>,
+  language: string,
   prefetchPadding = 0
 ) => {
   const months = [];
@@ -218,7 +238,9 @@ export const getVisibleMonths = (
   while (isBefore(current, endWithPadding)) {
     const firstDayOfMonth = startOfMonth(current);
     const lastDayOfMonth = endOfMonth(current);
-    const monthName = format(current, 'MMMM');
+    const monthName = format(current, 'MMMM', {
+      locale: LOCALE_MAPPING[language] || enUS,
+    });
     const firstVisibleMonthDay =
       firstDayOfMonth > startWithPadding && firstDayOfMonth < endWithPadding
         ? firstDayOfMonth
@@ -278,9 +300,15 @@ export const getBottomTicks = (
   startDate: Date,
   endDate: Date,
   unit: 'months' | 'days',
-  dateScale: ScaleTime<number, number>
+  dateScale: ScaleTime<number, number>,
+  language: string
 ) => {
-  return (unit === 'months' ? getVisibleMonths : getVisibleDays)(startDate, endDate, dateScale);
+  return (unit === 'months' ? getVisibleMonths : getVisibleDays)(
+    startDate,
+    endDate,
+    dateScale,
+    language
+  );
 };
 
 // A color palette to represent the duration of sleep
