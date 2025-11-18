@@ -3,6 +3,7 @@ import { select, axisLeft } from 'd3';
 import { usePlot, useYTicks } from '@/visualizations/graph-hooks';
 import { useGraphColors } from '../../design-system/hooks';
 import { useTranslation } from 'react-i18next';
+import { FONT_SIZES } from '@/design-system/tokens/fonts';
 
 const SCALE_ID = 'y-scale';
 const SCALE_LABEL_ID = 'y-scale-label';
@@ -10,7 +11,7 @@ const LABEL_X_OFFSET = -30;
 
 export const YScale = ({
   withBorders = false,
-  fontSize = 8,
+  fontSize = FONT_SIZES.xs,
 }: {
   position: 'left' | 'right';
   withBorders?: boolean;

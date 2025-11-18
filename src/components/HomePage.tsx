@@ -7,17 +7,17 @@ import { Experience } from './Experience';
 export const HomePage: FC = () => {
   const { t } = useTranslation();
   return (
-    <VStack alignItems="start">
+    <VStack alignItems="start" gap="xxl">
       <HStack width="full" justifyContent="center">
         <VStack alignItems="start" justifyContent="start" height="full" width="50%">
-          <Text textStyle="h2">GEORGIOS MAVROUDIS</Text>
+          <Text textStyle="h1">GEORGIOS MAVROUDIS</Text>
           <Text>{t('ABOUT_ME.DESCRIPTION')}</Text>
           <Text>{t('ABOUT_ME.EXTRA')}</Text>
         </VStack>
         <Image src={png} width={400} rounded="md" border="md" borderColor="border.primary" />
       </HStack>
-      <VStack justifyContent="center" width="full">
-        <Text textStyle="title">{t('EXPERIENCE')}</Text>
+      <VStack justifyContent="center" width="full" gap="lg">
+        <Text textStyle="h2">{t('EXPERIENCE')}</Text>
         <Experience />
       </VStack>
     </VStack>

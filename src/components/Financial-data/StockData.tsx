@@ -21,7 +21,8 @@ export const StockData = () => {
     return <Alert title={t('NOT_FOUND.NO_DATA')} status="error" />;
   }
   return (
-    <VStack width="full">
+    <VStack width="full" alignItems="start">
+      <Text textStyle="h3">{t('STOCK_DATA.TITLE')}</Text>
       <HStack alignItems="start" justifyContent="space-between" width="full">
         <VStack height="full" justifyContent="center">
           <Text textStyle="lg">{company.label}</Text>

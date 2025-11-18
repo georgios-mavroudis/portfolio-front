@@ -16,6 +16,7 @@ import { format } from 'date-fns';
 import { PALETTE } from '@/design-system/palette';
 import { roundToSpecificDecimals } from '@/common/helpers';
 import { useTranslation } from 'react-i18next';
+import { FONT_SIZES } from '@/design-system/tokens/fonts';
 
 type Props = {
   data: StockData[];
@@ -23,7 +24,6 @@ type Props = {
 };
 
 const OFFSET = 50;
-const FONT_SIZE = 12;
 const VIEWBOX_HEIGHT_OFFSET = 65;
 const VIEWBOX_WIDTH_OFFSET = 25;
 
@@ -101,7 +101,7 @@ export const StockChart: FC<Props> = ({ data, loading = false }) => {
           />
         </g>
         <g transform={`translate(${OFFSET}, 0)`}>
-          <Axises withBorders={true} fontSize={FONT_SIZE} />
+          <Axises withBorders={true} fontSize={FONT_SIZES.sm} />
           {mouseX && (
             <g>
               <defs>
@@ -117,8 +117,7 @@ export const StockChart: FC<Props> = ({ data, loading = false }) => {
                 filter="url(#solid)"
                 y={height + OFFSET}
                 x={mouseX ?? 0}
-                fontSize=".4rem"
-                style={{ fontSize: FONT_SIZE }}
+                style={{ fontSize: FONT_SIZES.sm }}
                 fill={PALETTE.common.black}
               >
                 {formatDate(dateScale.invert(mouseX), i18n.language)}
@@ -139,7 +138,7 @@ export const StockChart: FC<Props> = ({ data, loading = false }) => {
               <text
                 filter="url(#solid)"
                 y={mouseY + 4}
-                style={{ fontSize: FONT_SIZE }}
+                style={{ fontSize: FONT_SIZES.sm }}
                 fill={PALETTE.common.black}
               >
                 {roundToSpecificDecimals(yScale.invert(height - mouseY), 2)}

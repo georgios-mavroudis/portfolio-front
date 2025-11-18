@@ -30,14 +30,15 @@ export const HeartBeatAnalysis = () => {
   const { data: heartbeatData } = data;
   return (
     <PlotProvider>
-      <VStack height="full" p="md">
+      <VStack height="full" p="md" alignItems="start" gap="md">
+        <Text textStyle="h3">{t('HEARTBEAT_ANALYSIS.TITLE')}</Text>
         <HStack width="full" justifyContent="space-between">
           <VStack alignItems="start" justifyContent={'space-between'} height="full">
             <VStack alignItems="start">
               <HStack width="full" gap="md">
                 <Heart />
                 <Stat.Root>
-                  <Stat.Label>{t('HEARTBEAT_ANALYSIS.HR')}</Stat.Label>
+                  <Stat.Label color="text.primary">{t('HEARTBEAT_ANALYSIS.HR')}</Stat.Label>
                   <Stat.ValueText>{heartBeat} bpm</Stat.ValueText>
                 </Stat.Root>
               </HStack>
@@ -84,7 +85,7 @@ export const HeartBeatAnalysis = () => {
             <VStack height="full">
               {Object.keys(data.data.leads).map((key) => (
                 <Stat.Root key={key} width={40} alignItems="end">
-                  <Stat.Label>
+                  <Stat.Label color="text.primary">
                     {t('HEARTBEAT_ANALYSIS.LEAD')}: {key}
                   </Stat.Label>
                 </Stat.Root>

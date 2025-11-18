@@ -5,6 +5,7 @@ import { getBottomTicks, tickInterval, usePlot } from '@/visualizations/graph-ho
 import { YScale } from './YScale';
 import { useGraphColors } from '../../design-system/hooks';
 import { useTranslation } from 'react-i18next';
+import { FONT_SIZES } from '@/design-system/tokens/fonts';
 
 const DAYS_MARGIN = 12;
 const MONTHS_MARGIN = 28;
@@ -17,7 +18,11 @@ type Props = {
   withBorders?: boolean;
   fontSize?: number;
 };
-export const Axises: FC<Props> = ({ positionY = 'left', withBorders = false, fontSize = 8 }) => {
+export const Axises: FC<Props> = ({
+  positionY = 'left',
+  withBorders = false,
+  fontSize = FONT_SIZES.xs,
+}) => {
   const {
     dateScale,
     svg,

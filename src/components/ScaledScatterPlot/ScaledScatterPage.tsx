@@ -24,7 +24,7 @@ export const ScaledScatterPage = () => {
   const { t } = useTranslation();
   return (
     <VStack alignItems="start">
-      <Text>{t('SCALED_SCATTER_PLOT.TITLE')}</Text>
+      <Text textStyle="h3">{t('SCALED_SCATTER_PLOT.TITLE')}</Text>
       <Text>{t('SCALED_SCATTER_PLOT.DESCRIPTION')}</Text>
       <HStack justifyContent="space-between" width="full">
         <VStack alignItems="start" height={HEIGHT} justifyContent={'start'}>
@@ -42,7 +42,7 @@ export const ScaledScatterPage = () => {
               <Slider.Thumbs />
             </Slider.Control>
           </Slider.Root>
-          <Text>
+          <Text textStyle="sm">
             {t('SCALED_SCATTER_PLOT.POINTS_LABEL')}: {sliderValue}
           </Text>
         </VStack>

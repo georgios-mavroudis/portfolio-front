@@ -46,7 +46,7 @@ export const SleepData = () => {
     <Flex height="full">
       <VStack width="full" gap="md" height="full">
         <VStack alignItems="start" width="full">
-          <Text textStyle="h2">{t('GARMIN_SLEEP_DATA.TITLE')}</Text>
+          <Text textStyle="h3">{t('GARMIN_SLEEP_DATA.TITLE')}</Text>
           <Text>{t('GARMIN_SLEEP_DATA.DESCRIPTION')}</Text>
         </VStack>
         <Flex width="full">

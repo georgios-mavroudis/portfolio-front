@@ -4,19 +4,21 @@ import { colors as semanticColors } from './semantic-tokens/colors';
 import { buttonRecipe } from './recipes/button.recipe';
 import { alertSlotRecipe } from '@chakra-ui/react/theme';
 import { spacing } from './tokens/spacing';
+import { textStyles } from './tokens/text-styles';
+import { fonts } from './tokens/fonts';
 
 const config = defineConfig({
-  // strictTokens: true,
   globalCss: {
     body: {
       bg: 'background.primary',
     },
   },
   theme: {
-    // textStyles: {},
+    textStyles,
     tokens: {
       ...colors,
       ...spacing,
+      ...fonts,
     },
     semanticTokens: {
       ...semanticColors,

@@ -4,6 +4,7 @@ import { useWebGL } from '../ScaledScatterPlot/hooks';
 import { draw, render } from '../ScaledScatterPlot/utils';
 import { fragmentShaderSource, vertexShaderSource } from './sources';
 import { DEPTH, F_SHAPE_3D, HEIGHT, WIDTH } from './constants';
+import { useTranslation } from 'react-i18next';
 
 export const FShape = () => {
   const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
@@ -63,10 +64,10 @@ export const FShape = () => {
       });
     }
   }, [x, y, z, angleZ, angleX, angleY, scaleX, scaleY, scaleZ, attributes, positions, gl]);
-
+  const { t } = useTranslation();
   return (
     <VStack alignItems="start">
-      <Text>WEBGL Scatter Plot</Text>
+      <Text textStyle="h3">{t('F_SHAPE.TITLE')}</Text>
       <HStack width="full" justifyContent="space-between">
         <VStack alignItems="start" height={HEIGHT} justifyContent={'start'}>
           {[

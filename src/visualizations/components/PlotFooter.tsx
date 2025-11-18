@@ -7,7 +7,6 @@ import { getInitialYScale, usePlot } from '../graph-hooks';
 import { useTranslation } from 'react-i18next';
 import { SPACES } from '@/design-system/tokens/spacing';
 
-const TITLE_FONT_SIZE = 16;
 const colorStyles = (color: string): Partial<React.CSSProperties> => ({
   width: SPACES.md,
   margin: SPACES.sm,
@@ -40,7 +39,7 @@ export const PlotFooter: FC = () => {
       </Flex>
       {yAxisDisplay === SLEEP_SCORE && (
         <Flex direction="column" alignItems="center">
-          <Flex fontSize={TITLE_FONT_SIZE}>{t('GARMIN_SLEEP_DATA.LEGEND')}</Flex>
+          <Text textStyle="md">{t('GARMIN_SLEEP_DATA.LEGEND')}</Text>
           {[TOKENS.slice(1, 5), TOKENS.slice(5, 9), TOKENS.slice(9)].map((keys, i) => (
             <Flex justifyContent="space-between" key={i}>
               {keys.map((key, j) => {
