@@ -77,7 +77,7 @@ export class ThreeEngine {
     const ROT_SPEED = 0.005;
 
     this.theta -= deltaX * ROT_SPEED;
-    this.phi -= deltaY * ROT_SPEED;
+    this.phi += deltaY * ROT_SPEED;
 
     // Clamp vertical angle so the light never flips
     this.phi = clamp(this.phi, 0.1, Math.PI - 0.1);

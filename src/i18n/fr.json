@@ -30,8 +30,8 @@
     "COMPANY_other": "Entreprises",
     "GARMIN_SLEEP_DATA": {
       "TITLE": "Données de sommeil Garmin",
-      "DESCRIPTION": "Un graphique qui affiche les données de sommeil provenant d’une montre connectée Garmin. Il montre les heures de coucher et de réveil ainsi que le total d’heures dormies",
-      "DISPLAY": "Changer l’affichage",
+      "DESCRIPTION": "Un graphique qui affiche les données de sommeil provenant d'une montre connectée Garmin. Il montre les heures de coucher et de réveil ainsi que le total d'heures dormies",
+      "DISPLAY": "Changer l'affichage",
       "LEGEND": "Sommeil (heures)",
       "WOKE": "Heure de réveil",
       "SLEEP": "Heure de coucher",
@@ -42,8 +42,8 @@
       }
     },
     "SCALED_SCATTER_PLOT": {
-      "TITLE": "Nuage de points mis à l’échelle",
-      "DESCRIPTION": "Un nuage de points qui affiche des données avec des axes mis à l’échelle. Cette mise à l’échelle aide à visualiser plus efficacement la distribution et les relations entre les points de données",
+      "TITLE": "Nuage de points mis à l'échelle",
+      "DESCRIPTION": "Un nuage de points qui affiche des données avec des axes mis à l'échelle. Cette mise à l'échelle aide à visualiser plus efficacement la distribution et les relations entre les points de données",
       "POINTS_LABEL": "Nombre de points"
     },
     "STOCK_DATA": {
@@ -51,6 +51,14 @@
     },
     "F_SHAPE": {
       "TITLE": "Rotation, translation et mise à l'échelle WebGL"
+    },
+    "HEART_3D": {
+      "TITLE": "Visualisation d'un coeur en 3D",
+      "KEYS_CONFIGURATION": {
+        "ROTATE": "Clic gauche pour faire tourner l'objet",
+        "ZOOM": "Ctrl + molette pour zoomer",
+        "ROTATE_LIGHT": "Maj + clic gauche pour faire tourner la lumière autour de l'objet"
+      }
     }
   }
 }

@@ -51,6 +51,14 @@
     },
     "F_SHAPE": {
       "TITLE": "WebGL Rotation, translation and scaling"
+    },
+    "HEART_3D": {
+      "TITLE": "Visualisation of a heart in 3D",
+      "KEYS_CONFIGURATION": {
+        "ROTATE": "Left mouse to orbit around object",
+        "ZOOM": "Ctl + middle mouse to zoom in",
+        "ROTATE_LIGHT": "Shft + left mouse to orbit light around object"
+      }
     }
   }
 }
