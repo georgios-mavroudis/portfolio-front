@@ -20,6 +20,7 @@ export const Ruler = ({ frequency }: { frequency: number }) => {
 
   const startRuler = useCallback(
     (e: MouseEvent<SVGSVGElement>) => {
+      e.preventDefault();
       const [x, y] = pointer(e);
       const x1 = xScale.invert(x);
       const y1 = yScale.invert(y);
