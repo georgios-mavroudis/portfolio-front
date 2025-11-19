@@ -24,9 +24,14 @@ export const Header: FC = () => {
           <Logo />
         </HStack>
         <HStack>
+          <HStack gap="lg" pr="md">
+            <RouterLink to="/">Home</RouterLink>
+            <RouterLink>Samples</RouterLink>
+            <RouterLink>Contact</RouterLink>
+          </HStack>
           <Menu.Root onSelect={(d) => i18n.changeLanguage(d.value)}>
             <Menu.Trigger asChild>
-              <Button variant="tertiary" size="sm">
+              <Button variant="tertiary" p={0}>
                 <Image src={langIcon} />
               </Button>
             </Menu.Trigger>
@@ -43,10 +48,10 @@ export const Header: FC = () => {
               </Menu.Positioner>
             </Portal>
           </Menu.Root>
-          <ColorModeButton bg="foreground.primary" color="background.primary" />
+          <ColorModeButton variant="tertiary" size="md" />
           <Drawer.Root open={open} onOpenChange={onToggle}>
             <Drawer.Trigger asChild>
-              <Button size="sm">
+              <Button variant="tertiary">
                 <Menu01 />
               </Button>
             </Drawer.Trigger>

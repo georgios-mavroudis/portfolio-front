@@ -9,7 +9,7 @@ export const Logo: FC = () => {
   const [hovered, setHovered] = useState(false);
 
   const size = useMemo(() => {
-    return hovered ? { x: 58, y: 57 } : { x: 53, y: 52 };
+    return hovered ? { x: 58, y: 61 } : { x: 53, y: 56 };
   }, [hovered]);
   return (
     <Box
