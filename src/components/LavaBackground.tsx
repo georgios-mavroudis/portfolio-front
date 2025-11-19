@@ -31,7 +31,7 @@ export const LavaBackground = ({
     () =>
       colorMode === 'light'
         ? [PALETTE.brand[100], PALETTE.brand[200], PALETTE.brand[300], PALETTE.brand[50]]
-        : [PALETTE.brand[500], PALETTE.brand[600], PALETTE.brand[900], PALETTE.brand[700]],
+        : [PALETTE.brand[800], PALETTE.brand[900]],
     [colorMode]
   );
 

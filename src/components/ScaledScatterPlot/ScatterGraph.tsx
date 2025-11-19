@@ -5,6 +5,7 @@ import { Box, Stack } from '@chakra-ui/react';
 import { draw, render } from './utils';
 import { fragmentShaderSource, vertexShaderSource } from './sources';
 import { usePlot } from '@/visualizations/graph-hooks';
+import { pointer } from 'd3';
 
 const ZOOM_SENSITIVITY = 0.001;
 
@@ -79,9 +80,7 @@ export const ScatterGraph: FC<Props> = ({ data }) => {
   const onWheel = useCallback(
     (e: React.WheelEvent<HTMLDivElement>) => {
       if (gl && canvas && attributes) {
-        const { left } = canvas.getBoundingClientRect();
-        const cursor = e.clientX - left;
-
+        const [cursor] = pointer(e);
         const scaledCursor = (cursor - globalOffset) / scale;
 
         const zoomFactor = Math.exp(-e.deltaY * ZOOM_SENSITIVITY);

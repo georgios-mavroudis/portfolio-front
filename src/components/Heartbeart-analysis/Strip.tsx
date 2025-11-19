@@ -21,8 +21,6 @@ export const Strip: FC<Props> = ({
   frequency,
   QRS,
 }) => {
-  // const { min, max } = yDomain;
-  // const { min: rMin, max: rMax } = yRange;
   const animateId = useRef<number>(null);
   const stripRef = useRef<HTMLCanvasElement>(null);
   const {
@@ -30,7 +28,6 @@ export const Strip: FC<Props> = ({
     yScale,
     dimensions: { width, height },
   } = usePlot();
-  // const yScale = useScale({ domain: { start: min, end: max }, range: { start: rMin, end: rMax } });
   const {
     heartBeat: { strip },
   } = useGraphColors();
@@ -72,16 +69,13 @@ export const Strip: FC<Props> = ({
       }
     };
 
-    if (isAnimationActive) {
-      const animateData = () => {
-        draw();
-        animateId.current = requestAnimationFrame(animateData);
-      };
-      animateData();
-    } else {
-      // Run draw again to update any data changed while on pause mode
+    const animateData = () => {
       draw();
-    }
+      if (isAnimationActive) {
+        animateId.current = requestAnimationFrame(animateData);
+      }
+    };
+    animateData();
     return () => cancelAnimationFrame(animateId.current ?? 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [xScale, yScale, data, height, width, strip, isAnimationActive, QRS, frequency]);

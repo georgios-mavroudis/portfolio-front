@@ -3,7 +3,7 @@ import { defineSemanticTokens } from '@chakra-ui/react';
 export const colors = defineSemanticTokens({
   colors: {
     background: {
-      primary: { value: { base: '{colors.common.white}', _dark: '{colors.brand.800}' } },
+      primary: { value: { base: '{colors.common.white}', _dark: '{colors.brand.900}' } },
       'primary-hover': { value: { base: '{colors.brand.50}', _dark: '{colors.brand.700}' } },
       'primary-active': { value: { base: '{colors.brand.100}', _dark: '{colors.brand.600}' } },
       secondary: { value: { base: '{colors.grey.50}', _dark: '{colors.grey.800}' } },

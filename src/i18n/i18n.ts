@@ -5,7 +5,7 @@ import fr from './fr.json';
 import en from './en.json';
 
 i18n.use(LanguageDector).use(initReactI18next).init({
-  debug: true,
+  debug: false,
   fallbackLng: 'en',
   resources: {
     en,
