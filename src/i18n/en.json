@@ -26,8 +26,8 @@
       "POSTSCRIPT": "All visualizations are completely custom made"
     },
     "EXPERIENCE": "Experience",
-    "COMPANY_one": "Company",
-    "COMPANY_other": "Companies",
+    "COMPANY_one": "Stock",
+    "COMPANY_other": "Stocks",
     "GARMIN_SLEEP_DATA": {
       "TITLE": "Garmin sleep data",
       "DESCRIPTION": "A graph that displays sleep data coming from a garmin smartwatch. It shows the sleep and wake up times along with the total hours slept",
@@ -53,11 +53,14 @@
       "TITLE": "WebGL Rotation, translation and scaling"
     },
     "HEART_3D": {
-      "TITLE": "Visualisation of a heart in 3D",
+      "TITLE": "Heart 3D",
+      "CONFIGURATIONS_TITLE": "Keyboard configurations",
+      "PLAY_ANIMATION": "Play the heartbeat animation",
+      "PAUSE_ANIMATION": "Pause the heartbeat animation",
       "KEYS_CONFIGURATION": {
         "ROTATE": "Left mouse to orbit around object",
-        "ZOOM": "Ctl + middle mouse to zoom in",
-        "ROTATE_LIGHT": "Shft + left mouse to orbit light around object"
+        "ZOOM": "Scroll to zoom in",
+        "ROTATE_LIGHT": "Shft + mouse move to orbit light around object"
       }
     }
   }

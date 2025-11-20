@@ -33,11 +33,7 @@ export const StockDataContainer = ({ data, children }: Props) => {
     if (!data.isSuccess) {
       return [];
     }
-    console.log(
-      data.data.filter((datum) =>
-        inRange(datum.date.getTime(), adjustedMinDate.getTime(), maxDate.getTime())
-      )
-    );
+
     return data.data.filter((datum) =>
       inRange(datum.date.getTime(), adjustedMinDate.getTime(), maxDate.getTime())
     );

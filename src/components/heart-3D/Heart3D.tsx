@@ -1,7 +1,8 @@
+import { Tooltip } from '@/design-system/components/tooltip';
 import { useResizeObserver } from '@/visualizations/graph-hooks';
 import { useThree } from '@/visualizations/Three';
-import { Box, HStack, List, Portal, Text, VStack } from '@chakra-ui/react';
-import { InfoCircle } from '@untitled-ui/icons-react';
+import { Box, Button, HStack, List, Portal, Text, VStack } from '@chakra-ui/react';
+import { InfoCircle, Play, Stop } from '@untitled-ui/icons-react';
 import { useCallback, useRef, useState, type MouseEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -10,11 +11,24 @@ const HEIGHT = 600;
 export const Heart3D = () => {
   const { ref, width, height } = useResizeObserver();
   const [hovered, setHovered] = useState(false);
-  const [dragging, setDragging] = useState(false);
   const portalRef = useRef<HTMLDivElement | null>(null);
   const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
   const { threeEngine } = useThree(canvas, '/heart.glb');
   const { t } = useTranslation();
+  const [togglePlay, setTogglePlay] = useState(true);
+  const playAnimation = useCallback(() => {
+    const engine = threeEngine.current;
+    if (!engine) {
+      return;
+    }
+    if (togglePlay) {
+      setTogglePlay(false);
+      return engine.setIsAnimating(false);
+    }
+    setTogglePlay(true);
+    engine.setIsAnimating(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [togglePlay]);
 
   const mouseMove = useCallback(
     (e: MouseEvent<HTMLDivElement>) => {
@@ -22,12 +36,10 @@ export const Heart3D = () => {
       const y = e.movementY;
       if (e.shiftKey) {
         threeEngine.current?.rotateLight(x, y);
-      } else if (dragging) {
-        threeEngine.current?.animate();
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [dragging]
+    []
   );
 
   return (
@@ -42,17 +54,13 @@ export const Heart3D = () => {
         position="relative"
         onMouseDown={() => {
           if (threeEngine.current) {
-            setDragging(true);
             threeEngine.current.controls.enablePan = true;
-            threeEngine.current.setIsAnimating(true);
           }
         }}
         onMouseMove={mouseMove}
         onMouseUp={() => {
           if (threeEngine.current) {
-            setDragging(false);
             threeEngine.current.controls.enablePan = false;
-            threeEngine.current.setIsAnimating(false);
           }
         }}
       >
@@ -63,8 +71,20 @@ export const Heart3D = () => {
           style={{ width: '100%', height: '100%' }}
         />
       </Box>
-      <HStack width="full" height={20} alignItems="start" ref={portalRef}>
-        <InfoCircle onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} />
+      <HStack width="full" height={20} alignItems="center">
+        <Button variant="outline" size="sm" onClick={playAnimation} mr={2}>
+          <Tooltip
+            content={togglePlay ? t('HEART_3D.PAUSE_ANIMATION') : t('HEART_3D.PLAY_ANIMATION')}
+          >
+            {togglePlay ? <Stop /> : <Play />}
+          </Tooltip>
+        </Button>
+        <Box ref={portalRef}>
+          <InfoCircle
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          />
+        </Box>
         {hovered && (
           <Portal container={portalRef}>
             <Box
@@ -74,10 +94,11 @@ export const Heart3D = () => {
               border="sm"
               borderColor="border.secondary"
               opacity={0.9}
-              style={{ transform: 'translateY(-80px)' }}
+              position="absolute"
+              style={{ transform: 'translate(30px ,-80px)' }}
             >
-              <Text textStyle="title">{t('HEART_3D.TITLE')}</Text>
-              <List.Root ps="5">
+              <Text textStyle="title">{t('HEART_3D.CONFIGURATIONS_TITLE')}</Text>
+              <List.Root ps="5" variant="marker">
                 <List.Item>{t('HEART_3D.KEYS_CONFIGURATION.ROTATE')}</List.Item>
                 <List.Item>{t('HEART_3D.KEYS_CONFIGURATION.ZOOM')}</List.Item>
                 <List.Item>{t('HEART_3D.KEYS_CONFIGURATION.ROTATE_LIGHT')}</List.Item>

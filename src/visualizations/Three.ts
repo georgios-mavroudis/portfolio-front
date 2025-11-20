@@ -10,11 +10,12 @@ export class ThreeEngine {
   private camera: THREE.PerspectiveCamera;
   private renderer: THREE.WebGLRenderer;
   private gltFLoader: GLTFLoader;
-  private frameId: number;
   public controls: OrbitControls;
   private light: THREE.DirectionalLight;
   private isAnimating: boolean;
-
+  private animationMixer: THREE.AnimationMixer;
+  private clips: THREE.AnimationClip[];
+  private clock: THREE.Clock;
   // Angles for the light rotation
   private phi = Math.PI / 2; // vertical angle
   private theta = 0; // horizontal angle (in radians)
@@ -22,8 +23,7 @@ export class ThreeEngine {
   constructor(canvas: HTMLCanvasElement) {
     const width = canvas.width;
     const height = canvas.height;
-    this.isAnimating = false;
-    this.frameId = 0;
+    this.isAnimating = true;
     this.scene = new THREE.Scene();
 
     // Camera
@@ -49,15 +49,19 @@ export class ThreeEngine {
 
     // Set Model Loader
     this.gltFLoader = new GLTFLoader();
+
+    this.clock = new THREE.Clock();
   }
 
   loadModel(url: string) {
     this.gltFLoader.load(
       url,
       (gltf) => {
-        console.log('gltf', gltf);
         const model = gltf.scene;
         this.scene.add(model);
+        this.animationMixer = new THREE.AnimationMixer(model);
+        this.clips = gltf.animations;
+        this.playAnimation('heartbeat');
         this.renderer.render(this.scene, this.camera);
       },
       undefined,
@@ -65,6 +69,15 @@ export class ThreeEngine {
         console.error(err);
       }
     );
+  }
+
+  playAnimation(animation: string) {
+    const clip = THREE.AnimationClip.findByName(this.clips, animation);
+    if (clip) {
+      const action = this.animationMixer.clipAction(clip);
+      action.play();
+      this.animate();
+    }
   }
 
   handleResize(width: number, height: number) {
@@ -88,29 +101,29 @@ export class ThreeEngine {
     this.light.position.set(x, y, z);
     this.light.lookAt(0, 0, 0);
 
-    this.setIsAnimating(true);
-    this.animate(this.light.position.distanceTo({ x, y, z }) < 0.001);
+    this.animate();
   }
 
   setIsAnimating = (bool: boolean) => {
     this.isAnimating = bool;
   };
-  animate = (condition = false) => {
-    if (!this.isAnimating) {
-      cancelAnimationFrame(this.frameId);
-      return;
-    }
-    // A condition that when is met stops the animation loop
-    if (condition) {
-      this.setIsAnimating(false);
-    }
-    this.frameId = requestAnimationFrame(() => this.animate(condition));
-    this.renderer.render(this.scene, this.camera);
+
+  getIsAnimating = () => {
+    return this.isAnimating;
+  };
+
+  animate = () => {
+    this.renderer.setAnimationLoop(() => {
+      if (this.isAnimating) {
+        const deltaTime = this.clock.getDelta();
+        this.animationMixer.update(deltaTime);
+      }
+      this.renderer.render(this.scene, this.camera);
+    });
   };
 
   dispose() {
     this.renderer.dispose();
-    cancelAnimationFrame(this.frameId);
   }
 }
 
@@ -121,11 +134,10 @@ export const useThree = (canvas: HTMLCanvasElement | null, url: string) => {
     if (!canvas) {
       return;
     }
-    console.log('here');
     const engine = new ThreeEngine(canvas);
     threeEngine.current = engine;
 
-    engine.scene.background = new THREE.Color(PALETTE.brand[400]);
+    engine.scene.background = new THREE.Color(PALETTE.brand[800]);
 
     const onResize = () => {
       const rect = canvas.getBoundingClientRect();

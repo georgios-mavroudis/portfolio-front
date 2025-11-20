@@ -26,8 +26,8 @@
       "POSTSCRIPT": "Toutes les visualisations sont entièrement réalisées sur mesure"
     },
     "EXPERIENCE": "Expérience",
-    "COMPANY_one": "Entreprise",
-    "COMPANY_other": "Entreprises",
+    "COMPANY_one": "Action",
+    "COMPANY_other": "Actions",
     "GARMIN_SLEEP_DATA": {
       "TITLE": "Données de sommeil Garmin",
       "DESCRIPTION": "Un graphique qui affiche les données de sommeil provenant d'une montre connectée Garmin. Il montre les heures de coucher et de réveil ainsi que le total d'heures dormies",
@@ -53,11 +53,14 @@
       "TITLE": "Rotation, translation et mise à l'échelle WebGL"
     },
     "HEART_3D": {
-      "TITLE": "Visualisation d'un coeur en 3D",
+      "TITLE": "Coeur en 3D",
+      "CONFIGURATIONS_TITLE": "Configurations de clavier",
+      "PLAY_ANIMATION": "Lecture de l'animation",
+      "PAUSE_ANIMATION": "Pause de l'animation",
       "KEYS_CONFIGURATION": {
         "ROTATE": "Clic gauche pour faire tourner l'objet",
-        "ZOOM": "Ctrl + molette pour zoomer",
-        "ROTATE_LIGHT": "Maj + clic gauche pour faire tourner la lumière autour de l'objet"
+        "ZOOM": "Défilez pour zoomer",
+        "ROTATE_LIGHT": "Maj + déplacement de la souris pour faire orbiter la lumière autour de l'objet"
       }
     }
   }

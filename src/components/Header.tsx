@@ -84,7 +84,7 @@ export const Header: FC = () => {
                       {t('STOCK_DATA.TITLE')}
                     </RouterLink>
                     <RouterLink to="/heart-3d" onClick={onClose}>
-                      Heart 3D
+                      {t('HEART_3D.TITLE')}
                     </RouterLink>
                     <Text textStyle="xs" mt="md">
                       {t('SAMPLES.POSTSCRIPT')}

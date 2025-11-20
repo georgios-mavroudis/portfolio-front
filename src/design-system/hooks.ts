@@ -41,7 +41,6 @@ export const useGraphColors = () => {
         lightText: PALETTE.common.white,
         contrastText: PALETTE.common.white,
         background: PALETTE.brand[700],
-        // mouseLine: PALETTE.grey[50],
         mouseLine: PALETTE.common.white,
         stockData: {
           win: PALETTE.green[200],
