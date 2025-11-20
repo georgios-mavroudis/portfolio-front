@@ -25,7 +25,7 @@ export const StockData = () => {
       <Text textStyle="h3">{t('STOCK_DATA.TITLE')}</Text>
       <HStack alignItems="start" justifyContent="space-between" width="full">
         <VStack height="full" justifyContent="center">
-          <Text textStyle="lg">{company.label}</Text>
+          <Text textStyle="md">{t('STOCK_DATA.DESCRIPTION')}</Text>
         </VStack>
         <Select
           options={companyListCollection}

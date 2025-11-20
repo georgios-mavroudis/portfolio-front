@@ -25,9 +25,9 @@ export const Header: FC = () => {
         </HStack>
         <HStack>
           <HStack gap="lg" pr="md">
-            <RouterLink to="/">Home</RouterLink>
-            <RouterLink>Samples</RouterLink>
-            <RouterLink>Contact</RouterLink>
+            <RouterLink to="/">{t('HEADER.HOME')}</RouterLink>
+            <RouterLink to="/samples">{t('HEADER.SAMPLES')}</RouterLink>
+            {/* <RouterLink>{t('HEADER.CONTACT')}</RouterLink> */}
           </HStack>
           <Menu.Root onSelect={(d) => i18n.changeLanguage(d.value)}>
             <Menu.Trigger asChild>
@@ -72,7 +72,7 @@ export const Header: FC = () => {
                       {t('HEARTBEAT_ANALYSIS.TITLE')}
                     </RouterLink>
                     <RouterLink to="/garmin-sleep-data" onClick={onClose}>
-                      {t('STOCK_DATA.TITLE')}
+                      {t('GARMIN_SLEEP_DATA.TITLE')}
                     </RouterLink>
                     <RouterLink to="/scaled-scatter-plot" onClick={onClose}>
                       {t('SCALED_SCATTER_PLOT.TITLE')}

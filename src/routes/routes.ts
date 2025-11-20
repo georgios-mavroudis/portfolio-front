@@ -8,6 +8,7 @@ import { FShape } from '@/components/FShape/FShape';
 import { HeartBeatAnalysis } from '@/components/Heartbeart-analysis/HeartbeatAnalysis';
 import { StockData } from '@/components/Financial-data/StockData';
 import { Heart3D } from '@/components/heart-3D/Heart3D';
+import { SamplesPage } from '@/components/SamplesPage';
 
 const rootRoute = createRootRoute({
   component: App,
@@ -56,6 +57,12 @@ const Heart3DRoute = createRoute({
   component: Heart3D,
 });
 
+const SamplesRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/samples',
+  component: SamplesPage,
+});
+
 export const RouteTree = rootRoute.addChildren([
   homePageRoute,
   sleepDataRoute,
@@ -64,4 +71,5 @@ export const RouteTree = rootRoute.addChildren([
   heartbeatRoute,
   StockDataRoute,
   Heart3DRoute,
+  SamplesRoute,
 ]);

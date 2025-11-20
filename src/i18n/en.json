@@ -4,8 +4,14 @@
       "DESCRIPTION": "Senior software engineer with 10 years of experience. With a long experience on startups and fast paced environments, I am equipped with the tools to deliver high quality products and accompany a client to all phases of their project",
       "EXTRA": "I have worked in a multitude of sectors like medical (cardiologs sold to Philips in 2022), oil & gas and observability, therefore I can adapt to any domain and deliver a great product"
     },
+    "HEADER": {
+      "HOME": "Home",
+      "SAMPLES": "Samples",
+      "CONTACT": "Contact"
+    },
     "HEARTBEAT_ANALYSIS": {
       "TITLE": "Heartbeat Analysis",
+      "DESCRIPTION": "Rendering of multiple strips of electrocardiogram leads",
       "HR": "HR",
       "FILE_NAME": "Fine name",
       "FREQUENCY": "Frequency (Hz)",
@@ -47,13 +53,16 @@
       "POINTS_LABEL": "Number of points"
     },
     "STOCK_DATA": {
-      "TITLE": "Stock Market Data"
+      "TITLE": "Stock Market Data",
+      "DESCRIPTION": "Visualisation of the daily value of the selected stock for the last 5 years"
     },
     "F_SHAPE": {
-      "TITLE": "WebGL Rotation, translation and scaling"
+      "TITLE": "WebGL Rotation, translation and scaling",
+      "DESCRIPTION": "A sample of a basic webGL model with viewport interactions"
     },
     "HEART_3D": {
       "TITLE": "Heart 3D",
+      "DESCRIPTION": "A display of a 3d rendered heart with basic viewport interactions",
       "CONFIGURATIONS_TITLE": "Keyboard configurations",
       "PLAY_ANIMATION": "Play the heartbeat animation",
       "PAUSE_ANIMATION": "Pause the heartbeat animation",

@@ -4,8 +4,14 @@
       "DESCRIPTION": "Ingénieur logiciel senior avec 10 ans d'expérience. Fort d'une solide expérience au sein de startups et dans des environnements dynamiques, je possède les compétences nécessaires pour fournir des produits de haute qualité et accompagner mes clients à chaque étape de leurs projets",
       "EXTRA": "Mon expérience dans de nombreux secteurs, tels que le médical (cardiologs rachetée par Philips en 2022), l'oil & gas et l'observabilité, me permet de m'adapter à tout domaine et de garantir un excellent résultat"
     },
+    "HEADER": {
+      "HOME": "Accueil",
+      "SAMPLES": "Échantillons",
+      "CONTACT": "Contact"
+    },
     "HEARTBEAT_ANALYSIS": {
       "TITLE": "Analyse du rythme cardiaque",
+      "DESCRIPTION": "Rendu de plusieurs bandes de dérivations d'électrocardiogramme",
       "HR": "FC",
       "FILE_NAME": "Nom du fichier",
       "FREQUENCY": "Fréquence (Hz)",
@@ -47,13 +53,16 @@
       "POINTS_LABEL": "Nombre de points"
     },
     "STOCK_DATA": {
-      "TITLE": "Données boursières"
+      "TITLE": "Données boursières",
+      "DESCRIPTION": "Visualisation de la valeur quotidienne de l'action sélectionnée au cours des 5 dernières années."
     },
     "F_SHAPE": {
-      "TITLE": "Rotation, translation et mise à l'échelle WebGL"
+      "TITLE": "Rotation, translation et mise à l'échelle WebGL",
+      "DESCRIPTION": "Un exemple de modèle WebGL de base avec interactions avec la fenêtre d'affichage"
     },
     "HEART_3D": {
       "TITLE": "Coeur en 3D",
+      "DESCRIPTION": "Affichage d'un cœur rendu en 3D avec les fonctionnalités de base de la fenêtre d'affichage",
       "CONFIGURATIONS_TITLE": "Configurations de clavier",
       "PLAY_ANIMATION": "Lecture de l'animation",
       "PAUSE_ANIMATION": "Pause de l'animation",

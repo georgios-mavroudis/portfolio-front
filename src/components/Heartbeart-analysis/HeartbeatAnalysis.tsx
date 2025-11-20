@@ -30,11 +30,11 @@ export const HeartBeatAnalysis = () => {
   const { data: heartbeatData } = data;
   return (
     <PlotProvider>
-      <VStack height="full" p="md" alignItems="start" gap="md">
-        <Text textStyle="h3">{t('HEARTBEAT_ANALYSIS.TITLE')}</Text>
+      <VStack height="full" alignItems="start" gap="md">
         <HStack width="full" justifyContent="space-between">
           <VStack alignItems="start" justifyContent={'space-between'} height="full">
             <VStack alignItems="start">
+              <Text textStyle="h3">{t('HEARTBEAT_ANALYSIS.TITLE')}</Text>
               <HStack width="full" gap="md">
                 <Heart />
                 <Stat.Root>
