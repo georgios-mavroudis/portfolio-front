@@ -6,7 +6,7 @@ import { usePlot } from '@/visualizations/graph-hooks';
 type Props = {
   data: StockData[];
 };
-const MINIMUM_WIDTH_FACTOR = 10;
+const MINIMUM_WIDTH_FACTOR = 20;
 
 export const Candlesticks: FC<Props> = ({ data }) => {
   const {
@@ -30,6 +30,7 @@ export const Candlesticks: FC<Props> = ({ data }) => {
           <g key={i}>
             <line
               stroke={color}
+              strokeWidth={2}
               y1={height - yScale(high)}
               y2={height - yScale(topRectPoint)}
               x1={dateScale(date) + barWidth / 2}
@@ -46,6 +47,7 @@ export const Candlesticks: FC<Props> = ({ data }) => {
             />
             <line
               stroke={color}
+              strokeWidth={2}
               y2={height - yScale(bottomRectPoint)}
               y1={height - yScale(low)}
               x1={dateScale(date) + barWidth / 2}

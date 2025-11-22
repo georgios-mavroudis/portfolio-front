@@ -7,7 +7,6 @@ import type { UseQueryResult } from '@tanstack/react-query';
 import { GRID_HEIGHT } from '@/visualizations/constants';
 
 type Props = {
-  // data: StockData[] | undefined;
   data: UseQueryResult<StockData[], Error>;
   children: (props: { data: StockData[]; loading: boolean }) => React.ReactNode;
 };
@@ -46,12 +45,14 @@ export const StockDataContainer = ({ data, children }: Props) => {
   }, [width]);
 
   useEffect(() => {
+    // console.log(renderableData);
     setYAxisDisplay(null);
     const [min, max] = [
       Math.min(...renderableData.map((d) => d.low)),
       Math.max(...renderableData.map((d) => d.high)),
     ];
     const diff = max - min;
+    console.log([min - 0.1 * diff, max + 0.1 * diff], [min, max]);
     setYScale(
       scaleLinear()
         .domain([min - 0.1 * diff, max + 0.1 * diff])

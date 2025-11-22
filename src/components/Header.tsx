@@ -18,7 +18,16 @@ export const Header: FC = () => {
   const { t, i18n } = useTranslation();
   const langIcon = useMemo(() => LANGUAGE_SVG_MAPPING[i18n.language] || en, [i18n.language]);
   return (
-    <Stack as="header" width="full" p="md" boxShadow="md" bg="background.primary">
+    <Stack
+      as="header"
+      width="full"
+      p="md"
+      boxShadow="md"
+      bg="background.primary"
+      position="sticky"
+      top={0}
+      zIndex={1}
+    >
       <HStack justifyContent="space-between">
         <HStack position="relative">
           <Logo />

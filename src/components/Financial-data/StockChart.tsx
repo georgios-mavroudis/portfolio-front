@@ -59,12 +59,12 @@ export const StockChart: FC<Props> = ({ data, loading = false }) => {
         height={height}
         width={width}
         ref={setSvg}
-        preserveAspectRatio="xMinYMax slice"
+        // preserveAspectRatio="xMinYMax"
       >
-        <g id={GRID} transform={`translate(${OFFSET}, 0)`}>
+        <g id={GRID} transform={`translate(0, 0)`}>
           {!loading && (
             <>
-              <svg x={0} y={0}>
+              <svg>
                 <Candlesticks data={data} />
               </svg>
               <MonthSeparators />
@@ -100,8 +100,8 @@ export const StockChart: FC<Props> = ({ data, loading = false }) => {
             cursor="crosshair"
           />
         </g>
-        <g transform={`translate(${OFFSET}, 0)`}>
-          <Axises withBorders={true} fontSize={FONT_SIZES.sm} />
+        <g transform={`translate(0, 0)`}>
+          <Axises withBorders={true} fontSize={10} />
           {mouseX && (
             <g>
               <defs>
