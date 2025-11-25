@@ -1,6 +1,6 @@
 import { Tooltip } from '@/design-system/components/tooltip';
 import { useResizeObserver } from '@/visualizations/graph-hooks';
-import { useThree } from '@/visualizations/Three';
+import { useThree } from '@/visualizations/three/Three';
 import { Box, Button, HStack, List, Portal, Text, VStack } from '@chakra-ui/react';
 import { InfoCircle, Play, Stop } from '@untitled-ui/icons-react';
 import { useCallback, useRef, useState, type MouseEvent } from 'react';
