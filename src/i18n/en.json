@@ -1,8 +1,10 @@
 {
   "translation": {
     "ABOUT_ME": {
+      "GREETING": "Hi, I am",
       "DESCRIPTION": "Senior software engineer with 10 years of experience. With a long experience on startups and fast paced environments, I am equipped with the tools to deliver high quality products and accompany a client to all phases of their project",
-      "EXTRA": "I have worked in a multitude of sectors like medical (cardiologs sold to Philips in 2022), oil & gas and observability, therefore I can adapt to any domain and deliver a great product"
+      "EXTRA": "I have worked in a multitude of sectors like medical (cardiologs sold to Philips in 2022), oil & gas and observability, therefore I can adapt to any domain and deliver a great product",
+      "SPECIALISATION": "Expert in visualisations (graphs, animations, etc)"
     },
     "HEADER": {
       "HOME": "Home",
@@ -49,7 +51,7 @@
     },
     "SCALED_SCATTER_PLOT": {
       "TITLE": "Scaled Scatter Plot",
-      "DESCRIPTION": "A scatter plot that displays data points with scaled axes. The scaling helps to visualize the distribution and relationships between the data points more effectively",
+      "DESCRIPTION": "A scatter plot that displays data points with scaled axes. Use the slider to modify the number of points rendered",
       "POINTS_LABEL": "Number of points"
     },
     "STOCK_DATA": {
@@ -71,6 +73,11 @@
         "ZOOM": "Scroll to zoom in",
         "ROTATE_LIGHT": "Shft + mouse move to orbit light around object"
       }
+    },
+    "GAME": {
+      "TITLE": "Game",
+      "DESCRIPTION": "Game description",
+      "NOT_SUPPORTED": "Sorry, no WebGL supported!"
     }
   }
 }

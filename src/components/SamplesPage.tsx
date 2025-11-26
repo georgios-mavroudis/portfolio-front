@@ -61,7 +61,7 @@ export const SamplesPage = () => {
       <HStack width="full" flexWrap="wrap" gap="lg" height="full" alignItems="start">
         {SAMPLES.map((sample) => (
           <RouterLink to={sample.link}>
-            <Card.Root width="320px" borderColor="border.primary">
+            <Card.Root width="320px" boxShadow="lg">
               <Card.Body gap="2">
                 <Image src={sample.img} border="sm" borderColor="border.primary" />
                 <Card.Title mt="2">{t(sample.title)}</Card.Title>

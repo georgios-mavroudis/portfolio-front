@@ -9,15 +9,21 @@ export const HomePage: FC = () => {
   return (
     <VStack alignItems="start" gap="xxl">
       <HStack width="full" justifyContent="center">
-        <VStack alignItems="start" justifyContent="start" height="full" width="50%">
-          <Text textStyle="h1">GEORGIOS MAVROUDIS</Text>
+        <VStack gap="md" alignItems="start" justifyContent="start" height="full" width="50%">
+          <Text textStyle="h3">
+            {t('ABOUT_ME.GREETING')} {` Georgios`} &#128075;
+          </Text>
           <Text>{t('ABOUT_ME.DESCRIPTION')}</Text>
           <Text>{t('ABOUT_ME.EXTRA')}</Text>
+          <Text>{t('ABOUT_ME.SPECIALISATION')}</Text>
+          <VStack></VStack>
         </VStack>
-        <Image src={png} width={400} rounded="md" border="md" borderColor="border.primary" />
+        <Image src={png} width={300} border="md" borderColor="border.primary" borderRadius="full" />
       </HStack>
       <VStack justifyContent="center" width="full" gap="lg">
-        <Text textStyle="h2">{t('EXPERIENCE')}</Text>
+        <Text textStyle="h2" color="foreground.secondary">
+          {t('EXPERIENCE')}
+        </Text>
         <Experience />
       </VStack>
     </VStack>

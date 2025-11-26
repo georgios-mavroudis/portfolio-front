@@ -1,8 +1,10 @@
 {
   "translation": {
     "ABOUT_ME": {
+      "GREETING": "Bonjour, je suis",
       "DESCRIPTION": "Ingénieur logiciel senior avec 10 ans d'expérience. Fort d'une solide expérience au sein de startups et dans des environnements dynamiques, je possède les compétences nécessaires pour fournir des produits de haute qualité et accompagner mes clients à chaque étape de leurs projets",
-      "EXTRA": "Mon expérience dans de nombreux secteurs, tels que le médical (cardiologs rachetée par Philips en 2022), l'oil & gas et l'observabilité, me permet de m'adapter à tout domaine et de garantir un excellent résultat"
+      "EXTRA": "Mon expérience dans de nombreux secteurs, tels que le médical (cardiologs rachetée par Philips en 2022), l'oil & gas et l'observabilité, me permet de m'adapter à tout domaine et de garantir un excellent résultat",
+      "SPECIALISATION": "Expert en visualisations (graphiques, animations, etc.)"
     },
     "HEADER": {
       "HOME": "Accueil",
@@ -49,7 +51,7 @@
     },
     "SCALED_SCATTER_PLOT": {
       "TITLE": "Nuage de points mis à l'échelle",
-      "DESCRIPTION": "Un nuage de points qui affiche des données avec des axes mis à l'échelle. Cette mise à l'échelle aide à visualiser plus efficacement la distribution et les relations entre les points de données",
+      "DESCRIPTION": "Un nuage de points qui affiche des données avec des axes mis à l'échelle. Utilisez le curseur pour modifier le nombre de points rendus.",
       "POINTS_LABEL": "Nombre de points"
     },
     "STOCK_DATA": {
@@ -71,6 +73,11 @@
         "ZOOM": "Défilez pour zoomer",
         "ROTATE_LIGHT": "Maj + déplacement de la souris pour faire orbiter la lumière autour de l'objet"
       }
+    },
+    "GAME": {
+      "TITLE": "Jeu",
+      "DESCRIPTION": "Description du jeu",
+      "NOT_SUPPORTED": "Désolé, WebGL n'est pas pris en charge !"
     }
   }
 }
