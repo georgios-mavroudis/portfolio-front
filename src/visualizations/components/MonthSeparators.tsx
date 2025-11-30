@@ -17,7 +17,7 @@ export const MonthSeparators: FC = () => {
 
   const visibleMonths = useMemo(() => {
     const [startDate, endDate] = dateScale.domain();
-    return getVisibleMonths(startDate, endDate, dateScale).filter((month) => {
+    return getVisibleMonths(startDate, endDate, dateScale, 'en').filter((month) => {
       const x = monthDatesToPx(month.date);
       return x > 0 && x < width;
     });

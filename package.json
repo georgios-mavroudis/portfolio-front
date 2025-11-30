@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "chakra:typegen": "npx @chakra-ui/cli typegen ./src/design-system/index.ts"
+    "chakra:typegen": "npx @chakra-ui/cli typegen ./src/design-system/index.ts",
+    "postinstall": "yarn chakra:typegen"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.28.0",

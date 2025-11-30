@@ -7,8 +7,10 @@ export const AlertSlotRecipe = defineSlotRecipe({
   variants: {
     variant: {
       error: {
-        bg: 'background.error',
-        color: 'foreground.error',
+        root: {
+          bg: 'background.error',
+          color: 'foreground.error',
+        },
       },
     },
   },

@@ -8,6 +8,15 @@ import { DataContainer } from './DataContainer';
 import { Alert } from '@/design-system/components/Alert';
 import { useTranslation } from 'react-i18next';
 
+// TODO: Move this to sleep data api query
+type ApiSleepData = {
+  id: number;
+  bedTime: string;
+  wakeTime: string;
+  meanHr: number;
+  score: number;
+  duration: Interval;
+};
 const convertStringToDate = (
   data: {
     id: number;
@@ -26,7 +35,11 @@ const convertStringToDate = (
 };
 export const SleepData = () => {
   // TODO: Change this with data from the server
-  const data = { data: convertStringToDate(json), isSuccess: true, isError: false };
+  const data = {
+    data: convertStringToDate(json as ApiSleepData[]),
+    isSuccess: true,
+    isError: false,
+  };
   const { t } = useTranslation();
   if (!data.isSuccess) {
     return <Loader />;

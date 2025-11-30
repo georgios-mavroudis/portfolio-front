@@ -13,8 +13,8 @@ export class ThreeEngine {
   public controls: OrbitControls;
   private light: THREE.DirectionalLight;
   private isAnimating: boolean;
-  private animationMixer: THREE.AnimationMixer;
-  private clips: THREE.AnimationClip[];
+  private animationMixer!: THREE.AnimationMixer;
+  private clips!: THREE.AnimationClip[];
   private clock: THREE.Clock;
   // Angles for the light rotation
   private phi = Math.PI / 2; // vertical angle
