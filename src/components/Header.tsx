@@ -13,6 +13,7 @@ const LANGUAGE_SVG_MAPPING: Record<string, string> = {
   en,
   fr,
 };
+
 export const Header: FC = () => {
   const { open, onToggle, onClose } = useDisclosure();
   const { t, i18n } = useTranslation();
@@ -32,15 +33,15 @@ export const Header: FC = () => {
         <HStack position="relative">
           <Logo />
         </HStack>
-        <HStack>
-          <HStack gap="lg" pr="md">
+        <HStack gap={['sm']}>
+          <HStack gap={['sm', 'lg']} pr={[undefined, 'md']}>
             <RouterLink to="/">{t('HEADER.HOME')}</RouterLink>
             <RouterLink to="/samples">{t('HEADER.SAMPLES')}</RouterLink>
             {/* <RouterLink>{t('HEADER.CONTACT')}</RouterLink> */}
           </HStack>
           <Menu.Root onSelect={(d) => i18n.changeLanguage(d.value)}>
             <Menu.Trigger asChild>
-              <Button variant="tertiary" p={0}>
+              <Button variant="tertiary" p={0} size={['sm', 'md']}>
                 <Image src={langIcon} />
               </Button>
             </Menu.Trigger>
@@ -57,10 +58,10 @@ export const Header: FC = () => {
               </Menu.Positioner>
             </Portal>
           </Menu.Root>
-          <ColorModeButton variant="tertiary" size="md" />
+          <ColorModeButton variant="tertiary" size={['sm', 'md']} />
           <Drawer.Root open={open} onOpenChange={onToggle}>
             <Drawer.Trigger asChild>
-              <Button variant="tertiary">
+              <Button variant="tertiary" size={['sm', 'md']}>
                 <Menu01 />
               </Button>
             </Drawer.Trigger>

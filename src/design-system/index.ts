@@ -6,6 +6,7 @@ import { alertSlotRecipe } from '@chakra-ui/react/theme';
 import { spacing } from './tokens/spacing';
 import { textStyles } from './tokens/text-styles';
 import { fonts } from './tokens/fonts';
+import { breakpoints } from '@chakra-ui/react/theme';
 
 const config = defineConfig({
   globalCss: {
@@ -14,6 +15,7 @@ const config = defineConfig({
     },
   },
   theme: {
+    breakpoints,
     textStyles,
     tokens: {
       ...colors,

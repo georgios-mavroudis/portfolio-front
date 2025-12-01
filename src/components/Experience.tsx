@@ -4,9 +4,11 @@ import cardiologs from '@/assets/cardiologs.png';
 import maillance from '@/assets/maillance.png';
 import akka from '@/assets/akka.png';
 import econais from '@/assets/econais.png';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import ArrowRight from '@/design-system/custom-icons/arrow-right.svg';
 import ArrowLeft from '@/design-system/custom-icons/arrow-left.svg';
+import { useResizeObserver } from '@/visualizations/graph-hooks';
+import { clamp } from '@/common/helpers';
 
 type Experience = {
   png: string;
@@ -40,7 +42,7 @@ const EXPERIENCES: Experience[] = [
 export const Experience = () => {
   const sliderRef = useRef<HTMLDivElement | null>(null);
   const [scrollingBehaviour, setScrollingBehaviour] = useState<'start' | 'end' | null>('start');
-
+  const { ref, width } = useResizeObserver();
   const scroll = useCallback(
     (offset: number) => {
       const slider = sliderRef.current;
@@ -63,9 +65,10 @@ export const Experience = () => {
     [scrollingBehaviour]
   );
 
+  const scrollAmount = useMemo(() => clamp(width, width, SCROLL), [width]);
   return (
     <>
-      <HStack width="50%" gap="lg" position="relative" overflow="hidden" alignItems="center">
+      <Box ref={ref} width="50%" position="relative" overflow="hidden" alignItems="center">
         <HStack
           width="full"
           ref={sliderRef}
@@ -111,7 +114,7 @@ export const Experience = () => {
             }}
             opacity={0.7}
             cursor="pointer"
-            onClick={() => scroll(-SCROLL)}
+            onClick={() => scroll(-scrollAmount)}
             maskImage="linear-gradient(to right, transparent 0%, black 0%, black 70%, transparent 100%)"
           >
             <VStack justifyContent="center" padding="sm">
@@ -134,7 +137,7 @@ export const Experience = () => {
             }}
             opacity={0.7}
             cursor="pointer"
-            onClick={() => scroll(SCROLL)}
+            onClick={() => scroll(scrollAmount)}
             maskImage="linear-gradient(to left, transparent 0%, black 0%, black 70%, transparent 100%)"
           >
             <VStack justifyContent="center" padding="sm">
@@ -142,7 +145,7 @@ export const Experience = () => {
             </VStack>
           </Box>
         )}
-      </HStack>
+      </Box>
     </>
   );
 };

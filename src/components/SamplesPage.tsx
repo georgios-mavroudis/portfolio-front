@@ -1,4 +1,4 @@
-import { Card, HStack, Image, Text, VStack } from '@chakra-ui/react';
+import { Card, Image, Stack, Text, VStack } from '@chakra-ui/react';
 import { RouterLink, type Route } from '@/design-system/components/RouterLink';
 import en from '@/i18n/en.json';
 import { useTranslation } from 'react-i18next';
@@ -58,7 +58,14 @@ export const SamplesPage = () => {
   return (
     <VStack alignItems="start" gap="lg">
       <Text textStyle="h3">{t('SAMPLES.TITLE')}</Text>
-      <HStack width="full" flexWrap="wrap" gap="lg" height="full" alignItems="start">
+      <Stack
+        direction={['column', 'row']}
+        width="full"
+        flexWrap="wrap"
+        gap="lg"
+        height="full"
+        alignItems={['center', 'start']}
+      >
         {SAMPLES.map((sample) => (
           <RouterLink to={sample.link}>
             <Card.Root width="320px" boxShadow="lg">
@@ -70,7 +77,7 @@ export const SamplesPage = () => {
             </Card.Root>
           </RouterLink>
         ))}
-      </HStack>
+      </Stack>
     </VStack>
   );
 };
