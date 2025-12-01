@@ -1,6 +1,5 @@
 import { Card, Image, Stack, Text, VStack } from '@chakra-ui/react';
 import { RouterLink, type Route } from '@/design-system/components/RouterLink';
-import en from '@/i18n/en.json';
 import { useTranslation } from 'react-i18next';
 import garminData from '@/assets/garmin_data.png';
 import hrAnalysis from '@/assets/hr_analysis.png';
@@ -54,20 +53,19 @@ const SAMPLES: Sample[] = [
 ];
 export const SamplesPage = () => {
   const { t } = useTranslation();
-  console.log(en.translation.HEARTBEAT_ANALYSIS.TITLE);
   return (
-    <VStack alignItems="start" gap="lg">
+    <VStack alignItems={{ base: 'center', sm: 'start' }} gap="lg">
       <Text textStyle="h3">{t('SAMPLES.TITLE')}</Text>
       <Stack
-        direction={['column', 'row']}
+        direction={{ base: 'column', sm: 'row' }}
         width="full"
         flexWrap="wrap"
         gap="lg"
         height="full"
-        alignItems={['center', 'start']}
+        alignItems={{ base: 'center', sm: 'start' }}
       >
         {SAMPLES.map((sample) => (
-          <RouterLink to={sample.link}>
+          <RouterLink to={sample.link} key={sample.link}>
             <Card.Root width="320px" boxShadow="lg">
               <Card.Body gap="2">
                 <Image src={sample.img} border="sm" borderColor="border.primary" />

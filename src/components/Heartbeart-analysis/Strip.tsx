@@ -35,7 +35,7 @@ export const Strip: FC<Props> = ({
 
   useEffect(() => {
     const lastDataIdx = data.length - 1;
-
+    let bpm = 0;
     const draw = () => {
       if (stripRef.current != null) {
         const idx = (animateId.current ?? 0) % lastDataIdx;
@@ -43,8 +43,9 @@ export const Strip: FC<Props> = ({
 
         const lastIdx = idx + getViewerLength(frequency, { width, height });
         let chunk = data.slice(idx, lastIdx);
-        let bpm = calculateHeartBeat(idx, lastIdx, QRS, frequency);
+        const heartbeat = calculateHeartBeat(idx, lastIdx, QRS, frequency);
 
+        bpm = heartbeat ?? bpm;
         // This is for displaying purposes only because the ecg sample is small and
         // it never reaches the end, we do a loop so when it arrives at the end it picks
         // up from the beginning so the below part would be removed in a real application
@@ -52,7 +53,7 @@ export const Strip: FC<Props> = ({
         // because it messes the heartbeat value
         if (lastIdx > lastDataIdx) {
           const bpmStartChunk = calculateHeartBeat(0, lastIdx - lastDataIdx, QRS, frequency);
-          bpm = bpmStartChunk !== 0 ? Math.round((bpm + bpmStartChunk) / 2) : bpm;
+          bpm = bpmStartChunk !== null ? Math.round((bpm + bpmStartChunk) / 2) : bpm;
           chunk = [...chunk, ...data.slice(0, lastIdx - lastDataIdx)];
         }
         // =======================================

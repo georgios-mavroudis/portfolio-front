@@ -1,6 +1,16 @@
-import { Button, Image, Menu, Portal, Text } from '@chakra-ui/react';
 import { RouterLink } from '@/design-system/components/RouterLink';
-import { Drawer, HStack, Stack, useDisclosure, VStack } from '@chakra-ui/react';
+import {
+  Button,
+  Image,
+  Menu,
+  Portal,
+  Text,
+  Drawer,
+  HStack,
+  Stack,
+  useDisclosure,
+  VStack,
+} from '@chakra-ui/react';
 import { Menu01 } from '@untitled-ui/icons-react';
 import { useMemo, type FC } from 'react';
 import { ColorModeButton } from '@/design-system/components/color-mode';
@@ -22,8 +32,9 @@ export const Header: FC = () => {
     <Stack
       as="header"
       width="full"
+      height="full"
       p="md"
-      boxShadow="md"
+      boxShadow="lg"
       bg="background.primary"
       position="sticky"
       top={0}
@@ -33,15 +44,15 @@ export const Header: FC = () => {
         <HStack position="relative">
           <Logo />
         </HStack>
-        <HStack gap={['sm']}>
-          <HStack gap={['sm', 'lg']} pr={[undefined, 'md']}>
+        <HStack gap={{ base: 'sm', sm: 'md' }}>
+          <HStack gap={{ base: 'sm', sm: 'lg' }} pr={{ base: 'md', sm: undefined }}>
             <RouterLink to="/">{t('HEADER.HOME')}</RouterLink>
             <RouterLink to="/samples">{t('HEADER.SAMPLES')}</RouterLink>
             {/* <RouterLink>{t('HEADER.CONTACT')}</RouterLink> */}
           </HStack>
           <Menu.Root onSelect={(d) => i18n.changeLanguage(d.value)}>
             <Menu.Trigger asChild>
-              <Button variant="tertiary" p={0} size={['sm', 'md']}>
+              <Button variant="tertiary" p={0} size="sm">
                 <Image src={langIcon} />
               </Button>
             </Menu.Trigger>
@@ -58,10 +69,10 @@ export const Header: FC = () => {
               </Menu.Positioner>
             </Portal>
           </Menu.Root>
-          <ColorModeButton variant="tertiary" size={['sm', 'md']} />
+          <ColorModeButton variant="tertiary" size="sm" />
           <Drawer.Root open={open} onOpenChange={onToggle}>
             <Drawer.Trigger asChild>
-              <Button variant="tertiary" size={['sm', 'md']}>
+              <Button variant="tertiary" size="sm">
                 <Menu01 />
               </Button>
             </Drawer.Trigger>

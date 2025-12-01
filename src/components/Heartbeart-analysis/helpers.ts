@@ -30,7 +30,7 @@ export function calculateHeartBeat(
   }
 
   if (RRs.length === 0) {
-    return 0;
+    return null;
   }
   const averageRR = RRs.reduce((acc, rr) => acc + rr, 0) / RRs.length;
   // formula for bpm: 60 x fs / RR interval (in samples)

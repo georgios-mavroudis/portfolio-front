@@ -7,23 +7,34 @@ import { Experience } from './Experience';
 export const HomePage: FC = () => {
   const { t } = useTranslation();
   return (
-    <VStack alignItems="start" gap={['xxl', 'md']}>
-      <Stack direction={['column', 'row']} width="full" justifyContent="center" alignItems="center">
+    <VStack alignItems="start" gap={{ base: 'xxl', sm: 'md' }}>
+      <Stack
+        direction={{ base: 'column', sm: 'row' }}
+        width="full"
+        justifyContent="center"
+        alignItems="center"
+      >
         <Image src={png} width={300} border="md" borderColor="border.primary" borderRadius="full" />
         <VStack
           gap="md"
           alignItems={'center'}
           justifyContent={'center'}
           height="full"
-          width={['full', '50%']}
+          width={{ base: 'full', sm: '50%' }}
         >
           <Text textStyle="h3">
             {t('ABOUT_ME.GREETING')} {` Georgios`} &#128075;
           </Text>
           <VStack width="full" justifyContent={'center'} alignItems={'center'}>
-            <Text textStyle={['md', 'sm']}>{t('ABOUT_ME.DESCRIPTION')}</Text>
-            <Text textStyle={['md', 'sm']}>{t('ABOUT_ME.EXTRA')}</Text>
-            <Text textStyle={['md', 'sm']}>{t('ABOUT_ME.SPECIALISATION')}</Text>
+            <Text textAlign="center" textStyle={{ base: 'md', sm: 'sm' }}>
+              {t('ABOUT_ME.DESCRIPTION')}
+            </Text>
+            <Text textAlign="center" textStyle={{ base: 'md', sm: 'sm' }}>
+              {t('ABOUT_ME.EXTRA')}
+            </Text>
+            <Text textAlign="center" textStyle={{ base: 'md', sm: 'sm' }}>
+              {t('ABOUT_ME.SPECIALISATION')}
+            </Text>
           </VStack>
         </VStack>
       </Stack>

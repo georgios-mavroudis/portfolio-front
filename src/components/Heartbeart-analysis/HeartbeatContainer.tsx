@@ -6,11 +6,12 @@ import { useEffect, type FC } from 'react';
 type Props = {
   data: HeartbeatData;
   children: ({ data }: { data: HeartbeatData }) => void;
+  width: number;
 };
-export const HeartbeatContainer: FC<Props> = ({ data, children }) => {
+export const HeartbeatContainer: FC<Props> = ({ data, children, width }) => {
   const { setDimensions } = usePlot();
   useEffect(() => {
-    setDimensions({ height: GRID_HEIGHT * 2 });
-  }, []);
+    setDimensions({ height: GRID_HEIGHT * 2, width });
+  }, [width]);
   return <>{children({ data })}</>;
 };

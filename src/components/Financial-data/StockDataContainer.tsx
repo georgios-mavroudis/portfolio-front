@@ -45,14 +45,13 @@ export const StockDataContainer = ({ data, children }: Props) => {
   }, [width]);
 
   useEffect(() => {
-    // console.log(renderableData);
     setYAxisDisplay(null);
     const [min, max] = [
       Math.min(...renderableData.map((d) => d.low)),
       Math.max(...renderableData.map((d) => d.high)),
     ];
+
     const diff = max - min;
-    console.log([min - 0.1 * diff, max + 0.1 * diff], [min, max]);
     setYScale(
       scaleLinear()
         .domain([min - 0.1 * diff, max + 0.1 * diff])

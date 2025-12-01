@@ -1,7 +1,17 @@
 import { PlotProvider } from '@/visualizations/components/PlotContext';
 import { HeartbeatGraph } from './HeartbeatGraph';
 import { useState } from 'react';
-import { AbsoluteCenter, Box, Button, HStack, Spinner, Stat, Text, VStack } from '@chakra-ui/react';
+import {
+  AbsoluteCenter,
+  Box,
+  Button,
+  HStack,
+  Spinner,
+  Stack,
+  Stat,
+  Text,
+  VStack,
+} from '@chakra-ui/react';
 import { Heart } from '@/design-system/custom-icons/Heart';
 import { Play, Stop, Ruler as RulerIcon } from '@untitled-ui/icons-react';
 import { useHeartbeatData } from '@/queries/heartbeat-analysis/heartbeat-analysis.queries';
@@ -16,6 +26,7 @@ export const HeartBeatAnalysis = () => {
   const data = useHeartbeatData();
   const [heartBeat, setHeartBeat] = useState<string | number>('--');
   const { t } = useTranslation();
+  const [width, setWidth] = useState(0);
 
   if (!data.isSuccess) {
     return (
@@ -30,12 +41,16 @@ export const HeartBeatAnalysis = () => {
   const { data: heartbeatData } = data;
   return (
     <PlotProvider>
-      <VStack height="full" alignItems="start" gap="md">
-        <HStack width="full" justifyContent="space-between">
-          <VStack alignItems="start" justifyContent={'space-between'} height="full">
-            <VStack alignItems="start">
+      <Box flexDirection="column" height="full" width="full" alignItems="start" gap="md">
+        <Stack direction={{ sm: 'row', base: 'column' }} width="full" height="full">
+          <VStack
+            alignItems={{ base: 'center', sm: 'start' }}
+            justifyContent={'space-between'}
+            height="full"
+          >
+            <VStack alignItems={{ base: 'center', sm: 'start' }}>
               <Text textStyle="h3">{t('HEARTBEAT_ANALYSIS.TITLE')}</Text>
-              <HStack width="full" gap="md">
+              <HStack height="full" gap="md" alignItems={{ base: 'center', sm: 'center' }}>
                 <Heart />
                 <Stat.Root>
                   <Stat.Label color="text.primary">{t('HEARTBEAT_ANALYSIS.HR')}</Stat.Label>
@@ -81,29 +96,21 @@ export const HeartBeatAnalysis = () => {
               </Box>
             </HStack>
           </VStack>
-          <HStack height="full">
-            <VStack height="full">
-              {Object.keys(data.data.leads).map((key) => (
-                <Stat.Root key={key} width={40} alignItems="end">
-                  <Stat.Label color="text.primary">
-                    {t('HEARTBEAT_ANALYSIS.LEAD')}: {key}
-                  </Stat.Label>
-                </Stat.Root>
-              ))}
-            </VStack>
-            <HeartbeatContainer data={data.data}>
+          <HStack height="full" width="full">
+            <HeartbeatContainer data={data.data} width={Math.floor(width)}>
               {({ data }) => (
                 <HeartbeatGraph
                   data={data}
                   playAnimation={playAnimation}
                   rulerActive={rulerActive}
                   setHeartbeat={setHeartBeat}
+                  setGraphWidth={setWidth}
                 />
               )}
             </HeartbeatContainer>
           </HStack>
-        </HStack>
-      </VStack>
+        </Stack>
+      </Box>
     </PlotProvider>
   );
 };

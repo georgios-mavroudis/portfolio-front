@@ -47,7 +47,6 @@ export const Experience = () => {
     (offset: number) => {
       const slider = sliderRef.current;
       if (slider) {
-        console.log('sdf');
         const sliding = slider.scrollLeft + offset;
         if (sliding <= 0 && scrollingBehaviour !== 'start') {
           setScrollingBehaviour('start');
