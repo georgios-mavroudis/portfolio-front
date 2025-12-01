@@ -1,4 +1,4 @@
-import { Box, HStack, Stack, Text, VStack } from '@chakra-ui/react';
+import { HStack, Stack, Text, VStack } from '@chakra-ui/react';
 import { useEffect, type FC } from 'react';
 import { HeartbeatGrid } from './HeartbeatGrid';
 import { scaleLinear } from 'd3-scale';
@@ -25,7 +25,7 @@ export const HeartbeatGraph: FC<Props> = ({
   setGraphWidth,
 }) => {
   const { leads, frequency, annotations } = data;
-  const { ref, width: refWidth } = useResizeObserver();
+  const { ref, width: refWidth } = useResizeObserver<HTMLDivElement>();
   useEffect(() => {
     setGraphWidth(refWidth);
   }, [refWidth]);
@@ -58,11 +58,11 @@ export const HeartbeatGraph: FC<Props> = ({
               {t('HEARTBEAT_ANALYSIS.LEAD')}: {key}
             </Text>
           </HStack>
-          <Box boxShadow="md" position="relative" bg="graph.background" width="full" ref={ref}>
+          <Stack boxShadow="md" position="relative" bg="graph.background" width="full" ref={ref}>
             <svg
+              width="calc(100%)"
+              height={height}
               style={{
-                width: width,
-                height: height,
                 userSelect: 'none',
               }}
               viewBox={`0 0 ${width} ${height}`}
@@ -77,7 +77,7 @@ export const HeartbeatGraph: FC<Props> = ({
               QRS={annotations.QRS}
             />
             {rulerActive && <Ruler frequency={frequency} />}
-          </Box>
+          </Stack>
         </Stack>
       ))}
     </VStack>

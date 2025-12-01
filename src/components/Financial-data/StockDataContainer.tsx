@@ -5,12 +5,21 @@ import type { StockData } from '@/queries/stock-data/model';
 import { scaleLinear } from 'd3-scale';
 import type { UseQueryResult } from '@tanstack/react-query';
 import { GRID_HEIGHT } from '@/visualizations/constants';
+import { useThemeBreakpointValue, type BreakpointKey } from '@/design-system/tokens/breakpoints';
 
 type Props = {
   data: UseQueryResult<StockData[], Error>;
   children: (props: { data: StockData[]; loading: boolean }) => React.ReactNode;
 };
 const HEIGHT = GRID_HEIGHT * 5;
+const BREAKPOINTS_TO_HEIGHT_MAPPING: Record<BreakpointKey, number> = {
+  base: 210,
+  sm: 350,
+  md: 490,
+  lg: HEIGHT,
+  xl: HEIGHT,
+  '2xl': HEIGHT,
+};
 export const StockDataContainer = ({ data, children }: Props) => {
   const {
     setYScale,
@@ -44,6 +53,8 @@ export const StockDataContainer = ({ data, children }: Props) => {
     setDateScale(copy);
   }, [width]);
 
+  const currentBreakpoint = useThemeBreakpointValue();
+
   useEffect(() => {
     setYAxisDisplay(null);
     const [min, max] = [
@@ -55,10 +66,13 @@ export const StockDataContainer = ({ data, children }: Props) => {
     setYScale(
       scaleLinear()
         .domain([min - 0.1 * diff, max + 0.1 * diff])
-        .range([0, HEIGHT])
+        .range([0, BREAKPOINTS_TO_HEIGHT_MAPPING[currentBreakpoint]])
     );
-    setDimensions({ height: HEIGHT });
   }, [renderableData]);
 
+  useEffect(
+    () => setDimensions({ height: BREAKPOINTS_TO_HEIGHT_MAPPING[currentBreakpoint] }),
+    [currentBreakpoint]
+  );
   return <>{children({ data: renderableData, loading: !data.isSuccess })}</>;
 };

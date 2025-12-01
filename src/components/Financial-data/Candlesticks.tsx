@@ -1,13 +1,24 @@
 import type { StockData } from '@/queries/stock-data/model';
-import { type FC } from 'react';
+import { useMemo, type FC } from 'react';
 import { useGraphColors } from '@/design-system/hooks';
 import { usePlot } from '@/visualizations/graph-hooks';
+import { useThemeBreakpointValue, type BreakpointKey } from '@/design-system/tokens/breakpoints';
 
 type Props = {
   data: StockData[];
 };
-const MINIMUM_WIDTH_FACTOR = 20;
 
+const BREAKPOINTS_TO_CANDLESTICK_MAPPING: Record<
+  BreakpointKey,
+  { base: number; extremity: number }
+> = {
+  base: { base: 4, extremity: 1 },
+  sm: { base: 6, extremity: 1 },
+  md: { base: 10, extremity: 2 },
+  lg: { base: 12, extremity: 2 },
+  xl: { base: 20, extremity: 2 },
+  '2xl': { base: 20, extremity: 2 },
+};
 export const Candlesticks: FC<Props> = ({ data }) => {
   const {
     dateScale,
@@ -18,7 +29,10 @@ export const Candlesticks: FC<Props> = ({ data }) => {
   const {
     stockData: { win, loss, barBorderWin, barBorderLoss },
   } = useGraphColors();
-  const barWidth = MINIMUM_WIDTH_FACTOR * transform.k;
+  const currentBreakpoint = useThemeBreakpointValue();
+  const barWidth = useMemo(() => {
+    return BREAKPOINTS_TO_CANDLESTICK_MAPPING[currentBreakpoint].base * transform.k;
+  }, [currentBreakpoint, transform.k]);
   return (
     <>
       {data.map((datum, i) => {
@@ -30,7 +44,7 @@ export const Candlesticks: FC<Props> = ({ data }) => {
           <g key={i}>
             <line
               stroke={color}
-              strokeWidth={2}
+              strokeWidth={BREAKPOINTS_TO_CANDLESTICK_MAPPING[currentBreakpoint].extremity}
               y1={height - yScale(high)}
               y2={height - yScale(topRectPoint)}
               x1={dateScale(date) + barWidth / 2}
@@ -47,7 +61,7 @@ export const Candlesticks: FC<Props> = ({ data }) => {
             />
             <line
               stroke={color}
-              strokeWidth={2}
+              strokeWidth={BREAKPOINTS_TO_CANDLESTICK_MAPPING[currentBreakpoint].extremity}
               y2={height - yScale(bottomRectPoint)}
               y1={height - yScale(low)}
               x1={dateScale(date) + barWidth / 2}

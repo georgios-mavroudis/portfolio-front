@@ -1,7 +1,7 @@
 import { PlotProvider } from '@/visualizations/components/PlotContext';
 import { StockChart } from './StockChart';
 import { useStockData } from '@/queries/stock-data/stock-data-queries';
-import { HStack, Text, VStack } from '@chakra-ui/react';
+import { Stack, Text, VStack } from '@chakra-ui/react';
 import { Alert } from '@/design-system/components/Alert';
 import { useState } from 'react';
 import { StockDataContainer } from './StockDataContainer';
@@ -21,11 +21,18 @@ export const StockData = () => {
     return <Alert title={t('NOT_FOUND.NO_DATA')} status="error" />;
   }
   return (
-    <VStack width="full" alignItems="start">
+    <VStack width="full" alignItems={{ base: 'center', sm: 'start' }}>
       <Text textStyle="h3">{t('STOCK_DATA.TITLE')}</Text>
-      <HStack alignItems="start" justifyContent="space-between" width="full">
+      <Stack
+        direction={{ base: 'column', sm: 'row' }}
+        alignItems={{ base: 'center', sm: 'start' }}
+        justifyContent="space-between"
+        width="full"
+      >
         <VStack height="full" justifyContent="center">
-          <Text textStyle="md">{t('STOCK_DATA.DESCRIPTION')}</Text>
+          <Text textAlign={{ base: 'center', sm: 'start' }} textStyle="md">
+            {t('STOCK_DATA.DESCRIPTION')}
+          </Text>
         </VStack>
         <Select
           options={companyListCollection}
@@ -33,7 +40,7 @@ export const StockData = () => {
           onChange={(value) => setCompany(value.items[0] as SelectOption<CompanySymbol>)}
           title={t('COMPANY', { count: COMPANIES.length })}
         />
-      </HStack>
+      </Stack>
       <PlotProvider>
         <StockDataContainer data={data}>
           {({ data, loading }) => <StockChart data={data} loading={loading} />}

@@ -25,7 +25,6 @@ type Props = {
 
 const OFFSET = 50;
 const VIEWBOX_HEIGHT_OFFSET = 65;
-const VIEWBOX_WIDTH_OFFSET = 25;
 
 export const StockChart: FC<Props> = ({ data, loading = false }) => {
   const {
@@ -38,7 +37,7 @@ export const StockChart: FC<Props> = ({ data, loading = false }) => {
   const { ref, width: refWidth } = useResizeObserver<HTMLDivElement>();
   const { mouseX, mouseY } = useZoomAndPan();
   const { mouseLine } = useGraphColors();
-
+  console.log(refWidth);
   useEffect(() => {
     setDimensions({ width: refWidth });
   }, [refWidth]);
@@ -48,6 +47,7 @@ export const StockChart: FC<Props> = ({ data, loading = false }) => {
       ref={ref}
       rounded="md"
       width="full"
+      // style={{ width: '100%' }}
       boxShadow="md"
       bg="graph.background"
       borderWidth={1}
@@ -55,11 +55,10 @@ export const StockChart: FC<Props> = ({ data, loading = false }) => {
     >
       <svg
         id={INTERACTIVE_PLOT}
-        viewBox={`0 0 ${width + VIEWBOX_WIDTH_OFFSET} ${height + VIEWBOX_HEIGHT_OFFSET}`}
+        viewBox={`0 0 ${width} ${height + VIEWBOX_HEIGHT_OFFSET}`}
         height={height}
-        width={width}
+        width={'calc(100%)'}
         ref={setSvg}
-        // preserveAspectRatio="xMinYMax"
       >
         <g id={GRID} transform={`translate(0, 0)`}>
           {!loading && (
