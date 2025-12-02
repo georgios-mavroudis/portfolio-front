@@ -59,7 +59,7 @@ export const PlotTooltip: FC<Props> = ({ datum, mouseX }) => {
             {wakeTime && bedTime && (
               <Text>
                 <b>Time to Bed: </b>
-                {`${format(wakeTime, "HH':'mm")} - ${format(bedTime, "HH':'mm")}`}
+                {`${format(bedTime, "HH':'mm")} - ${format(wakeTime, "HH':'mm")}`}
               </Text>
             )}
           </Flex>

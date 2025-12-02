@@ -4,22 +4,14 @@ import { usePlot } from '@/visualizations/graph-hooks';
 import type { StockData } from '@/queries/stock-data/model';
 import { scaleLinear } from 'd3-scale';
 import type { UseQueryResult } from '@tanstack/react-query';
-import { GRID_HEIGHT } from '@/visualizations/constants';
-import { useThemeBreakpointValue, type BreakpointKey } from '@/design-system/tokens/breakpoints';
+import { useThemeBreakpointValue } from '@/design-system/tokens/breakpoints';
+import { BREAKPOINTS_TO_HEIGHT_MAPPING } from '@/visualizations/constants';
 
 type Props = {
   data: UseQueryResult<StockData[], Error>;
   children: (props: { data: StockData[]; loading: boolean }) => React.ReactNode;
 };
-const HEIGHT = GRID_HEIGHT * 5;
-const BREAKPOINTS_TO_HEIGHT_MAPPING: Record<BreakpointKey, number> = {
-  base: 210,
-  sm: 350,
-  md: 490,
-  lg: HEIGHT,
-  xl: HEIGHT,
-  '2xl': HEIGHT,
-};
+
 export const StockDataContainer = ({ data, children }: Props) => {
   const {
     setYScale,

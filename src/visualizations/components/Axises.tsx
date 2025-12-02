@@ -1,7 +1,12 @@
 import { type FC, useEffect } from 'react';
 import { closestZoomLevel, PLOT_MARGIN, ZOOM_LEVELS_MAP } from '@/visualizations/constants';
 import { select, type NumberValue, axisBottom } from 'd3';
-import { getBottomTicks, tickInterval, usePlot } from '@/visualizations/graph-hooks';
+import {
+  getBottomTicks,
+  tickInterval,
+  usePlot,
+  useResponsiveFont,
+} from '@/visualizations/graph-hooks';
 import { YScale } from './YScale';
 import { useGraphColors } from '../../design-system/hooks';
 import { useTranslation } from 'react-i18next';
@@ -16,7 +21,7 @@ type Props = {
   positionY?: 'left' | 'right';
   withBorders?: boolean;
 };
-const FONT_SIZE = 10;
+
 export const Axises: FC<Props> = ({ positionY = 'left', withBorders = false }) => {
   const {
     dateScale,
@@ -26,7 +31,8 @@ export const Axises: FC<Props> = ({ positionY = 'left', withBorders = false }) =
   } = usePlot();
   const { text, lightText } = useGraphColors();
   const { i18n } = useTranslation();
-
+  const breakpointValue = useResponsiveFont();
+  console.log(breakpointValue);
   useEffect(() => {
     if (svg != null) {
       const zoomLevel = closestZoomLevel(transform.k);
@@ -42,7 +48,10 @@ export const Axises: FC<Props> = ({ positionY = 'left', withBorders = false }) =
         daysSelection.call(xAxis);
 
         daysSelection.select('.domain').attr('stroke', 'none');
-        daysSelection.selectAll('.tick text').attr('color', text).style('font-size', FONT_SIZE);
+        daysSelection
+          .selectAll('.tick text')
+          .attr('color', text)
+          .style('font-size', breakpointValue);
       }
 
       const monthsSelection = select(svg).select<SVGSVGElement>(`#${MONTH_ID}`);
@@ -64,14 +73,14 @@ export const Axises: FC<Props> = ({ positionY = 'left', withBorders = false }) =
         monthsSelection
           .selectAll('.tick text')
           .attr('color', lightText)
-          .style('font-size', FONT_SIZE);
+          .style('font-size', breakpointValue);
       }
     }
-  }, [svg, dateScale, transform.k, text, lightText, i18n.language]);
+  }, [svg, dateScale, transform.k, text, lightText, i18n.language, breakpointValue]);
 
   return (
     <>
-      <YScale position={positionY} withBorders={withBorders} fontSize={FONT_SIZE} />
+      <YScale position={positionY} withBorders={withBorders} fontSize={breakpointValue} />
       <svg width={width}>
         <g id={DAY_ID} transform={`translate(0, ${height + DAYS_MARGIN})`} />
         <g

@@ -3,6 +3,8 @@ import { useEffect, useMemo } from 'react';
 import { inRange } from '@/common/helpers';
 import { getInitialYScale, usePlot } from '@/visualizations/graph-hooks';
 import { SLEEP_SCORE } from './constants';
+import { useThemeBreakpointValue } from '@/design-system/tokens/breakpoints';
+import { BREAKPOINTS_TO_HEIGHT_MAPPING } from '@/visualizations/constants';
 
 type Props = {
   data: Data[];
@@ -13,8 +15,9 @@ export const DataContainer = ({ data, children }: Props) => {
     dateScale,
     setDateScale,
     setYScale,
-    dimensions: { width, height },
+    dimensions: { width },
     yAxisDisplay,
+    setDimensions,
   } = usePlot();
 
   /**
@@ -31,12 +34,17 @@ export const DataContainer = ({ data, children }: Props) => {
     );
   }, [data, dateScale]);
 
+  const currentBreakpoint = useThemeBreakpointValue();
+
   useEffect(() => {
     const copy = dateScale.copy().range([0, width]);
     setDateScale(copy);
-    setYScale(getInitialYScale(yAxisDisplay ?? SLEEP_SCORE, height));
-  }, [width, height]);
+  }, [width]);
 
-  // useEffect(() => {}, []);
+  useEffect(() => {
+    const heightValue = BREAKPOINTS_TO_HEIGHT_MAPPING[currentBreakpoint];
+    setDimensions({ height: heightValue });
+    setYScale(getInitialYScale(yAxisDisplay ?? SLEEP_SCORE, heightValue));
+  }, [currentBreakpoint]);
   return <>{children({ data: renderableData })}</>;
 };

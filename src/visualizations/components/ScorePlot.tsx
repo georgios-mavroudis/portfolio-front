@@ -1,6 +1,6 @@
-import { getSleepDurationPalette, usePlot } from '@/visualizations/graph-hooks';
+import { getSleepDurationPalette, usePlot, useResponsiveFont } from '@/visualizations/graph-hooks';
 import type { Data } from '@/types/sleep-data-types';
-import { type FC } from 'react';
+import { useMemo, type FC } from 'react';
 import { PALETTE } from '@/design-system/palette';
 import { useGraphColors } from '../../design-system/hooks';
 import { clamp } from '@/common/helpers';
@@ -14,7 +14,6 @@ const TEXT_PADDING = 5;
 const VISIBLE_TEXT_ZOOM = 2;
 const PIXEL_SIZE = 2;
 const MINIMUM_WIDTH_FACTOR = 6;
-const MAX_FONT_SIZE = 30;
 
 export const ScorePlot: FC<Props> = ({ data, hoveredBar }) => {
   const {
@@ -28,7 +27,11 @@ export const ScorePlot: FC<Props> = ({ data, hoveredBar }) => {
     text,
     inverse: { text: inverseText },
   } = useGraphColors();
-
+  const font = useResponsiveFont();
+  const fontSize = useMemo(
+    () => clamp(PIXEL_SIZE * transform.k, font, font + 10),
+    [transform.k, font]
+  );
   return (
     <>
       {data
@@ -42,7 +45,6 @@ export const ScorePlot: FC<Props> = ({ data, hoveredBar }) => {
               ? dateScale(wakeTime) - dateScale(bedTime)
               : MINIMUM_WIDTH_FACTOR * transform.k;
           const isHovering = hoveredBar?.id === id;
-          const fontSize = clamp(PIXEL_SIZE * transform.k, PIXEL_SIZE * transform.k, MAX_FONT_SIZE);
           const isTextOverflowing = height - yScale(filteredScore) - TEXT_PADDING - fontSize < 0;
           const textPosition = isTextOverflowing
             ? height - yScale(filteredScore) + fontSize
@@ -74,11 +76,7 @@ export const ScorePlot: FC<Props> = ({ data, hoveredBar }) => {
                     fill={textColor}
                     strokeWidth={0}
                     style={{
-                      fontSize: clamp(
-                        PIXEL_SIZE * transform.k,
-                        PIXEL_SIZE * transform.k,
-                        MAX_FONT_SIZE
-                      ),
+                      fontSize,
                     }}
                   >
                     {duration.hours ? `${duration.hours}h` : ''}

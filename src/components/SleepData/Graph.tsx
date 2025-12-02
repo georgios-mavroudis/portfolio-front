@@ -1,13 +1,7 @@
 import { memo, useEffect, type FC } from 'react';
 import { Box } from '@chakra-ui/react';
 import { usePlot, useResizeObserver, useZoomAndPan } from '@/visualizations/graph-hooks';
-import {
-  GRID,
-  GRID_HEIGHT,
-  INTERACTIVE_CONTAINER,
-  INTERACTIVE_PLOT,
-  PLOT_MARGIN,
-} from '@/visualizations/constants';
+import { GRID, INTERACTIVE_CONTAINER, INTERACTIVE_PLOT } from '@/visualizations/constants';
 import { ScorePlot } from '@/visualizations/components/ScorePlot';
 import { HRPlot } from '@/visualizations/components/HRPlot';
 import { MonthSeparators } from '@/visualizations/components/MonthSeparators';
@@ -25,6 +19,7 @@ type Props = {
   data: Data[];
 };
 
+const VIEWBOX_HEIGHT_OFFSET = 65;
 export const Graph: FC<Props> = memo(({ data }) => {
   const {
     setSvg,
@@ -35,7 +30,7 @@ export const Graph: FC<Props> = memo(({ data }) => {
   const { mouseX, isDragging } = useZoomAndPan();
   const { ref, width: refWidth } = useResizeObserver<HTMLDivElement>();
   useEffect(() => {
-    setDimensions({ width: refWidth, height: GRID_HEIGHT * 4 });
+    setDimensions({ width: refWidth });
   }, [refWidth]);
 
   const findHoveredDatum = useFindHoveredDatum(data);
@@ -58,7 +53,7 @@ export const Graph: FC<Props> = memo(({ data }) => {
           ref={setSvg}
           width={`calc(100%)`}
           height={height}
-          viewBox={`0 0 ${width + 40}, ${height + PLOT_MARGIN.top * 4}`}
+          viewBox={`0 0 ${width} ${height + VIEWBOX_HEIGHT_OFFSET}`}
         >
           <g id={GRID} transform="translate(0,20)">
             <svg>
@@ -82,10 +77,7 @@ export const Graph: FC<Props> = memo(({ data }) => {
             {datum && <PlotTooltip datum={datum} mouseX={mouseX} />}
             <Axises />
           </g>
-          {/* <rect x={0} y={0} width={LEFT_OFFSET} height={height} fill={background} /> */}
-          {/* <g transform={`translate(${LEFT_OFFSET}, ${PLOT_MARGIN.top})`}> */}
         </svg>
-        {/* </PlotSvg> */}
       </Box>
       <Box>
         <PlotFooter />

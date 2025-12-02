@@ -1,4 +1,5 @@
 import { PALETTE } from '@/design-system/palette';
+import type { BreakpointKey } from '@/design-system/tokens/breakpoints';
 
 // PLOT LAYOUT
 export const MIN_HR = 0;
@@ -104,3 +105,20 @@ export type Interval = {
 
 type PaletteToken = keyof (typeof PALETTE)['brand'];
 export const TOKENS = Object.keys(PALETTE.brand) as unknown as PaletteToken[];
+
+export const BREAKPOINTS_TO_HEIGHT_MAPPING: Record<BreakpointKey, number> = {
+  base: 200,
+  sm: 350,
+  md: 490,
+  lg: GRID_HEIGHT * 5,
+  xl: GRID_HEIGHT * 5,
+  '2xl': GRID_HEIGHT * 5,
+};
+export const RESPONSIVE_FONTSIZES: Record<BreakpointKey, number> = {
+  base: 4,
+  sm: 10,
+  md: 10,
+  lg: 10,
+  xl: 12,
+  '2xl': 14,
+};

@@ -29,6 +29,7 @@ import {
   type Interval,
   TOKENS,
   SVG_WIDTH,
+  RESPONSIVE_FONTSIZES,
 } from '@/visualizations/constants';
 import {
   createContext,
@@ -51,6 +52,7 @@ import { PALETTE } from '@/design-system/palette';
 import { scaleLinear, scaleUtc, type ScaleLinear, type ScaleTime } from 'd3-scale';
 import type { PlotData } from './components/PlotContext';
 import { enUS, fr } from 'date-fns/locale';
+import { useThemeBreakpointValue } from '@/design-system/tokens/breakpoints';
 
 // Plot
 export const PlotContext = createContext<PlotData | null>(null);
@@ -375,3 +377,9 @@ export function useResizeObserver<T extends HTMLElement>() {
 
   return { ref, ...size };
 }
+
+export const useResponsiveFont = () => {
+  const breakpointSize = useThemeBreakpointValue();
+
+  return useMemo(() => RESPONSIVE_FONTSIZES[breakpointSize], [breakpointSize]);
+};

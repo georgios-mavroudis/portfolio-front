@@ -23,17 +23,21 @@ export const PlotFooter: FC = () => {
     withLine,
     dimensions: { height },
   } = usePlot();
+
   const changeYDisplay = useCallback(() => {
     const display = yAxisDisplay === SLEEP_SCORE ? HEART_RATE : SLEEP_SCORE;
     setYAxisDisplay(display);
     setYScale(getInitialYScale(display, height));
   }, [yAxisDisplay, height]);
+
   const showLine = useCallback(() => {
     setWithLine(!withLine);
   }, [setWithLine, withLine]);
+
   const {
     sleepData: { bedTime, wokeTime, sleepScorePalette },
   } = useGraphColors();
+
   const { t } = useTranslation();
 
   return (
