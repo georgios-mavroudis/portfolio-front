@@ -14,27 +14,22 @@ type Props = {
   rulerActive: boolean;
   playAnimation: boolean;
   setHeartbeat: (heartbeat: number) => void;
-  setGraphWidth: (width: number) => void;
 };
 
-export const HeartbeatGraph: FC<Props> = ({
-  data,
-  rulerActive,
-  playAnimation,
-  setHeartbeat,
-  setGraphWidth,
-}) => {
+export const HeartbeatGraph: FC<Props> = ({ data, rulerActive, playAnimation, setHeartbeat }) => {
   const { leads, frequency, annotations } = data;
   const { ref, width: refWidth } = useResizeObserver<HTMLDivElement>();
-  useEffect(() => {
-    setGraphWidth(refWidth);
-  }, [refWidth]);
 
   const {
     setXScale,
     setYScale,
     dimensions: { width, height },
+    setDimensions,
   } = usePlot();
+
+  useEffect(() => {
+    setDimensions({ width: refWidth });
+  }, [refWidth]);
 
   useEffect(() => {
     // We initialize the scales to the appropriate ranges and domains
@@ -53,7 +48,7 @@ export const HeartbeatGraph: FC<Props> = ({
     <VStack alignItems="start" width="full">
       {Object.entries(leads).map(([key, beat]) => (
         <Stack direction={{ base: 'column', sm: 'row' }} key={key} width="full">
-          <HStack alignItems="start" height="full">
+          <HStack alignItems="start" height="full" width={20}>
             <Text>
               {t('HEARTBEAT_ANALYSIS.LEAD')}: {key}
             </Text>

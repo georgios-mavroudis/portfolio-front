@@ -7,7 +7,7 @@ export interface Data {
   id: number;
   bedTime: Date;
   wakeTime: Date;
-  score: number | null;
-  meanHr: number | null;
+  score: number;
+  meanHr: number;
   duration: Interval;
 }

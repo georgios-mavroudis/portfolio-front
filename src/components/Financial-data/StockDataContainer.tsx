@@ -68,11 +68,8 @@ export const StockDataContainer = ({ data, children }: Props) => {
         .domain([min - 0.1 * diff, max + 0.1 * diff])
         .range([0, BREAKPOINTS_TO_HEIGHT_MAPPING[currentBreakpoint]])
     );
-  }, [renderableData]);
+    setDimensions({ height: BREAKPOINTS_TO_HEIGHT_MAPPING[currentBreakpoint] });
+  }, [renderableData, currentBreakpoint]);
 
-  useEffect(
-    () => setDimensions({ height: BREAKPOINTS_TO_HEIGHT_MAPPING[currentBreakpoint] }),
-    [currentBreakpoint]
-  );
   return <>{children({ data: renderableData, loading: !data.isSuccess })}</>;
 };

@@ -37,7 +37,7 @@ export const StockChart: FC<Props> = ({ data, loading = false }) => {
   const { ref, width: refWidth } = useResizeObserver<HTMLDivElement>();
   const { mouseX, mouseY } = useZoomAndPan();
   const { mouseLine } = useGraphColors();
-  console.log(refWidth);
+
   useEffect(() => {
     setDimensions({ width: refWidth });
   }, [refWidth]);
@@ -47,7 +47,6 @@ export const StockChart: FC<Props> = ({ data, loading = false }) => {
       ref={ref}
       rounded="md"
       width="full"
-      // style={{ width: '100%' }}
       boxShadow="md"
       bg="graph.background"
       borderWidth={1}
@@ -57,7 +56,7 @@ export const StockChart: FC<Props> = ({ data, loading = false }) => {
         id={INTERACTIVE_PLOT}
         viewBox={`0 0 ${width} ${height + VIEWBOX_HEIGHT_OFFSET}`}
         height={height}
-        width={'calc(100%)'}
+        width="calc(100%)"
         ref={setSvg}
       >
         <g id={GRID} transform={`translate(0, 0)`}>
@@ -100,7 +99,7 @@ export const StockChart: FC<Props> = ({ data, loading = false }) => {
           />
         </g>
         <g transform={`translate(0, 0)`}>
-          <Axises withBorders={true} fontSize={10} />
+          <Axises withBorders={true} />
           {mouseX && (
             <g>
               <defs>

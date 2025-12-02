@@ -1,5 +1,5 @@
 import { HEART_RATE, SLEEP_SCORE } from '@/components/SleepData/constants';
-import { Box, Button, Flex, Text } from '@chakra-ui/react';
+import { Box, Button, HStack, Stack, Text, VStack } from '@chakra-ui/react';
 import { type FC, useCallback } from 'react';
 import { TOKENS } from '../constants';
 import { useGraphColors } from '../../design-system/hooks';
@@ -15,12 +15,19 @@ const colorStyles = (color: string): Partial<React.CSSProperties> => ({
 });
 
 export const PlotFooter: FC = () => {
-  const { setYScale, setYAxisDisplay, yAxisDisplay, setWithLine, withLine } = usePlot();
+  const {
+    setYScale,
+    setYAxisDisplay,
+    yAxisDisplay,
+    setWithLine,
+    withLine,
+    dimensions: { height },
+  } = usePlot();
   const changeYDisplay = useCallback(() => {
     const display = yAxisDisplay === SLEEP_SCORE ? HEART_RATE : SLEEP_SCORE;
     setYAxisDisplay(display);
-    setYScale(getInitialYScale(display));
-  }, [yAxisDisplay]);
+    setYScale(getInitialYScale(display, height));
+  }, [yAxisDisplay, height]);
   const showLine = useCallback(() => {
     setWithLine(!withLine);
   }, [setWithLine, withLine]);
@@ -30,18 +37,22 @@ export const PlotFooter: FC = () => {
   const { t } = useTranslation();
 
   return (
-    <Flex justify="space-between" p="md">
-      <Flex direction="column" gap="sm">
-        <Button onClick={changeYDisplay}>{t('GARMIN_SLEEP_DATA.DISPLAY')}</Button>
+    <Stack direction={{ base: 'column', sm: 'column', md: 'row' }} justify="space-between" p="md">
+      <VStack direction="column" gap="sm">
+        <Button onClick={changeYDisplay} size={{ base: 'sm', md: 'md' }}>
+          {t('GARMIN_SLEEP_DATA.DISPLAY')}
+        </Button>
         {yAxisDisplay === HEART_RATE && (
-          <Button onClick={showLine}>{t('GARMIN_SLEEP_DATA.SHOW_LINE')}</Button>
+          <Button onClick={showLine} size={{ base: 'sm', md: 'md' }}>
+            {t('GARMIN_SLEEP_DATA.SHOW_LINE')}
+          </Button>
         )}
-      </Flex>
+      </VStack>
       {yAxisDisplay === SLEEP_SCORE && (
-        <Flex direction="column" alignItems="center">
-          <Text textStyle="md">{t('GARMIN_SLEEP_DATA.LEGEND')}</Text>
+        <VStack direction="column" alignItems="center">
+          <Text textStyle={{ base: 'sm', sm: 'md' }}>{t('GARMIN_SLEEP_DATA.LEGEND')}</Text>
           {[TOKENS.slice(1, 5), TOKENS.slice(5, 9), TOKENS.slice(9)].map((keys, i) => (
-            <Flex justifyContent="space-between" key={i}>
+            <HStack justifyContent="space-between" key={i}>
               {keys.map((key, j) => {
                 const isLastItem = i === 2;
                 const renderText = (
@@ -54,29 +65,32 @@ export const PlotFooter: FC = () => {
                   if (m === 0 && n === 0) return '< 3';
                   else if (isLastItem) return '12+';
                   else return `${k} - ${k + 1}`;
+                  // else return `3 - 5`;
                 };
                 return (
-                  <Flex marginRight={5} key={i + j}>
+                  <HStack marginRight={{ base: 'none', sm: 'sm' }} key={i + j}>
                     <Box style={colorStyles(sleepScorePalette[key])} />
-                    {renderText(i, j, keys.length, isLastItem)}
-                  </Flex>
+                    <Text textAlign="center" textStyle={{ base: 'xs', sm: 'sm' }}>
+                      {renderText(i, j, keys.length, isLastItem)}
+                    </Text>
+                  </HStack>
                 );
               })}
-            </Flex>
+            </HStack>
           ))}
-        </Flex>
+        </VStack>
       )}
-      <Flex direction="column">
+      <Stack direction="column" alignItems={{ base: 'center', md: 'start' }}>
         {[
           [t('GARMIN_SLEEP_DATA.WOKE'), wokeTime],
           [t('GARMIN_SLEEP_DATA.SLEEP'), bedTime],
         ].map(([title, color], i) => (
           <Box display="flex" key={i}>
             <Box style={colorStyles(color)} />
-            <Text>{title}</Text>
+            <Text textStyle={{ base: 'sm', sm: 'md' }}>{title}</Text>
           </Box>
         ))}
-      </Flex>
-    </Flex>
+      </Stack>
+    </Stack>
   );
 };

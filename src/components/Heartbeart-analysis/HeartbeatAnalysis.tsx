@@ -26,7 +26,6 @@ export const HeartBeatAnalysis = () => {
   const data = useHeartbeatData();
   const [heartBeat, setHeartBeat] = useState<string | number>('--');
   const { t } = useTranslation();
-  const [width, setWidth] = useState(0);
 
   if (!data.isSuccess) {
     return (
@@ -97,14 +96,13 @@ export const HeartBeatAnalysis = () => {
             </HStack>
           </VStack>
           <HStack height="full" width="full">
-            <HeartbeatContainer data={data.data} width={Math.floor(width)}>
+            <HeartbeatContainer data={data.data}>
               {({ data }) => (
                 <HeartbeatGraph
                   data={data}
                   playAnimation={playAnimation}
                   rulerActive={rulerActive}
                   setHeartbeat={setHeartBeat}
-                  setGraphWidth={setWidth}
                 />
               )}
             </HeartbeatContainer>

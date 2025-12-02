@@ -6,16 +6,27 @@ export const PlotSvg: FC<
   PropsWithChildren<{
     id?: string;
     reference?: React.Ref<SVGSVGElement>;
-    height?: number;
+    height?: number | string;
+    width?: number | string;
+    viewBox?: { width: number; height: number };
+    aspectRatio?: string;
   }>
-> = ({ id, children, reference, height = PLOT_HEIGHT }) => {
+> = ({
+  id,
+  children,
+  reference,
+  width = 'calc(100%)',
+  height = PLOT_HEIGHT,
+  viewBox = { width: SVG_WIDTH, height: SVG_HEIGHT },
+  aspectRatio = 'xMidYMid',
+}) => {
   return (
     <Svg
       id={id}
       ref={reference}
-      view={{ width: SVG_WIDTH, height: SVG_HEIGHT }}
+      view={viewBox}
       cursor="initial"
-      preserveAspectRatio="xMinYMax slice"
+      preserveAspectRatio={aspectRatio}
       style={{
         marginTop: PLOT_MARGIN.top,
         left: 0,
@@ -23,7 +34,7 @@ export const PlotSvg: FC<
         position: 'relative',
         userSelect: 'none',
       }}
-      width={`calc(100% - ${PLOT_MARGIN.left}px)`}
+      width={width}
       height={height}
     >
       {children}

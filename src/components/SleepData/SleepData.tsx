@@ -1,5 +1,5 @@
 import { PlotProvider } from '@/visualizations/components/PlotContext';
-import { Flex, Loader, Text, VStack } from '@chakra-ui/react';
+import { Loader, Stack, Text, VStack } from '@chakra-ui/react';
 import { Graph } from './Graph';
 import json from '@/components/SleepData/data.json';
 import type { Data } from '@/types/sleep-data-types';
@@ -40,6 +40,7 @@ export const SleepData = () => {
     isSuccess: true,
     isError: false,
   };
+
   const { t } = useTranslation();
   if (!data.isSuccess) {
     return <Loader />;
@@ -56,20 +57,22 @@ export const SleepData = () => {
   }
 
   return (
-    <Flex height="full">
+    <Stack height="full">
       <VStack width="full" gap="md" height="full">
-        <VStack alignItems="start" width="full">
+        <VStack alignItems={{ base: 'center', sm: 'start' }} width="full">
           <Text textStyle="h3">{t('GARMIN_SLEEP_DATA.TITLE')}</Text>
-          <Text>{t('GARMIN_SLEEP_DATA.DESCRIPTION')}</Text>
+          <Text textAlign={{ base: 'center', sm: 'start' }}>
+            {t('GARMIN_SLEEP_DATA.DESCRIPTION')}
+          </Text>
         </VStack>
-        <Flex width="full">
+        <Stack width="full">
           <PlotProvider>
             <DataContainer data={data.data}>
               {({ data: renderableData }) => <Graph data={renderableData} />}
             </DataContainer>
           </PlotProvider>
-        </Flex>
+        </Stack>
       </VStack>
-    </Flex>
+    </Stack>
   );
 };

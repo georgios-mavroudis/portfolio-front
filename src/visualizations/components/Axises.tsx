@@ -15,9 +15,9 @@ const MONTH_ID = 'month';
 type Props = {
   positionY?: 'left' | 'right';
   withBorders?: boolean;
-  fontSize?: number;
 };
-export const Axises: FC<Props> = ({ positionY = 'left', withBorders = false, fontSize = 6 }) => {
+const FONT_SIZE = 10;
+export const Axises: FC<Props> = ({ positionY = 'left', withBorders = false }) => {
   const {
     dateScale,
     svg,
@@ -42,7 +42,7 @@ export const Axises: FC<Props> = ({ positionY = 'left', withBorders = false, fon
         daysSelection.call(xAxis);
 
         daysSelection.select('.domain').attr('stroke', 'none');
-        daysSelection.selectAll('.tick text').attr('color', text).style('font-size', fontSize);
+        daysSelection.selectAll('.tick text').attr('color', text).style('font-size', FONT_SIZE);
       }
 
       const monthsSelection = select(svg).select<SVGSVGElement>(`#${MONTH_ID}`);
@@ -64,14 +64,14 @@ export const Axises: FC<Props> = ({ positionY = 'left', withBorders = false, fon
         monthsSelection
           .selectAll('.tick text')
           .attr('color', lightText)
-          .style('font-size', fontSize);
+          .style('font-size', FONT_SIZE);
       }
     }
-  }, [svg, dateScale, transform.k, text, lightText, fontSize, i18n.language]);
+  }, [svg, dateScale, transform.k, text, lightText, i18n.language]);
 
   return (
     <>
-      <YScale position={positionY} withBorders={withBorders} fontSize={fontSize} />
+      <YScale position={positionY} withBorders={withBorders} fontSize={FONT_SIZE} />
       <svg width={width}>
         <g id={DAY_ID} transform={`translate(0, ${height + DAYS_MARGIN})`} />
         <g

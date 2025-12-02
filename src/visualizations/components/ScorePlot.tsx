@@ -3,6 +3,7 @@ import type { Data } from '@/types/sleep-data-types';
 import { type FC } from 'react';
 import { PALETTE } from '@/design-system/palette';
 import { useGraphColors } from '../../design-system/hooks';
+import { clamp } from '@/common/helpers';
 
 type Props = {
   data: Data[];
@@ -25,20 +26,28 @@ export const ScorePlot: FC<Props> = ({ data, hoveredBar }) => {
   const {
     sleepData: { sleepScorePalette },
     text,
+    inverse: { text: inverseText },
   } = useGraphColors();
+
   return (
     <>
       {data
         .filter(({ score }) => score)
         .map(({ id, duration, wakeTime, bedTime, score }) => {
-          const filteredScore = score as number;
+          const filteredScore = score;
           const durationColor = getSleepDurationPalette(duration, sleepScorePalette);
-          const barHeight = height + yScale(filteredScore as number) - height;
+          const barHeight = yScale(filteredScore);
           const barWidth =
             wakeTime && bedTime
               ? dateScale(wakeTime) - dateScale(bedTime)
               : MINIMUM_WIDTH_FACTOR * transform.k;
           const isHovering = hoveredBar?.id === id;
+          const fontSize = clamp(PIXEL_SIZE * transform.k, PIXEL_SIZE * transform.k, MAX_FONT_SIZE);
+          const isTextOverflowing = height - yScale(filteredScore) - TEXT_PADDING - fontSize < 0;
+          const textPosition = isTextOverflowing
+            ? height - yScale(filteredScore) + fontSize
+            : height - yScale(filteredScore) - TEXT_PADDING;
+          const textColor = isTextOverflowing ? inverseText : text;
           return (
             <g key={id}>
               <g
@@ -59,20 +68,17 @@ export const ScorePlot: FC<Props> = ({ data, hoveredBar }) => {
                   ry={3}
                 />
               </g>
-              <g
-                transform={`translate(${dateScale(bedTime ?? 0)}, ${
-                  height - yScale(filteredScore) - TEXT_PADDING
-                })`}
-              >
+              <g transform={`translate(${dateScale(bedTime ?? 0)}, ${textPosition})`}>
                 {transform.k > VISIBLE_TEXT_ZOOM && (
                   <text
-                    fill={text}
+                    fill={textColor}
                     strokeWidth={0}
                     style={{
-                      fontSize:
-                        PIXEL_SIZE * transform.k < MAX_FONT_SIZE
-                          ? PIXEL_SIZE * transform.k
-                          : MAX_FONT_SIZE,
+                      fontSize: clamp(
+                        PIXEL_SIZE * transform.k,
+                        PIXEL_SIZE * transform.k,
+                        MAX_FONT_SIZE
+                      ),
                     }}
                   >
                     {duration.hours ? `${duration.hours}h` : ''}

@@ -104,7 +104,7 @@ export const textStyles = defineTextStyles({
       fontWeight: 'regular',
       lineHeight: '130%',
       letterSpacing: '0.08em',
-      fontSize: '0.75rem',
+      fontSize: '0.55rem',
     },
   },
 });

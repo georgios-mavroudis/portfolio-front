@@ -1,14 +1,21 @@
 import type { Data } from '@/types/sleep-data-types';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { inRange } from '@/common/helpers';
-import { usePlot } from '@/visualizations/graph-hooks';
+import { getInitialYScale, usePlot } from '@/visualizations/graph-hooks';
+import { SLEEP_SCORE } from './constants';
 
 type Props = {
   data: Data[];
   children: (props: { data: Data[] }) => React.ReactNode;
 };
 export const DataContainer = ({ data, children }: Props) => {
-  const { dateScale } = usePlot();
+  const {
+    dateScale,
+    setDateScale,
+    setYScale,
+    dimensions: { width, height },
+    yAxisDisplay,
+  } = usePlot();
 
   /**
    * We dont want to render the data that are not visible for performance reasons
@@ -23,5 +30,13 @@ export const DataContainer = ({ data, children }: Props) => {
       inRange(datum.bedTime.getTime(), adjustedMinDate.getTime(), maxDate.getTime())
     );
   }, [data, dateScale]);
+
+  useEffect(() => {
+    const copy = dateScale.copy().range([0, width]);
+    setDateScale(copy);
+    setYScale(getInitialYScale(yAxisDisplay ?? SLEEP_SCORE, height));
+  }, [width, height]);
+
+  // useEffect(() => {}, []);
   return <>{children({ data: renderableData })}</>;
 };

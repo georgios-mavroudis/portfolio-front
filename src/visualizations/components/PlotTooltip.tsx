@@ -9,10 +9,9 @@ type Props = {
   datum: Data | null;
   mouseX: number | null;
 };
-const TOOLTIP_WIDTH = 110;
-const TOOLTIP_HEIGHT = 50;
+const TOOLTIP_WIDTH = 310;
+const TOOLTIP_HEIGHT = 110;
 const PADDING = SPACES.sm; // TODO: use design system spacing
-const FONT_SIZE_PX = 6;
 
 export const PlotTooltip: FC<Props> = ({ datum, mouseX }) => {
   const tooltipXPos = useMemo(() => {
@@ -39,26 +38,26 @@ export const PlotTooltip: FC<Props> = ({ datum, mouseX }) => {
           border={`1px solid ${PALETTE.grey['100']}`}
           borderRadius={3}
           p="sm"
-          opacity={0.95}
+          opacity={0.9}
         >
           <Flex direction="column" align={'center'}>
             <Box>
-              <Text fontSize={FONT_SIZE_PX}>
+              <Text>
                 <b>Sleep Score: </b>
                 {`${score} %`}
               </Text>
             </Box>
-            <Text fontSize={FONT_SIZE_PX}>
+            <Text>
               <b>Sleep Duration: </b>
               {duration.hours ? `${duration.hours} h ` : ''}
               {duration.minutes ? `${duration.minutes} mins` : ''}
             </Text>
-            <Text fontSize={FONT_SIZE_PX}>
+            <Text>
               <b>Mean Heart Rate: </b>
               {`${meanHr} bpm`}
             </Text>
             {wakeTime && bedTime && (
-              <Text fontSize={FONT_SIZE_PX}>
+              <Text>
                 <b>Time to Bed: </b>
                 {`${format(wakeTime, "HH':'mm")} - ${format(bedTime, "HH':'mm")}`}
               </Text>

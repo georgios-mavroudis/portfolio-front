@@ -80,10 +80,13 @@ export const getInitialXScale = () => scaleLinear().domain([0, 1200]).range([0, 
 export const getInitialDateScale = (width = SVG_WIDTH) =>
   scaleUtc().domain(getInitialDateRange()).range([0, width]);
 
-export const getInitialYScale = (yAxisDisplay: YAxisDisplay = 'Sleep Score') =>
+export const getInitialYScale = (
+  yAxisDisplay: YAxisDisplay = 'Sleep Score',
+  height = GRID_HEIGHT
+) =>
   yAxisDisplay === SLEEP_SCORE
-    ? scaleLinear().domain([0, SCORE_MAX]).range([0, GRID_HEIGHT]).clamp(true)
-    : scaleLinear().domain([MIN_HR, MAX_HR]).range([0, GRID_HEIGHT]).clamp(true);
+    ? scaleLinear().domain([0, SCORE_MAX]).range([0, height]).clamp(true)
+    : scaleLinear().domain([MIN_HR, MAX_HR]).range([0, height]).clamp(true);
 
 export const useYTicks = () => {
   const {
