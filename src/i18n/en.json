@@ -51,7 +51,7 @@
     },
     "SCALED_SCATTER_PLOT": {
       "TITLE": "Scaled Scatter Plot",
-      "DESCRIPTION": "A scatter plot that displays data points with scaled axes. Use the slider to modify the number of points rendered",
+      "DESCRIPTION": "A scatter plot that displays millions of data points in the browser with WebGL. Use the slider to modify the number of points rendered",
       "POINTS_LABEL": "Number of points"
     },
     "STOCK_DATA": {

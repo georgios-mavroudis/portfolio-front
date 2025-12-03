@@ -4,12 +4,9 @@ import { COLOR_DATA } from '../FShape/constants';
 export const useWebGL = (
   canvas: HTMLCanvasElement | null,
   vertexShaderSource: string,
-  fragmentShaderSource: string,
-  width: number,
-  height: number
+  fragmentShaderSource: string
 ) => {
   const gl = canvas?.getContext('webgl');
-  setCanvasResolution(canvas, width, height);
   const attributes = useMemo(
     () => (gl ? initiate(gl, vertexShaderSource, fragmentShaderSource) : null),
     // eslint-disable-next-line react-hooks/exhaustive-deps

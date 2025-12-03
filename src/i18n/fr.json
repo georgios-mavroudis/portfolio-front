@@ -51,7 +51,7 @@
     },
     "SCALED_SCATTER_PLOT": {
       "TITLE": "Nuage de points mis à l'échelle",
-      "DESCRIPTION": "Un nuage de points qui affiche des données avec des axes mis à l'échelle. Utilisez le curseur pour modifier le nombre de points rendus.",
+      "DESCRIPTION": "Un nuage de points affichant des millions de points de données dans le navigateur grâce à WebGL. Utilisez le curseur pour modifier le nombre de points affichés.",
       "POINTS_LABEL": "Nombre de points"
     },
     "STOCK_DATA": {

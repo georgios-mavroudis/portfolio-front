@@ -32,7 +32,7 @@ export const Axises: FC<Props> = ({ positionY = 'left', withBorders = false }) =
   const { text, lightText } = useGraphColors();
   const { i18n } = useTranslation();
   const breakpointValue = useResponsiveFont();
-  console.log(breakpointValue);
+
   useEffect(() => {
     if (svg != null) {
       const zoomLevel = closestZoomLevel(transform.k);
