@@ -7,8 +7,8 @@ import { GLTFLoader, OrbitControls } from 'three/examples/jsm/Addons.js';
 const RADIUS = 5;
 export class ThreeEngine {
   public scene: THREE.Scene;
-  private camera: THREE.PerspectiveCamera;
-  private renderer: THREE.WebGLRenderer;
+  public camera: THREE.PerspectiveCamera;
+  public renderer: THREE.WebGLRenderer;
   private gltFLoader: GLTFLoader;
   public controls: OrbitControls;
   private light: THREE.DirectionalLight;
@@ -19,6 +19,7 @@ export class ThreeEngine {
   // Angles for the light rotation
   private phi = Math.PI / 2; // vertical angle
   private theta = 0; // horizontal angle (in radians)
+  private isModelLoaded = false;
 
   constructor(canvas: HTMLCanvasElement) {
     const width = canvas.width;
@@ -53,6 +54,13 @@ export class ThreeEngine {
     this.clock = new THREE.Clock();
   }
 
+  setIsModelLoaded(value: boolean) {
+    this.isModelLoaded = value;
+  }
+  getIsModelLoaded() {
+    return this.isModelLoaded;
+  }
+
   loadModel(url: string) {
     this.gltFLoader.load(
       url,
@@ -62,6 +70,7 @@ export class ThreeEngine {
         this.animationMixer = new THREE.AnimationMixer(model);
         this.clips = gltf.animations;
         this.playAnimation('heartbeat');
+        this.setIsModelLoaded(true);
         this.renderer.render(this.scene, this.camera);
       },
       undefined,
@@ -81,9 +90,12 @@ export class ThreeEngine {
   }
 
   handleResize(width: number, height: number) {
+    this.renderer.setPixelRatio(window.devicePixelRatio || 1);
+    this.renderer.setSize(width, height, false);
+
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
-    this.renderer.setSize(width, height);
+    // this.renderer.render(this.scene, this.camera);
   }
 
   rotateLight(deltaX: number, deltaY: number) {
@@ -136,19 +148,20 @@ export const useThree = (canvas: HTMLCanvasElement | null, url: string) => {
     }
     const engine = new ThreeEngine(canvas);
     threeEngine.current = engine;
-
     engine.scene.background = new THREE.Color(PALETTE.brand[800]);
 
     const onResize = () => {
       const rect = canvas.getBoundingClientRect();
       engine.handleResize(rect.width, rect.height);
     };
-    // engine.handleResize(canvas.width, canvas.height);
-    // window.addEventListener('resize', onResize);
+    window.addEventListener('resize', onResize);
     onResize();
-    engine.loadModel(url);
+
+    if (!engine.getIsModelLoaded()) {
+      engine.loadModel(url);
+    }
     return () => {
-      // window.removeEventListener('resize', onResize);
+      window.removeEventListener('resize', onResize);
       if (threeEngine.current) {
         threeEngine.current.dispose();
       }

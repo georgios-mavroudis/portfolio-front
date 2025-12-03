@@ -54,15 +54,15 @@ const SAMPLES: Sample[] = [
 export const SamplesPage = () => {
   const { t } = useTranslation();
   return (
-    <VStack alignItems={{ base: 'center', sm: 'start' }} gap="lg">
+    <VStack alignItems={{ base: 'center', sm: 'center', md: 'start' }} gap="lg">
       <Text textStyle="h3">{t('SAMPLES.TITLE')}</Text>
       <Stack
-        direction={{ base: 'column', sm: 'row' }}
+        direction={{ base: 'column', sm: 'column', md: 'row' }}
         width="full"
         flexWrap="wrap"
         gap="lg"
         height="full"
-        alignItems={{ base: 'center', sm: 'start' }}
+        alignItems={{ base: 'center', sm: 'center', md: 'start' }}
       >
         {SAMPLES.map((sample) => (
           <RouterLink to={sample.link} key={sample.link}>
