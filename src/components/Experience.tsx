@@ -4,80 +4,118 @@ import cardiologs from '@/assets/cardiologs.png';
 import maillance from '@/assets/maillance.png';
 import akka from '@/assets/akka.png';
 import econais from '@/assets/econais.png';
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { createRef, useCallback, useRef, useState, type RefObject } from 'react';
 import ArrowRight from '@/design-system/custom-icons/arrow-right.svg';
 import ArrowLeft from '@/design-system/custom-icons/arrow-left.svg';
-import { useResizeObserver } from '@/visualizations/graph-hooks';
 import { clamp } from '@/common/helpers';
+import { useThemeBreakpointValue, type BreakpointKey } from '@/design-system/tokens/breakpoints';
 
 type Experience = {
+  ref: RefObject<HTMLAnchorElement | null>;
   png: string;
   link: string;
 };
 
-const SCROLL = 600;
-
+const BREAKPOINT_TO_WIDTH_MAPPING: Record<BreakpointKey, string> = {
+  base: '80%',
+  sm: '70%',
+  md: '60%',
+  lg: '50%',
+  xl: '50%',
+  '2xl': '50%',
+};
 const EXPERIENCES: Experience[] = [
   {
+    ref: createRef(),
     png: tsuga,
     link: 'https://www.tsuga.com/',
   },
   {
+    ref: createRef(),
     png: cardiologs,
     link: 'https://www.philips.co.uk/healthcare/ambulatory-monitoring-and-diagnostics/ecg-monitoring/cardiologs-ecg-analysis',
   },
   {
+    ref: createRef(),
     png: maillance,
     link: 'https://oilfield.ai/',
   },
   {
+    ref: createRef(),
     png: akka,
     link: 'https://www.akkodis.com/',
   },
   {
+    ref: createRef(),
     png: econais,
     link: 'https://econais.com/',
   },
 ];
+
+const getOutOfViewElementIndex = (idx: number, direction: 1 | -1, container: HTMLDivElement) => {
+  const index = clamp(idx, 0, EXPERIENCES.length - 1);
+  const item = EXPERIENCES[index].ref;
+  if (!item.current) {
+    return idx;
+  }
+  const el = item.current;
+  const { width, left } = el.getBoundingClientRect();
+  const { width: containerWidth, left: containerLeft } = container.getBoundingClientRect();
+  const visibility = left > containerLeft && left + width < containerLeft + containerWidth;
+  if (visibility) {
+    return getOutOfViewElementIndex(index + direction, direction, container);
+  }
+  return index;
+};
+
 export const Experience = () => {
   const sliderRef = useRef<HTMLDivElement | null>(null);
-  const [scrollingBehaviour, setScrollingBehaviour] = useState<'start' | 'end' | null>('start');
-  const { ref, width } = useResizeObserver();
+  const breakpointValue = useThemeBreakpointValue();
+  const [scrollIndex, setScrollIndex] = useState(0);
+
   const scroll = useCallback(
-    (offset: number) => {
-      const slider = sliderRef.current;
-      if (slider) {
-        const sliding = slider.scrollLeft + offset;
-        if (sliding <= 0 && scrollingBehaviour !== 'start') {
-          setScrollingBehaviour('start');
-        } else if (
-          sliding + slider.clientWidth > slider.scrollWidth &&
-          scrollingBehaviour !== 'end'
-        ) {
-          setScrollingBehaviour('end');
-        } else if (scrollingBehaviour !== null) {
-          setScrollingBehaviour(null);
-        }
-        slider.scrollLeft += offset;
+    (scroll: number) => {
+      if (!sliderRef.current) {
+        return;
+      }
+      const index = getOutOfViewElementIndex(
+        scroll + scrollIndex,
+        Math.sign(scroll) as 1 | -1,
+        sliderRef.current
+      );
+
+      const item = EXPERIENCES[index];
+      const el = item.ref.current;
+
+      if (el) {
+        el.scrollIntoView();
+        setScrollIndex(index);
       }
     },
-    [scrollingBehaviour]
+    [scrollIndex]
   );
 
-  const scrollAmount = useMemo(() => clamp(width, width, SCROLL), [width]);
   return (
     <>
-      <Box ref={ref} width="50%" position="relative" overflow="hidden" alignItems="center">
+      <Box
+        width={BREAKPOINT_TO_WIDTH_MAPPING[breakpointValue]}
+        position="relative"
+        overflow="hidden"
+        alignItems="center"
+      >
         <HStack
           width="full"
           ref={sliderRef}
+          gap="xl"
           overflowX="scroll"
           scrollBehavior="smooth"
           scrollbarWidth="none"
-          maskImage={`linear-gradient(to right, transparent 0%, black ${scrollingBehaviour !== 'start' ? '10' : '0'}%, black ${scrollingBehaviour !== 'end' ? '90' : '100'}%, transparent 100%)`}
+          maskImage={`linear-gradient(to right, transparent 0%, black ${scrollIndex !== 0 ? '10' : '0'}%, black ${scrollIndex !== EXPERIENCES.length - 1 ? '90' : '100'}%, transparent 100%)`}
         >
-          {EXPERIENCES.map(({ png, link }) => (
+          {EXPERIENCES.map(({ png, link, ref: expRef }, idx) => (
             <Link
+              ref={expRef}
+              data-index={idx}
               key={link}
               href={link}
               target="_blank"
@@ -87,18 +125,11 @@ export const Experience = () => {
                 flexShrink: 0,
               }}
             >
-              <Image
-                src={png}
-                rounded="md"
-                border="md"
-                borderColor="border.primary"
-                objectFit="cover"
-                flexShrink={0}
-              />
+              <Image src={png} objectFit="cover" flexShrink={0} />
             </Link>
           ))}
         </HStack>
-        {scrollingBehaviour !== 'start' && (
+        {scrollIndex !== 0 && (
           <Box
             position="absolute"
             left={0}
@@ -113,7 +144,7 @@ export const Experience = () => {
             }}
             opacity={0.7}
             cursor="pointer"
-            onClick={() => scroll(-scrollAmount)}
+            onClick={() => scroll(-1)}
             maskImage="linear-gradient(to right, transparent 0%, black 0%, black 70%, transparent 100%)"
           >
             <VStack justifyContent="center" padding="sm">
@@ -121,7 +152,7 @@ export const Experience = () => {
             </VStack>
           </Box>
         )}
-        {scrollingBehaviour !== 'end' && (
+        {scrollIndex !== EXPERIENCES.length - 1 && (
           <Box
             position="absolute"
             right={0}
@@ -136,7 +167,7 @@ export const Experience = () => {
             }}
             opacity={0.7}
             cursor="pointer"
-            onClick={() => scroll(scrollAmount)}
+            onClick={() => scroll(1)}
             maskImage="linear-gradient(to left, transparent 0%, black 0%, black 70%, transparent 100%)"
           >
             <VStack justifyContent="center" padding="sm">
