@@ -15,7 +15,7 @@ export const HomePage: FC = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <SkeletonCircle loading={!loaded} borderRadius="full" colorPalette="brand">
+        <SkeletonCircle loading={!loaded} size={300} borderRadius="full" colorPalette="brand">
           <Image
             src={profile}
             alt="Profile pic"

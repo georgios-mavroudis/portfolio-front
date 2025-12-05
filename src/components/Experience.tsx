@@ -114,7 +114,13 @@ export const Experience = () => {
           maskImage={`linear-gradient(to right, transparent 0%, black ${scrollIndex !== 0 ? '10' : '0'}%, black ${scrollIndex !== EXPERIENCES.length - 1 ? '90' : '100'}%, transparent 100%)`}
         >
           {EXPERIENCES.map(({ png, link, ref: expRef }, idx) => (
-            <Skeleton loading={!loaded} objectFit="cover" flexShrink={0}>
+            <Skeleton
+              loading={!loaded}
+              minWidth={200}
+              minHeight={70}
+              objectFit="cover"
+              flexShrink={0}
+            >
               <Link ref={expRef} data-index={idx} key={link} href={link} target="_blank">
                 <Image
                   src={png}

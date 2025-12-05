@@ -72,7 +72,7 @@ export const SamplesPage = () => {
           <RouterLink to={sample.link} key={sample.link}>
             <Card.Root width="320px" boxShadow="lg">
               <Card.Body gap="2">
-                <Skeleton loading={!loaded} width="full">
+                <Skeleton loading={!loaded} width="full" minHeight={110}>
                   <Image
                     src={sample.img}
                     alt={t('SAMPLES.TITLE')}
