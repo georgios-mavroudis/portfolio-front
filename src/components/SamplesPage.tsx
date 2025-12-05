@@ -1,4 +1,4 @@
-import { Card, Image, Stack, Text, VStack } from '@chakra-ui/react';
+import { Card, Image, Skeleton, Stack, Text, VStack } from '@chakra-ui/react';
 import { RouterLink, type Route } from '@/design-system/components/RouterLink';
 import { useTranslation } from 'react-i18next';
 import garminData from '@/assets/garmin_data.webp';
@@ -7,6 +7,8 @@ import heart3D from '@/assets/heart-3d.webp';
 import scatterPlot from '@/assets/scatter_plot.webp';
 import webGLInteractions from '@/assets/web-gl_interactions.webp';
 import stockData from '@/assets/stock_data.webp';
+import { useState } from 'react';
+
 type Sample = {
   title: string;
   description: string;
@@ -53,6 +55,8 @@ const SAMPLES: Sample[] = [
 ];
 export const SamplesPage = () => {
   const { t } = useTranslation();
+  const [loaded, setLoaded] = useState(false);
+
   return (
     <VStack alignItems={{ base: 'center', sm: 'center', md: 'start' }} gap="lg">
       <Text textStyle="h3">{t('SAMPLES.TITLE')}</Text>
@@ -64,11 +68,22 @@ export const SamplesPage = () => {
         height="full"
         alignItems={{ base: 'center', sm: 'center', md: 'start' }}
       >
-        {SAMPLES.map((sample) => (
+        {SAMPLES.map((sample, idx) => (
           <RouterLink to={sample.link} key={sample.link}>
             <Card.Root width="320px" boxShadow="lg">
               <Card.Body gap="2">
-                <Image src={sample.img} border="sm" borderColor="border.primary" />
+                <Skeleton loading={!loaded} width="full">
+                  <Image
+                    src={sample.img}
+                    alt={t('SAMPLES.TITLE')}
+                    width="full"
+                    border="sm"
+                    borderColor="border.primary"
+                    onLoad={() => {
+                      if (idx === SAMPLES.length - 1) setLoaded(true);
+                    }}
+                  />
+                </Skeleton>
                 <Card.Title mt="2">{t(sample.title)}</Card.Title>
                 <Card.Description>{t(sample.description)}</Card.Description>
               </Card.Body>

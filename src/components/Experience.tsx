@@ -1,4 +1,4 @@
-import { Box, HStack, Image, Link, VStack } from '@chakra-ui/react';
+import { Box, HStack, Image, Link, Skeleton, VStack } from '@chakra-ui/react';
 import tsuga from '@/assets/tsuga.webp';
 import cardiologs from '@/assets/cardiologs.webp';
 import maillance from '@/assets/maillance.webp';
@@ -71,6 +71,7 @@ const getOutOfViewElementIndex = (idx: number, direction: 1 | -1, container: HTM
 export const Experience = () => {
   const sliderRef = useRef<HTMLDivElement | null>(null);
   const breakpointValue = useThemeBreakpointValue();
+  const [loaded, setLoaded] = useState(false);
   const [scrollIndex, setScrollIndex] = useState(0);
 
   const scroll = useCallback(
@@ -113,20 +114,20 @@ export const Experience = () => {
           maskImage={`linear-gradient(to right, transparent 0%, black ${scrollIndex !== 0 ? '10' : '0'}%, black ${scrollIndex !== EXPERIENCES.length - 1 ? '90' : '100'}%, transparent 100%)`}
         >
           {EXPERIENCES.map(({ png, link, ref: expRef }, idx) => (
-            <Link
-              ref={expRef}
-              data-index={idx}
-              key={link}
-              href={link}
-              target="_blank"
-              style={{
-                borderColor: 'border.primary',
-                objectFit: 'cover',
-                flexShrink: 0,
-              }}
-            >
-              <Image src={png} objectFit="cover" flexShrink={0} />
-            </Link>
+            <Skeleton loading={!loaded} objectFit="cover" flexShrink={0}>
+              <Link ref={expRef} data-index={idx} key={link} href={link} target="_blank">
+                <Image
+                  src={png}
+                  objectFit="cover"
+                  flexShrink={0}
+                  onLoad={() => {
+                    if (idx === EXPERIENCES.length - 1) {
+                      setLoaded(true);
+                    }
+                  }}
+                />
+              </Link>
+            </Skeleton>
           ))}
         </HStack>
         {scrollIndex !== 0 && (

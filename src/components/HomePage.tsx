@@ -1,11 +1,12 @@
-import { Image, Stack, Text, VStack } from '@chakra-ui/react';
-import type { FC } from 'react';
+import { Image, SkeletonCircle, Stack, Text, VStack } from '@chakra-ui/react';
+import { useState, type FC } from 'react';
 import profile from '@/assets/profile.webp';
 import { useTranslation } from 'react-i18next';
 import { Experience } from './Experience';
 
 export const HomePage: FC = () => {
   const { t } = useTranslation();
+  const [loaded, setLoaded] = useState(false);
   return (
     <VStack alignItems="start" gap={{ base: 'xxl', sm: 'md' }}>
       <Stack
@@ -14,13 +15,15 @@ export const HomePage: FC = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Image
-          src={profile}
-          width={300}
-          border="md"
-          borderColor="border.primary"
-          borderRadius="full"
-        />
+        <SkeletonCircle loading={!loaded} borderRadius="full" colorPalette="brand">
+          <Image
+            src={profile}
+            alt="Profile pic"
+            width={300}
+            borderRadius="full"
+            onLoad={() => setLoaded(true)}
+          />
+        </SkeletonCircle>
         <VStack
           gap="md"
           alignItems={'center'}
