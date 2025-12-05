@@ -64,7 +64,7 @@
     },
     "HEART_3D": {
       "TITLE": "Heart 3D",
-      "DESCRIPTION": "A display of a 3d rendered heart with basic viewport interactions",
+      "DESCRIPTION": "A display of a 3D rendered heart with basic viewport interactions",
       "CONFIGURATIONS_TITLE": "Keyboard configurations",
       "PLAY_ANIMATION": "Play the heartbeat animation",
       "PAUSE_ANIMATION": "Pause the heartbeat animation",
