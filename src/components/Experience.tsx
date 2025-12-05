@@ -1,9 +1,9 @@
 import { Box, HStack, Image, Link, VStack } from '@chakra-ui/react';
-import tsuga from '@/assets/tsuga.png';
-import cardiologs from '@/assets/cardiologs.png';
-import maillance from '@/assets/maillance.png';
-import akka from '@/assets/akka.png';
-import econais from '@/assets/econais.png';
+import tsuga from '@/assets/tsuga.webp';
+import cardiologs from '@/assets/cardiologs.webp';
+import maillance from '@/assets/maillance.webp';
+import akka from '@/assets/akka.webp';
+import econais from '@/assets/econais.webp';
 import { createRef, useCallback, useRef, useState, type RefObject } from 'react';
 import ArrowRight from '@/design-system/custom-icons/arrow-right.svg';
 import ArrowLeft from '@/design-system/custom-icons/arrow-left.svg';

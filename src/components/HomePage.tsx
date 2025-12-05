@@ -1,6 +1,6 @@
 import { Image, Stack, Text, VStack } from '@chakra-ui/react';
 import type { FC } from 'react';
-import png from '@/assets/profile.png';
+import profile from '@/assets/profile.webp';
 import { useTranslation } from 'react-i18next';
 import { Experience } from './Experience';
 
@@ -14,7 +14,13 @@ export const HomePage: FC = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Image src={png} width={300} border="md" borderColor="border.primary" borderRadius="full" />
+        <Image
+          src={profile}
+          width={300}
+          border="md"
+          borderColor="border.primary"
+          borderRadius="full"
+        />
         <VStack
           gap="md"
           alignItems={'center'}

@@ -1,12 +1,12 @@
 import { Card, Image, Stack, Text, VStack } from '@chakra-ui/react';
 import { RouterLink, type Route } from '@/design-system/components/RouterLink';
 import { useTranslation } from 'react-i18next';
-import garminData from '@/assets/garmin_data.png';
-import hrAnalysis from '@/assets/hr_analysis.png';
-import heart3D from '@/assets/heart-3d.png';
-import scatterPlot from '@/assets/scatter_plot.png';
-import webGLInteractions from '@/assets/web-gl_interactions.png';
-import stockData from '@/assets/stock_data.png';
+import garminData from '@/assets/garmin_data.webp';
+import hrAnalysis from '@/assets/hr_analysis.webp';
+import heart3D from '@/assets/heart-3d.webp';
+import scatterPlot from '@/assets/scatter_plot.webp';
+import webGLInteractions from '@/assets/web-gl_interactions.webp';
+import stockData from '@/assets/stock_data.webp';
 type Sample = {
   title: string;
   description: string;
