@@ -53,17 +53,17 @@ export const Header: FC = () => {
           <Menu.Root onSelect={(d) => i18n.changeLanguage(d.value)}>
             <Menu.Trigger asChild>
               <Button variant="tertiary" p={0} size="sm">
-                <Image src={langIcon} />
+                <Image src={langIcon} alt="selected-language" />
               </Button>
             </Menu.Trigger>
             <Portal>
               <Menu.Positioner>
                 <Menu.Content minWidth={14}>
                   <Menu.Item value="en" justifyContent="center">
-                    <Image src={en} />
+                    <Image src={en} alt="en" />
                   </Menu.Item>
                   <Menu.Item value="fr" justifyContent="center">
-                    <Image src={fr} />
+                    <Image src={fr} alt="fr" />
                   </Menu.Item>
                 </Menu.Content>
               </Menu.Positioner>
@@ -106,6 +106,9 @@ export const Header: FC = () => {
                     </RouterLink>
                     <RouterLink to="/heart-3d" onClick={onClose}>
                       {t('HEART_3D.TITLE')}
+                    </RouterLink>
+                    <RouterLink to="/game" onClick={onClose}>
+                      {t('GAME.TITLE')}
                     </RouterLink>
                     <Text textStyle="xs" mt="md">
                       {t('SAMPLES.POSTSCRIPT')}

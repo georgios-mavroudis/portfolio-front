@@ -77,7 +77,11 @@
     "GAME": {
       "TITLE": "Jeu",
       "DESCRIPTION": "Description du jeu",
-      "NOT_SUPPORTED": "Désolé, WebGL n'est pas pris en charge !"
+      "NOT_SUPPORTED": "Désolé, WebGL n'est pas pris en charge !",
+      "GAME_OVER": "Jeu terminé",
+      "SCORE": "Score",
+      "RESTART": "Redémarrer",
+      "PRESS_TO_RESTART": "Appuyez sur une touche pour redémarrer"
     }
   }
 }

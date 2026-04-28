@@ -147,7 +147,7 @@ export const Experience = () => {
             maskImage="linear-gradient(to right, transparent 0%, black 0%, black 70%, transparent 100%)"
           >
             <VStack justifyContent="center" padding="sm">
-              <Image src={ArrowLeft} />
+              <Image src={ArrowLeft} alt="left-arrow" />
             </VStack>
           </Box>
         )}
@@ -170,7 +170,7 @@ export const Experience = () => {
             maskImage="linear-gradient(to left, transparent 0%, black 0%, black 70%, transparent 100%)"
           >
             <VStack justifyContent="center" padding="sm">
-              <Image src={ArrowRight} />
+              <Image src={ArrowRight} alt="right-arrow" />
             </VStack>
           </Box>
         )}

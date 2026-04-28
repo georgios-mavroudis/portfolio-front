@@ -9,6 +9,7 @@ import { HeartBeatAnalysis } from '@/components/Heartbeart-analysis/HeartbeatAna
 import { StockData } from '@/components/Financial-data/StockData';
 import { Heart3D } from '@/components/heart-3D/Heart3D';
 import { SamplesPage } from '@/components/SamplesPage';
+import { GameContainer } from '@/components/game/GameContainer';
 
 const rootRoute = createRootRoute({
   component: App,
@@ -63,6 +64,12 @@ const SamplesRoute = createRoute({
   component: SamplesPage,
 });
 
+const GameRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/game',
+  component: GameContainer,
+});
+
 export const RouteTree = rootRoute.addChildren([
   homePageRoute,
   sleepDataRoute,
@@ -72,4 +79,5 @@ export const RouteTree = rootRoute.addChildren([
   StockDataRoute,
   Heart3DRoute,
   SamplesRoute,
+  GameRoute,
 ]);

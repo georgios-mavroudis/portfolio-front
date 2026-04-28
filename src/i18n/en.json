@@ -77,7 +77,11 @@
     "GAME": {
       "TITLE": "Game",
       "DESCRIPTION": "Game description",
-      "NOT_SUPPORTED": "Sorry, no WebGL supported!"
+      "NOT_SUPPORTED": "Sorry, no WebGL supported!",
+      "GAME_OVER": "Game Over",
+      "SCORE": "Score",
+      "RESTART": "Restart",
+      "PRESS_TO_RESTART": "Press any key to restart"
     }
   }
 }
