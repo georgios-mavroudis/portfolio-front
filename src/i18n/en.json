@@ -29,10 +29,12 @@
       "DESCRIPTION": "The request returned with error"
     },
     "SAMPLES": {
-      "TITLE": "Sample Projects",
+      "REACT_TITLE": "React",
+      "THREEJS_TITLE": "Threejs",
       "DESCRIPTION": "Have a look at some samples of my previous experiences",
       "POSTSCRIPT": "All visualizations are completely custom made"
     },
+    "SKILLS": "Skills",
     "EXPERIENCE": "Experience",
     "COMPANY_one": "Stock",
     "COMPANY_other": "Stocks",
@@ -75,13 +77,16 @@
       }
     },
     "GAME": {
-      "TITLE": "Game",
-      "DESCRIPTION": "Game description",
+      "TITLE": "Kitty Run",
+      "DESCRIPTION": "A 3D game similar to google's dino run",
       "NOT_SUPPORTED": "Sorry, no WebGL supported!",
       "GAME_OVER": "Game Over",
       "SCORE": "Score",
       "RESTART": "Restart",
-      "PRESS_TO_RESTART": "Press any key to restart"
+      "PRESS_TO_RESTART": "Press any key to restart",
+      "JUMP": "jump",
+      "CROUCH": "crouch",
+      "ARROW": "arrow"
     }
   }
 }

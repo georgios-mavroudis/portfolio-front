@@ -3,6 +3,7 @@ import { useState, type FC } from 'react';
 import profile from '@/assets/profile.webp';
 import { useTranslation } from 'react-i18next';
 import { Experience } from './Experience';
+import { Skills } from './Skills';
 
 export const HomePage: FC = () => {
   const { t } = useTranslation();
@@ -47,11 +48,17 @@ export const HomePage: FC = () => {
           </VStack>
         </VStack>
       </Stack>
-      <VStack justifyContent="center" width="full" gap="lg">
+      <VStack justifyContent="center" width="full" gap="lg" mt={100}>
         <Text textStyle="h2" color="foreground.secondary">
           {t('EXPERIENCE')}
         </Text>
         <Experience />
+      </VStack>
+      <VStack justifyContent="center" width="full" mt={100}>
+        <Text textStyle="h2" color="foreground.secondary">
+          {t('SKILLS')}
+        </Text>
+        <Skills />
       </VStack>
     </VStack>
   );

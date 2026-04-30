@@ -62,11 +62,14 @@ const SamplesRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/samples',
   component: SamplesPage,
+  validateSearch: (search: Record<string, unknown>) => ({
+    category: (search.category as 'react' | 'threejs') ?? undefined,
+  }),
 });
 
 const GameRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/game',
+  path: '/kitty-run',
   component: GameContainer,
 });
 

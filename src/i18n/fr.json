@@ -29,10 +29,12 @@
       "DESCRIPTION": "La requête a retourné une erreur"
     },
     "SAMPLES": {
-      "TITLE": "Exemples de projets",
+      "REACT_TITLE": "React",
+      "THREEJS_TITLE": "Threejs",
       "DESCRIPTION": "Voici quelques exemples de mes experiences précédentes",
       "POSTSCRIPT": "Toutes les visualisations sont entièrement réalisées sur mesure"
     },
+    "SKILLS": "Compétences",
     "EXPERIENCE": "Expérience",
     "COMPANY_one": "Action",
     "COMPANY_other": "Actions",
@@ -75,13 +77,16 @@
       }
     },
     "GAME": {
-      "TITLE": "Jeu",
-      "DESCRIPTION": "Description du jeu",
+      "TITLE": "course de chaton",
+      "DESCRIPTION": "Un jeu 3D similaire au jeu de dinosaure de google",
       "NOT_SUPPORTED": "Désolé, WebGL n'est pas pris en charge !",
       "GAME_OVER": "Jeu terminé",
       "SCORE": "Score",
       "RESTART": "Redémarrer",
-      "PRESS_TO_RESTART": "Appuyez sur une touche pour redémarrer"
+      "PRESS_TO_RESTART": "Appuyez sur une touche pour redémarrer",
+      "JUMP": "sauter",
+      "CROUCH": "accroupir",
+      "ARROW": "flèche"
     }
   }
 }

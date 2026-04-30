@@ -1,4 +1,4 @@
-import { Box, Progress, Text, VStack } from '@chakra-ui/react';
+import { Box, HStack, Progress, Text, VStack } from '@chakra-ui/react';
 import { KeyboardControls, type KeyboardControlsEntry, useProgress } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { Suspense, useEffect, useRef, useState } from 'react';
@@ -6,6 +6,7 @@ import { Game } from './Game';
 import { useResizeObserver } from '@/visualizations/graph-hooks';
 import { useTranslation } from 'react-i18next';
 import { CONTROLS } from './utils';
+import { ArrowDown, ArrowUp } from '@untitled-ui/icons-react';
 
 const keyboardMap: KeyboardControlsEntry<string>[] = [
   { name: CONTROLS.jump, keys: ['ArrowUp', 'Space'] },
@@ -66,7 +67,6 @@ export const GameContainer = () => {
   }, [isGameOver]);
 
   useEffect(() => {
-    console.log('width:', width, 'height:', height);
     setGameKey((k) => k + 1);
   }, [width, height]);
   return (
@@ -80,27 +80,6 @@ export const GameContainer = () => {
       borderColor="border.primary"
     >
       <GameLoader />
-      {isGameOver && (
-        <VStack
-          position="absolute"
-          inset={0}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          bg="blackAlpha.700"
-          zIndex={1}
-        >
-          <Text color="white" textStyle="h3">
-            {t('GAME.GAME_OVER')}
-          </Text>
-          <Text color="white" textStyle="title">
-            {t('GAME.SCORE')}: {scoreDisplayRef.current?.textContent}
-          </Text>
-          <Text color="white" textStyle="body">
-            {t('GAME.PRESS_TO_RESTART')}
-          </Text>
-        </VStack>
-      )}
       <KeyboardControls map={keyboardMap}>
         <Canvas
           fallback={<Text>{t('GAME.NOT_SUPPORTED')}</Text>}
@@ -118,9 +97,41 @@ export const GameContainer = () => {
           </Suspense>
         </Canvas>
       </KeyboardControls>
+      {isGameOver && (
+        <VStack
+          position="absolute"
+          inset={0}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          bg="blackAlpha.700"
+        >
+          <Text color="white" textStyle="h3">
+            {t('GAME.GAME_OVER')}
+          </Text>
+          <Text color="white" textStyle="title">
+            {t('GAME.SCORE')}: {scoreDisplayRef.current?.textContent}
+          </Text>
+          <Text color="white" textStyle="body">
+            {t('GAME.PRESS_TO_RESTART')}
+          </Text>
+        </VStack>
+      )}
       <Text ref={scoreDisplayRef} position="absolute" top={8} right={16}>
         Score: {scoreDisplayRef.current?.textContent ?? '00000'}
       </Text>
+      <VStack alignItems={'start'} gap="xs" m="md">
+        <HStack>
+          <Text textStyle="md">{t('GAME.JUMP')}: </Text>
+          <Text textStyle="md">{t('GAME.ARROW')}</Text>
+          <ArrowUp />
+        </HStack>
+        <HStack>
+          <Text textStyle="md">{t('GAME.CROUCH')}: </Text>
+          <Text textStyle="md">{t('GAME.ARROW')}</Text>
+          <ArrowDown />
+        </HStack>
+      </VStack>
     </Box>
   );
 };
