@@ -29,8 +29,10 @@
       "DESCRIPTION": "The request returned with error"
     },
     "SAMPLES": {
+      "TITLE": "Samples",
       "REACT_TITLE": "React",
       "THREEJS_TITLE": "Threejs",
+      "UNREAL_TITLE": "Unreal Engine",
       "DESCRIPTION": "Have a look at some samples of my previous experiences",
       "POSTSCRIPT": "All visualizations are completely custom made"
     },
@@ -87,6 +89,11 @@
       "JUMP": "jump",
       "CROUCH": "crouch",
       "ARROW": "arrow"
+    },
+    "SAVANNA_PROJECT": {
+      "TITLE": "Savanna Project",
+      "DESCRIPTION": "A video game in the savanna ecosystem playing as a lion. The game is developed with unreal engine",
+      "COMING_SOON": "More updates coming soon."
     }
   }
 }

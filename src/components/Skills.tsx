@@ -33,28 +33,40 @@ const MODEL_URLS = [
   '/threejs_logo.glb',
 ] as const;
 
-const MODEL_INFO: Record<string, { label: string; description: string; href: string }> = {
+const MODEL_INFO: Record<
+  string,
+  { label: string; description: string; href: string; target: string | undefined }
+> = {
   '/reactjs_logo.glb': {
     label: 'React.js',
     description: 'Check out some project samples of my past professional work made with React',
-    href: 'https://smauldredd.com/samples?category=react',
+    href: '/samples?category=react',
+    target: undefined,
   },
-  '/python_logo.glb': { label: 'Python', description: 'Coming soon', href: '' },
+  '/python_logo.glb': { label: 'Python', description: 'Coming soon', href: '', target: undefined },
   '/blender_logo.glb': {
     label: 'Blender',
     description: 'Check out some of my models',
     href: 'https://sketchfab.com/gmavrou',
+    target: '_blank',
   },
-  '/rails_logo.glb': { label: 'Ruby on Rails', description: 'Coming soon', href: '' },
+  '/rails_logo.glb': {
+    label: 'Ruby on Rails',
+    description: 'Coming soon',
+    href: '',
+    target: undefined,
+  },
   '/unreal_logo.glb': {
     label: 'Unreal Engine',
     description: 'Check out the progress of my recent game development project',
-    href: 'https://placeholder.com',
+    href: '/samples?category=unreal',
+    target: undefined,
   },
   '/threejs_logo.glb': {
     label: 'Three.js',
     description: 'Check out some of my 3D web projects',
-    href: 'https://smauldredd.com/samples?category=threejs',
+    href: '/samples?category=threejs',
+    target: undefined,
   },
 };
 
@@ -230,7 +242,12 @@ export const Skills: FC = () => {
           <VStack position="absolute" top={0} left="50%" transform="translateX(-50%)">
             <Text textStyle="h3">{selectedInfo.label}</Text>
             <VStack textAlign="center" maxW="90%">
-              <Link href={selectedInfo.href} target="_blank" rel="noopener noreferrer" width="full">
+              <Link
+                href={selectedInfo.href}
+                target={selectedInfo.target}
+                rel="noopener noreferrer"
+                width="full"
+              >
                 <Button
                   variant="outline"
                   size="sm"

@@ -107,8 +107,11 @@ export const Header: FC = () => {
                     <RouterLink to="/heart-3d" onClick={onClose}>
                       {t('HEART_3D.TITLE')}
                     </RouterLink>
-                    <RouterLink to="/game" onClick={onClose}>
+                    <RouterLink to="/kitty-run" onClick={onClose}>
                       {t('GAME.TITLE')}
+                    </RouterLink>
+                    <RouterLink to="/savanna-project" onClick={onClose}>
+                      {t('SAVANNA_PROJECT.TITLE')}
                     </RouterLink>
                     <Text textStyle="xs" mt="md">
                       {t('SAMPLES.POSTSCRIPT')}

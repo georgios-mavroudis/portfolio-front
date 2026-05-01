@@ -10,6 +10,7 @@ import { StockData } from '@/components/Financial-data/StockData';
 import { Heart3D } from '@/components/heart-3D/Heart3D';
 import { SamplesPage } from '@/components/SamplesPage';
 import { GameContainer } from '@/components/game/GameContainer';
+import { SavannaProject } from '@/components/SavannaProject';
 
 const rootRoute = createRootRoute({
   component: App,
@@ -62,8 +63,8 @@ const SamplesRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/samples',
   component: SamplesPage,
-  validateSearch: (search: Record<string, unknown>) => ({
-    category: (search.category as 'react' | 'threejs') ?? undefined,
+  validateSearch: (search: Record<string, unknown>): { category?: 'react' | 'threejs' | 'unreal' } => ({
+    category: (search.category as 'react' | 'threejs' | 'unreal') ?? undefined,
   }),
 });
 
@@ -71,6 +72,12 @@ const GameRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/kitty-run',
   component: GameContainer,
+});
+
+const SavannaProjectRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/savanna-project',
+  component: SavannaProject,
 });
 
 export const RouteTree = rootRoute.addChildren([
@@ -83,4 +90,5 @@ export const RouteTree = rootRoute.addChildren([
   Heart3DRoute,
   SamplesRoute,
   GameRoute,
+  SavannaProjectRoute,
 ]);

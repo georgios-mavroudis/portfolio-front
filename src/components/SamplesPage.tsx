@@ -8,10 +8,11 @@ import kittyRun from '@/assets/kitty_run.webp';
 import scatterPlot from '@/assets/scatter_plot.webp';
 import webGLInteractions from '@/assets/web-gl_interactions.webp';
 import stockData from '@/assets/stock_data.webp';
+import unrealDemo from '@/assets/unreal_game.webp';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useSearch } from '@tanstack/react-router';
 
-type Category = 'react' | 'threejs';
+type Category = 'react' | 'threejs' | 'unreal';
 
 type Sample = {
   title: string;
@@ -66,9 +67,20 @@ const THREEJS_SAMPLES: Sample[] = [
     link: '/kitty-run',
   },
 ];
+
+const UNREAL_SAMPLES: Sample[] = [
+  {
+    title: 'SAVANNA_PROJECT.TITLE',
+    description: 'SAVANNA_PROJECT.DESCRIPTION',
+    link: '/savanna-project',
+    img: unrealDemo,
+  },
+];
+
 const CATEGORIES: { id: Category; labelKey: string; samples: Sample[] }[] = [
   { id: 'react', labelKey: 'SAMPLES.REACT_TITLE', samples: REACT_SAMPLES },
   { id: 'threejs', labelKey: 'SAMPLES.THREEJS_TITLE', samples: THREEJS_SAMPLES },
+  { id: 'unreal', labelKey: 'SAMPLES.UNREAL_TITLE', samples: UNREAL_SAMPLES },
 ];
 
 export const SamplesPage = () => {
@@ -79,6 +91,7 @@ export const SamplesPage = () => {
   const sectionRefs = useRef<Record<Category, HTMLDivElement | null>>({
     react: null,
     threejs: null,
+    unreal: null,
   });
   const scrollingToRef = useRef(false);
 
@@ -88,14 +101,16 @@ export const SamplesPage = () => {
     const el = sectionRefs.current[initialCategory];
     if (!el) return;
     scrollingToRef.current = true;
-    el.scrollIntoView({ behavior: 'smooth' });
+    const headerHeight = document.querySelector('header')?.getBoundingClientRect().height ?? 0;
+    const top = el.getBoundingClientRect().top + window.scrollY - headerHeight;
+    window.scrollTo({ top, behavior: 'smooth' });
     setTimeout(() => {
       scrollingToRef.current = false;
     }, 800);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Observe which section is in view and update the URL param
+  // Observe which section's top edge enters the upper third of the viewport
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
     CATEGORIES.forEach(({ id }) => {
@@ -111,7 +126,8 @@ export const SamplesPage = () => {
             });
           }
         },
-        { threshold: 0.5 }
+        // fire when the top edge of the section crosses into the top third of the viewport
+        { threshold: 0, rootMargin: '0px 0px -66% 0px' }
       );
       obs.observe(el);
       observers.push(obs);
@@ -120,7 +136,7 @@ export const SamplesPage = () => {
   }, [navigate]);
 
   return (
-    <VStack alignItems={{ base: 'center', sm: 'center', md: 'start' }} gap="xl">
+    <VStack alignItems={{ base: 'center', sm: 'center', md: 'start' }} gap={60} pb="100vh">
       {CATEGORIES.map(({ id, labelKey, samples }) => (
         <VStack
           key={id}

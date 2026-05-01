@@ -31,6 +31,7 @@
     "SAMPLES": {
       "REACT_TITLE": "React",
       "THREEJS_TITLE": "Threejs",
+      "UNREAL_TITLE": "Unreal Engine",
       "DESCRIPTION": "Voici quelques exemples de mes experiences précédentes",
       "POSTSCRIPT": "Toutes les visualisations sont entièrement réalisées sur mesure"
     },
@@ -87,6 +88,11 @@
       "JUMP": "sauter",
       "CROUCH": "accroupir",
       "ARROW": "flèche"
+    },
+    "SAVANNA_PROJECT": {
+      "TITLE": "Projet Savanna",
+      "DESCRIPTION": "Un jeu vidéo dans l'écosystème de la savane où l'on joue en tant que lion. Le jeu est développé avec Unreal Engine",
+      "COMING_SOON": "Plus de mises à jour à venir."
     }
   }
 }
