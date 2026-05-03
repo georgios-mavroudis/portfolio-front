@@ -88,8 +88,8 @@ export const Experience = () => {
       const item = EXPERIENCES[index];
       const el = item.ref.current;
 
-      if (el) {
-        el.scrollIntoView();
+      if (el && sliderRef.current) {
+        sliderRef.current.scrollLeft = el.offsetLeft - sliderRef.current.offsetLeft;
         setScrollIndex(index);
       }
     },
