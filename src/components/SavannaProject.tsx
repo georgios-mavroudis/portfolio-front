@@ -1,5 +1,5 @@
 import { IconButton, VStack, Text, HStack } from '@chakra-ui/react';
-import { PauseCircle, Play, Stop } from '@untitled-ui/icons-react';
+import { Expand01, PauseCircle, Play, Stop } from '@untitled-ui/icons-react';
 import type { FC } from 'react';
 import { useRef, useState } from 'react';
 import savannaDemo from '@/assets/unreal_demo.mp4';
@@ -41,6 +41,7 @@ const VideoPlayer: FC<{ src: string }> = ({ src }) => {
         position="absolute"
         bottom="10px"
         left="50%"
+        transform="translateX(-50%)"
         bg="rgba(0, 0, 0, 0.5)"
         p="2"
         borderRadius="md"
@@ -56,6 +57,14 @@ const VideoPlayer: FC<{ src: string }> = ({ src }) => {
         )}
         <IconButton aria-label="Stop" variant="outline" size="sm" onClick={stop}>
           <Stop />
+        </IconButton>
+        <IconButton
+          aria-label="Fullscreen"
+          variant="outline"
+          size="sm"
+          onClick={() => videoRef.current?.requestFullscreen()}
+        >
+          <Expand01 />
         </IconButton>
       </HStack>
     </VStack>
