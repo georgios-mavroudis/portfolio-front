@@ -87,7 +87,7 @@ export const textStyles = defineTextStyles({
       fontFamily: '{fonts.inter}',
       fontWeight: 'normal',
       lineHeight: '150%',
-      fontSize: '1rem',
+      fontSize: { base: '1rem', md: '1.1rem' },
     },
   },
   sm: {

@@ -3,8 +3,12 @@
     "ABOUT_ME": {
       "GREETING": "Hi, I am",
       "DESCRIPTION": "Senior software engineer with 10 years of experience. With a long experience on startups and fast paced environments, I am equipped with the tools to deliver high quality products and accompany a client to all phases of their project",
-      "EXTRA": "I have worked in a multitude of sectors like medical (cardiologs sold to Philips in 2022), oil & gas and observability, therefore I can adapt to any domain and deliver a great product",
-      "SPECIALISATION": "Expert in visualisations (graphs, animations, etc)"
+      "EXTRA": "I have worked in a multitude of sectors like medical (Cardiologs acquired by Philips in 2022), oil & gas and observability, therefore I can adapt to any domain and deliver a great product",
+      "SPECIALISATION": "Expert in visualisations (graphs, animations, etc)",
+      "CONTACT_PREFERENCE": {
+        "PREFIX": "I prefer contact through",
+        "SUFFIX": ", but you can also reach me directly by email at"
+      }
     },
     "HEADER": {
       "HOME": "Home",
@@ -38,6 +42,7 @@
     },
     "SKILLS": "Skills",
     "EXPERIENCE": "Experience",
+    "CONTACT": "Contact",
     "COMPANY_one": "Stock",
     "COMPANY_other": "Stocks",
     "GARMIN_SLEEP_DATA": {
