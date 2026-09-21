@@ -55,6 +55,18 @@ export const HomePage: FC = () => {
       </Stack>
       <VStack justifyContent="center" width="full" gap="lg" mt={100}>
         <Text textStyle="h2" color="foreground.secondary">
+          {t('EXPERIENCE')}
+        </Text>
+        <Experience />
+      </VStack>
+      <VStack justifyContent="center" width="full" mt={100}>
+        <Text textStyle="h2" color="foreground.secondary">
+          {t('SKILLS')}
+        </Text>
+        <Skills />
+      </VStack>
+      <VStack justifyContent="center" width="full" gap="lg" mt={100}>
+        <Text textStyle="h2" color="foreground.secondary">
           {t('CONTACT')}
         </Text>
         <Text textAlign="center" textStyle={{ base: 'md', sm: 'sm' }}>
@@ -102,18 +114,6 @@ export const HomePage: FC = () => {
             <Image src={github} alt="GitHub" width={20} height={20} />
           </Link>
         </HStack>
-      </VStack>
-      <VStack justifyContent="center" width="full" gap="lg" mt={100}>
-        <Text textStyle="h2" color="foreground.secondary">
-          {t('EXPERIENCE')}
-        </Text>
-        <Experience />
-      </VStack>
-      <VStack justifyContent="center" width="full" mt={100}>
-        <Text textStyle="h2" color="foreground.secondary">
-          {t('SKILLS')}
-        </Text>
-        <Skills />
       </VStack>
     </VStack>
   );

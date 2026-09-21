@@ -8,9 +8,9 @@ import type { Group } from 'three';
 
 const useCameraConfig = () => {
   const get = () => {
-    if (window.matchMedia('(max-width: 480px)').matches) return { fov: 90, y: 5 };
-    if (window.matchMedia('(max-width: 1024px)').matches) return { fov: 60, y: 5 };
-    return { fov: 50, y: 3 };
+    if (window.matchMedia('(max-width: 480px)').matches) return { fov: 90, y: 5, z: 12 };
+    if (window.matchMedia('(max-width: 1024px)').matches) return { fov: 50, y: 5, z: 15 };
+    return { fov: 50, y: 5, z: 15 };
   };
   const [config, setConfig] = useState(get);
   useEffect(() => {
@@ -216,7 +216,7 @@ export const Skills: FC = () => {
         <Canvas
           style={{ position: 'absolute', inset: 0 }}
           gl={{ antialias: true }}
-          camera={{ position: [0, cameraConfig.y, 12], fov: cameraConfig.fov }}
+          camera={{ position: [0, cameraConfig.y, cameraConfig.z], fov: cameraConfig.fov }}
           onCreated={({ camera }) => {
             camera.up.set(0, 0, -1);
             camera.lookAt(0, 0, 0);
@@ -226,16 +226,18 @@ export const Skills: FC = () => {
           <ambientLight intensity={1.5} />
           <directionalLight position={[5, 10, 5]} intensity={2} />
           <Suspense fallback={null}>
-            {MODEL_URLS.map((url, i) => (
-              <LogoModel
-                key={url}
-                url={url}
-                index={i}
-                shared={shared}
-                onHover={handleHover}
-                onClick={handleClick}
-              />
-            ))}
+            <group position={[0, 2, 0]}>
+              {MODEL_URLS.map((url, i) => (
+                <LogoModel
+                  key={url}
+                  url={url}
+                  index={i}
+                  shared={shared}
+                  onHover={handleHover}
+                  onClick={handleClick}
+                />
+              ))}
+            </group>
           </Suspense>
         </Canvas>
         {selectedInfo && (
