@@ -20,6 +20,7 @@ type Props = {
 
 const toRand = (deg: number) => deg * (Math.PI / 180);
 const SCALE = 19;
+const INITIAL_SPEED = 8;
 
 const PLAYER_HITBOX = new THREE.Vector3(1, 1, 0.5);
 const PLAYER_CROUCH_HITBOX = new THREE.Vector3(1, 0.7, 0.5);
@@ -40,6 +41,19 @@ const OBSTACLE_Y: Record<ObstacleType, number> = {
 
 const isBird = (type: ObstacleType) =>
   type === 'bird_low' || type === 'bird_mid' || type === 'bird_high';
+// Birds fly toward the player, so they travel faster than the scrolling world
+const BIRD_SPEED_MULTIPLIER = 1.6;
+const speedMultiplier = (type: ObstacleType) => (isBird(type) ? BIRD_SPEED_MULTIPLIER : 1);
+
+// The player sits at a fixed X, so obstacles are spaced by when they *arrive* there.
+const PLAYER_X = -SCALE * 0.4;
+// Seconds the player is guaranteed between two consecutive obstacles reaching them.
+// A jump takes well under this, so there is always time to land and react.
+const MIN_ARRIVAL_GAP = 0.9;
+
+// When this obstacle will reach the player, given its position and type.
+const arrivalTime = (x: number, type: ObstacleType, worldSpeed: number) =>
+  (x - PLAYER_X) / (worldSpeed * speedMultiplier(type));
 const randomType = (): ObstacleType =>
   OBSTACLE_TYPES[Math.floor(Math.random() * OBSTACLE_TYPES.length)];
 
@@ -54,6 +68,10 @@ type ObstacleProps = {
   rockScene: THREE.Group<THREE.Object3DEventMap>;
   allGroupRefs: React.RefObject<THREE.Group | null>[];
   groupRef: React.RefObject<THREE.Group | null>;
+  // Current type of every obstacle in the pool, index-aligned with allGroupRefs,
+  // so an obstacle can work out how fast the others are travelling.
+  allTypes: ObstacleType[];
+  index: number;
 };
 
 const Obstacle: FC<ObstacleProps> = ({
@@ -65,8 +83,10 @@ const Obstacle: FC<ObstacleProps> = ({
   rockScene,
   allGroupRefs,
   groupRef,
+  allTypes,
+  index,
 }) => {
-  const typeRef = useRef<ObstacleType>(randomType());
+  const typeRef = useRef<ObstacleType>(allTypes[index]);
 
   const clonedBird = useMemo(() => {
     const clone = SkeletonUtils.clone(birdScene);
@@ -92,11 +112,12 @@ const Obstacle: FC<ObstacleProps> = ({
     const group = groupRef.current;
     if (!group) return;
 
-    const nextX = group.position.x - dt * speed.current;
+    const nextX = group.position.x - dt * speed.current * speedMultiplier(typeRef.current);
 
     if (nextX <= -SCALE / 2 - SCALE * 0.1) {
       const newType = randomType();
       typeRef.current = newType;
+      allTypes[index] = newType;
 
       clonedBird.visible = isBird(newType);
       clonedRock.visible = !isBird(newType);
@@ -109,12 +130,24 @@ const Obstacle: FC<ObstacleProps> = ({
         fly?.stop();
       }
 
-      const maxX = Math.max(...allGroupRefs.map((r) => r.current?.position.x ?? 0));
-      group.position.set(
-        maxX + speed.current * (1.2 + Math.random() * 0.8),
-        OBSTACLE_Y[newType],
-        0
-      );
+      // Space by arrival time at the player rather than by distance: obstacles
+      // travel at different speeds, so the one furthest away is not necessarily
+      // the last to arrive, and a distance gap shrinks while a bird closes on a
+      // rock. Beat the latest arrival of every other obstacle by MIN_ARRIVAL_GAP.
+      let latestArrival = 0;
+      allGroupRefs.forEach((ref, i) => {
+        if (i === index) return;
+        const other = ref.current;
+        if (!other) return;
+        latestArrival = Math.max(latestArrival, arrivalTime(other.position.x, allTypes[i], speed.current));
+      });
+
+      const gap = MIN_ARRIVAL_GAP * (1 + Math.random() * 0.6);
+      const spawnArrival = latestArrival + gap;
+      // Convert the arrival time back into a spawn X for this obstacle's own speed.
+      const spawnX = PLAYER_X + spawnArrival * speed.current * speedMultiplier(newType);
+
+      group.position.set(spawnX, OBSTACLE_Y[newType], 0);
       group.rotation.y = isBird(newType) ? -Math.PI / 2 : toRand(Math.random() * 150);
     } else {
       group.position.x = nextX;
@@ -287,11 +320,25 @@ const SpawnedObstacles: FC<SpawnedObstaclesProps> = ({ speed, obstacleBoxes }) =
   const groupRef1 = useRef<THREE.Group>(null);
   const groupRef2 = useRef<THREE.Group>(null);
   const allGroupRefs = useMemo(() => [groupRef0, groupRef1, groupRef2], []);
+  const allTypes = useMemo<ObstacleType[]>(() => [randomType(), randomType(), randomType()], []);
+
+  // Stagger the opening obstacles by arrival time too, so the first pass obeys
+  // the same spacing guarantee the respawn logic enforces afterwards.
+  const startXs = useMemo(
+    () =>
+      allTypes.map((type, i) =>
+        Math.max(
+          SCALE / 2 + SCALE * 0.2,
+          PLAYER_X + (1.4 + i * MIN_ARRIVAL_GAP * 1.4) * INITIAL_SPEED * speedMultiplier(type)
+        )
+      ),
+    [allTypes]
+  );
 
   return (
     <>
       <Obstacle
-        startX={SCALE / 2 + SCALE * 0.2}
+        startX={startXs[0]}
         speed={speed}
         hitbox={obstacleBoxes[0]}
         birdScene={birdScene}
@@ -299,9 +346,11 @@ const SpawnedObstacles: FC<SpawnedObstaclesProps> = ({ speed, obstacleBoxes }) =
         rockScene={rockScene}
         allGroupRefs={allGroupRefs}
         groupRef={groupRef0}
+        allTypes={allTypes}
+        index={0}
       />
       <Obstacle
-        startX={SCALE / 2 + SCALE * 0.9}
+        startX={startXs[1]}
         speed={speed}
         hitbox={obstacleBoxes[1]}
         birdScene={birdScene}
@@ -309,9 +358,11 @@ const SpawnedObstacles: FC<SpawnedObstaclesProps> = ({ speed, obstacleBoxes }) =
         rockScene={rockScene}
         allGroupRefs={allGroupRefs}
         groupRef={groupRef1}
+        allTypes={allTypes}
+        index={1}
       />
       <Obstacle
-        startX={SCALE / 2 + SCALE * 1.6}
+        startX={startXs[2]}
         speed={speed}
         hitbox={obstacleBoxes[2]}
         birdScene={birdScene}
@@ -319,6 +370,8 @@ const SpawnedObstacles: FC<SpawnedObstaclesProps> = ({ speed, obstacleBoxes }) =
         rockScene={rockScene}
         allGroupRefs={allGroupRefs}
         groupRef={groupRef2}
+        allTypes={allTypes}
+        index={2}
       />
     </>
   );
@@ -416,7 +469,7 @@ export const Game: FC<Props> = ({ width, height, onGameOver: onGameOver, scoreDi
   const { actions, mixer } = useAnimations(animations, scene);
   const lionState = useRef<Control>(CONTROLS.run);
   const [, getKeys] = useKeyboardControls<Control>();
-  const speed = useRef(8);
+  const speed = useRef(INITIAL_SPEED);
   const lionGroupRef = useRef<THREE.Group>(null);
   const rootBoneRef = useRef<THREE.Object3D | null>(null);
   const playerBox = useRef(new THREE.Box3());
@@ -540,7 +593,7 @@ export const Game: FC<Props> = ({ width, height, onGameOver: onGameOver, scoreDi
         <Mountains speed={speed} />
         <GroundTiles speed={speed} />
         <BackgroundTrees speed={speed} screenRatio={height / width} />
-        <group ref={lionGroupRef} position={[-SCALE * 0.4, 0, 0]}>
+        <group ref={lionGroupRef} position={[PLAYER_X, 0, 0]}>
           <primitive object={scene} rotation={[0, Math.PI / 2, 0]} />
         </group>
         <SpawnedObstacles speed={speed} obstacleBoxes={obstacleBoxes.current} />
